@@ -9,7 +9,7 @@
 <body>
     <a href="../index.php">retour </a>
     <hr> <h1>Gestion des parkings</h1> <hr>
-    <a href="ajoutParking">Ajouter un parking</a>
+    <a href="ajoutParking.php">Ajouter un parking</a>
     <table border=1 class="table">
     <thead>
         <tr><td>N° d'authentification</td><td>Nom</td><td>Localisation</td><td>Modifier</td><td>Supprimer</td>
