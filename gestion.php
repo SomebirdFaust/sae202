@@ -9,8 +9,10 @@
 <body>
     <a href="../index.php">retour </a>
     <hr> <h1>Gestion des parkings</h1> <hr>
+    <a href="ajoutParking">Ajouter un parking</a>
+    <table border=1 class="table">
     <thead>
-        <tr><td>N° d'authentification</td><td>Nom</td><td>Localisation</td>
+        <tr><td>N° d'authentification</td><td>Nom</td><td>Localisation</td><td>Modifier</td><td>Supprimer</td>
     </thead>
     <tbody>
     <?php
@@ -24,6 +26,8 @@
         echo '<td>'.$value['park_id'] . '</td>';
         echo '<td>' . $value['park_nom'] . '</td>';
         echo '<td>' . $value['park_loc'] . '</td>';
+        echo '<td> <a href="supprParking.php?num='.$value['park_id'].'" > supprimer </a> </td>';
+        echo '<td> <a href="modifParking.php?num='.$value['park_id'].'" > modifier </a> </td>';
         echo '</tr>';
     }
     ?>
