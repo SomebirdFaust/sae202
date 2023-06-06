@@ -17,6 +17,13 @@ require 'header.php';
         <label for="prenom">Prénom :</label>
         <input type="text" id="prenom" name="prenom" required><br><br>
 
+        <label for="genre">Genre :</label>
+  <select name="genre" id="genre" required>
+    <option value="homme">Homme</option>
+    <option value="femme">Femme</option>
+    <option value="autre">Autre</option>
+  </select>
+
         <label for="email">Email :</label>
         <input type="email" id="email" name="email" required><br><br>
 
