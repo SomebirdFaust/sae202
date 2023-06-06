@@ -14,7 +14,7 @@
     <thead>
         <tr><td>N° d'authentification</td><td>Nom</td><td>Localisation</td><td>Modifier</td><td>Supprimer</td>
     </thead>
-    <tbody>
+        <tbody>
     <?php
     $mabd = new PDO('mysql:host=localhost;dbname=sae202;charset=UTF8;', 'sae202admin', 'WW3dbpasswd202');
     $mabd->query('SET NAMES utf8;');

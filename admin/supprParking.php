@@ -20,7 +20,7 @@ $req = 'DELETE FROM parkings WHERE park_id='. $num;
 
 // cette ligne sert juste pour le debug. à supprimer quand tout marche correctement  
 
-echo $req;
+//echo $req;
 
 echo '<h2>Vous venez de supprimer le '.$park_nom.'.</h2>';
 

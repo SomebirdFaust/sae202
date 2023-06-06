@@ -13,13 +13,8 @@
     $nom=$_POST['nom'];
     $loc=$_POST['loc'];
 
-
-
     $mabd = new PDO('mysql:host=localhost;dbname=sae202;charset=UTF8;', 'sae202admin', 'WW3dbpasswd202');
     $mabd->query('SET NAMES utf8;');
-
-   
-
 
     $req = 'INSERT INTO parkings (`park_nom`,`park_loc`) VALUES("'. $nom .'" , "'. $loc.'")';
     //echo $req;
