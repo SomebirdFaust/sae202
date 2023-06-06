@@ -26,24 +26,26 @@
     /* Sidenav menu */
     .sidenav {
         height: 100%;
-        width: 250px;
+        width: 175px;
         position: fixed;
         z-index: 1;
         top: 0;
-        right: -250px;
+        right: -200px;
         padding-top: 60px;
         transition: right 0.5s ease;
         background-color: #0e8c77;
+        box-shadow: -5px 0px 50px #0a645557;
       }
   
       /* Sidenav menu links */
       .sidenav a {
         padding: 8px 8px 8px 32px;
         text-decoration: none;
-        font-size: 25px;
+        font-size: 20px;
         color: #ffeedc;
         display: block;
         transition: 0.3s;
+        text-align: start;
       }
   
       .sidenav a:hover {
@@ -78,6 +80,32 @@
         margin-bottom: 6px;
         margin-right: 20px;
       }
+
+      /* PAGE PROFIL */
+      #infos_profil{
+        margin: auto;
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      #infos_profil img{
+        width: 175px;
+        margin-bottom: 10px;
+      }
+
+      #infos_profil p{
+        font-size: 20px;
+        margin-bottom: 5px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      #bio_profil{
+        margin: auto;
+        margin-top: 40px;
+        text-align: center;
+      }
+
+
   
   
 

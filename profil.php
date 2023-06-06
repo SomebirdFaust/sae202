@@ -11,7 +11,18 @@
     <title>Profil</title>
 </head>
 <body>
-test
+    <div id="infos_profil">
+        <img src="img/avatar.png" alt="avatar">
+        <p>NOM</p>
+        <p>PRÉNOM</p>
+        <p>EMAIL</p>
+    </div>
+    <div id="bio_profil">
+        <form action="">
+            <label for="bio">Biographie</label><br>
+            <input type="text" name="bio">
+        </form>
+    </div>
 </body>
 </html>
 

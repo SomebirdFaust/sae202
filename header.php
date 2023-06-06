@@ -11,10 +11,10 @@
     <div id="mySidenav" class="sidenav">
       <a id="closeBtn" href="#" class="close">×</a>
       <ul>
-        <li><a href="#">A propos</a></li>
-        <li><a href="#">Nos services</a></li>
-        <li><a href="#">Témoignages</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="profil.php">Mon profil</a></li>
+        <li><a href="parkings.php">Les parkings</a></li>
+        <li><a href="connexion.php">Connexion</a></li>
+        <li><a href="inscription.php">Inscription</a></li>
       </ul>
     </div>
 
