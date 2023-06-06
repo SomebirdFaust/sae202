@@ -1,6 +1,6 @@
 <?php
 
-require 'lib.inc.php';
+require 'admin/lib.inc.php';
 
 $_SESSION=array();
 
