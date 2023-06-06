@@ -2,8 +2,8 @@
 
 // mettre votre login ci-dessous
 
-define('sae202admin', 'test');
+define('user', 'sae202admin');
 
 // mettre votre mot de passe ci-dessous
 
-define('WW3passwd202', 'test');
+define('mdp', 'WW3passwd202');
