@@ -26,8 +26,8 @@
         echo '<td>'.$value['park_id'] . '</td>';
         echo '<td>' . $value['park_nom'] . '</td>';
         echo '<td>' . $value['park_loc'] . '</td>';
-        echo '<td> <a href="supprParking.php?num='.$value['park_id'].'" > supprimer </a> </td>';
-        echo '<td> <a href="modifParking.php?num='.$value['park_id'].'" > modifier </a> </td>';
+        echo '<td> <a href="supprParking.php?num='.$value['park_id'].'&park_nom='.$value['park_nom'].'" > supprimer </a> </td>';
+        echo '<td> <a href="modifParking.php?num='.$value['park_id'].'&park_nom='.$value['park_nom'].'" > modifier </a> </td>';
         echo '</tr>';
     }
     ?>

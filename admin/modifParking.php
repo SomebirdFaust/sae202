@@ -20,8 +20,8 @@
     ?>
     <hr>
     <input type="hidden" name="num"  value="<?php echo $park['park_id']; ?>">
-    Nom : <input type="text" name="nom" value="<?php echo $park['park_nom'] ?>" required="required"><br>
-    Adresse : <input type="text" name="loc" value="<?php echo $park['park_loc'] ?>" required="required"><br>
+    Nom : <input type="text" name="nom" value="<?php echo $park['park_nom']; ?>" required="required"><br>
+    Adresse : <input type="text" name="loc" value="<?php echo $park['park_loc']; ?>" required="required"><br>
     <br>   
     <input type="submit" name="" value="Enregistrer">
 
