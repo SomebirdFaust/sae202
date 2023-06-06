@@ -6,7 +6,7 @@
 <body>
     <a href="gestion.php">retour</a> 	
     <hr> <h1>Confirmation d'ajout</h1> <hr>
-    <h2>Vous venez d'ajouter une société de production</h2>
+    <h2>Vous venez d'ajouter un parking</h2>
     <hr>
     <?php
     $num=$_POST['num'];
@@ -29,7 +29,7 @@
 
     $req = 'INSERT INTO parkings (`park_nom`,`park_loc`) VALUES("'. $nom .'" , "'. $loc.'")';
     //echo $req;
-    $resultat = $mabd->query($req);
+    $resultat = mysqli_query($conn, $req);
 
     // Exécuter la requête pour obtenir park_nom correspondant à park_id
     $query = "SELECT park_nom FROM parkings WHERE park_id = '" . mysqli_real_escape_string($conn, $num) . "'";

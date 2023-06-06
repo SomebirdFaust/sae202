@@ -32,12 +32,17 @@ $resultat = mysqli_query($conn, $req);
 
 // Exécuter la requête pour obtenir park_nom correspondant à park_id
 $query = "SELECT park_nom FROM parkings WHERE park_id = '" . mysqli_real_escape_string($conn, $park) . "'";
-//$result = mysqli_query($conn, $query);
+$result = mysqli_query($conn, $query);
 
+if ($resultat) {
+    // Exécuter la requête pour obtenir park_nom correspondant à park_id
+    $query = "SELECT park_nom FROM parkings WHERE park_id = '" . mysqli_real_escape_string($conn, $park) . "'";
+    $result = mysqli_query($conn, $query);
 
 if ($row = mysqli_fetch_assoc($result)) {
     // Afficher park_nom
     echo '<h2>Vous venez de supprimer le '.$row['park_nom'].'.</h2>';
+}
 }
 
 

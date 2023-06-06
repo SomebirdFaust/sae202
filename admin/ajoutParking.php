@@ -9,8 +9,9 @@
 <p>Complétez pour ajouter un nouveau parking</p>
 <hr>
 <form class="formulaire" action="ajoutValideParking.php" method="POST" enctype="multipart/form-data">
-    Nom du parking : <input type="text" name="nom"><br>
-    Adresse complète : <input type="text" name="nationalite"><br>
+    <input type="hidden" name="num"  value="<?php echo $park['park_id']; ?>">
+    Nom du parking : <input type="text" name="nom" required="required"><br>
+    Adresse complète : <input type="text" name="loc" required="required"><br>
     <input class="submit" type="submit" name="ajouter">
 </form>
 
