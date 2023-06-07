@@ -15,6 +15,7 @@
         <li><a href="parkings.php">Les parkings</a></li>
         <li><a href="connexion.php">Connexion</a></li>
         <li><a href="inscription.php">Inscription</a></li>
+        <li><a href="publierTrajet.php">Publier un trajet</a></li>
       </ul>
     </div>
 

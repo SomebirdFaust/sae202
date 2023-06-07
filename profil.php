@@ -11,63 +11,46 @@ require 'header.php';
     <title>Profil</title>
 </head>
 <body>
-    <div id="infos_profil">
-        <img src="img/avatar.png" alt="avatar">
-        <p>NOM</p>
-        <p>PRÉNOM</p>
-        <p>EMAIL</p>
-    </div>
-    <div id="bio_profil">
-        <form action="">
-            <label for="bio">Biographie</label><br>
-            <input type="text" name="bio">
-        </form>
-    </div>
+
+
+<?php
+
+$mabd = new PDO('mysql:host=localhost;dbname=sae202;charset=UTF8;', 'sae202admin', 'WW3dbpasswd202');
+$mabd->query('SET NAMES utf8;');
+
+$req = "SELECT * FROM utilisateurs";
+$resultat = $mabd->query($req);
+
+//INFOS PERSONNELLES DE L'UTILISATEUR
+//POTENTIELLEMENT UTILISER DES VARIABLES DE SESSION POUR RÉCUPÉRER LES INFOS DE CONNEXION 
+//POUR SAVOIR LES INFOS DE QUEL USER AFFICHER (AVEC SON ID)
+//MERCI FAUST :)
+
+    echo '<div id="infos_profil">' ;
+        echo '<img src="img/avatar.png" alt="avatar">';
+        //echo '<p>' . ['user_prenom'] . '</p>';
+        //echo '<p>' . ['user_nom'] . '</p>';
+        //echo '<p>' . ['user_mail'] . '</p>';
+    echo '</div>';
+
+//BIOGRAPHIE DE L'UTILISATEUR
+//MEME PRINCIPE
+    echo '<div id="bio_profil">' ;
+        //echo '<p>' . ['user_bio'] . '</p>';
+    echo '</div>' ;
+
+//VOITURE DE L'UTILISATEUR
+//TOUJOURS PAREIL
+echo '<div id="bio_profil">' ;
+    //echo '<p>' . ['user_car'] . '</p>';
+echo '</div>' ;
+
+
+
+require 'footer.php';
+?>
+
 </body>
 </html>
 
-    <div id="contenu">
-        <h1>Votre profil :</h1>
-        <h3>Vos informations :</h3>
-        <h3>
-            <?php
-            $mabd=connexionBD();
-            $client=recuperer_($co, $_SESSION['user_id']);
-            echo '<p>'."\n";
-            if ($client['user_genre']=="F") {
-                echo 'Mme ';
-            } else {
-                echo 'M. ';
-            }
-            echo $client['user_prenom'].' '.strtoupper($client['user_nom']).'<br />'; 
-            echo $client['user_mail'].'<br />'."\n";
-            //echo $client['client_cp'].' '.strtoupper($client['client_ville']).'<br />';
-            //echo strtoupper($client['client_pays']).'<br />'."\n";
-            //echo 'Téléphone : '.$client['client_tel'].'<br />'."\n";
-            echo '</p>'."\n";
-            deconnexionBD($mabd);
-            ?>
-        </h3>
-        <hr />
-        <h3>Vos trajets :</h3>
-        <h3>
-            <?php
-                $mabd=connexionBD();
-                $trajets=recuperer_trajets_user($mabd, $_SESSION['user_id']);
-                //print_r($commandes);
-                echo '<table>'."\n";
-                echo '<thead><th>Date</th><th>Jeu</th><th>Quantité</th><th>Prix Unitaire (&euro;)</th><th>Prix commande (&euro;)</th>';
-                foreach ($trajets as $t) {
-                    echo '<tr><td>'.$t['_park_id'].'</td>';
-                    echo '<td>'.$t['traj_arrivee'].'</td>'."\n";
-                    echo '<td>'.$t['atraj_heure_depart'].'</td>'."\n";
-                    echo '<td>'.$t['traj_date'].'</td>'."\n";
-                    echo '</tr>'."\n";
-                }
-                echo '</table>'."\n";
-                deconnexionBD($mabd);
-            ?>
-        </h3>
-    </div>
-
-    <?php require 'footer.php'; ?>
+   
