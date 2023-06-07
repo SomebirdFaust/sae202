@@ -1,6 +1,6 @@
 <?php 
-require 'admin/lib.inc.php';
-require 'header.php';
+    require 'admin/lib.inc.php';
+    require 'header.php';
 ?> 
 <!DOCTYPE html>
 <html lang="fr">
@@ -48,10 +48,7 @@ echo '</div>' ;
 ?>
 
 <a href="modifProfil.php" class="button">Modifier le profil</a>
-<form action="script.php" method="POST">
-  <button type="submit">Déconnexion</button>
-</form>
-<a href="modifProfil.php" class="button">Déconnexion</a>
+<button onclick="user_deco()">Se déconnecter</button>
 
 
 <?php
