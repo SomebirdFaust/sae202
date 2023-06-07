@@ -51,11 +51,13 @@ echo '</div>' ;
 <button onclick="user_deco()">Se déconnecter</button>
 
 
-<?php
-require 'footer.php';
-?>
 
+<?php
+    require 'footer.php';
+    ?>
 </body>
 </html>
+
+
 
    
