@@ -45,8 +45,16 @@ echo '<div id="bio_profil">' ;
     //echo '<p>' . ['user_car'] . '</p>';
 echo '</div>' ;
 
+?>
+
+<a href="modifProfil.php" class="button">Modifier le profil</a>
+<form action="script.php" method="POST">
+  <button type="submit">Déconnexion</button>
+</form>
+<a href="modifProfil.php" class="button">Déconnexion</a>
 
 
+<?php
 require 'footer.php';
 ?>
 
