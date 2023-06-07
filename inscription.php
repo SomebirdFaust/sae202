@@ -7,8 +7,6 @@ require 'header.php';
 <html>
 <head>
     <title>Inscription</title>
-    <link rel="stylesheet" href="css/styles.css">
-        <script src="js/script.js" defer></script>
 </head>
 <body>
     <h2>Inscription</h2>
