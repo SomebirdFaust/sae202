@@ -1,36 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" href="css/styles.css">
-<script src="js/script.js" defer></script>
-</head>
-<body>
+<header>
+    <nav>
+        <a href="index.php">Accueil</a> -
+        <a href="parkings.php">Parkings</a> -
+        <a href="trajets.php">Trajets</a>
+        <a href="profil.php">Mon Profil</a>
+    </nav>
+    <div id="utilisateur">
 
-<nav>
-    <a href="index.php"><img id="logo" src="img/logo.png" alt="logo"></a>
-    <div id="mySidenav" class="sidenav">
-      <a id="closeBtn" href="#" class="close">×</a>
-      <ul>
-        <li><a href="profil.php">Mon profil</a></li>
-        <li><a href="parkings.php">Les parkings</a></li>
-        <li><a href="connexion.php">Connexion</a></li>
-        <li><a href="inscription.php">Inscription</a></li>
-        <li><a href="publierTrajet.php">Publier un trajet</a></li>
-      </ul>
+    <?php
+    if(!empty($_SESSION['prenom_client'])){
+        echo'Bienvenue '.$_SESSION['prenom_client'].' ';
+        echo'<a href="deconnexion.php">Déconnexion</a>';
+            }else{
+                echo '<a href="profil.php">
+                </a>
+                    &nbsp;
+                    <a href="connexion.php">Connexion</a>/<a href="inscription.php">Inscription<a>';
+            }
+    ?>
+&nbsp;
+
     </div>
-
-    <a href="#" id="openBtn">
-      <span class="burger-icon">
-        <span></span>
-        <span></span>
-        <span></span>
-      </span>
-    </a>
-</nav>
-
-
-
-</body>
-</html>
-
-
+</header>
