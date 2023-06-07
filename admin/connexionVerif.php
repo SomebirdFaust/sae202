@@ -1,32 +1,32 @@
 <?php
-    session_start();
-    require 'lib.inc.php';
+session_start();
+require 'lib.inc.php';
 
+if (isset($_POST['email']) && isset($_POST['mdp'])) {
     $email = $_POST['email'];
     $mdp = $_POST['mdp'];
-    
+
     $mabd = connexionBD();
-    $req = 'SELECT * FROM utilisateurs WHERE user_mail = "'.$email.'"';
+    $req = 'SELECT * FROM utilisateurs WHERE user_mail = :email';
 
-    $resultat = $mabd->query($req);
-    $lignes_resultat = $resultat->rowCount();
+    $stmt = $mabd->prepare($req);
+    $stmt->bindValue(':email', $email);
+    $stmt->execute();
 
-if ($lignes_resultat > 0) {
-    $ligne = $resultat->fetch(PDO::FETCH_ASSOC);
-    if (password_verify($mdp, $ligne['user_mdp'])) {
-
+    $ligne = $stmt->fetch(PDO::FETCH_ASSOC);
+    if ($ligne && password_verify($mdp, $ligne['user_mdp'])) {
         $_SESSION['email'] = $ligne['user_mail'];
-
-        header('location:../profil.php');
-
+        header('Location: ../index.php');
+        exit();
     } else {
-
-        $_SESSION['erreur'] = '<h1 class="erreur">Le mot de passe saisi est incorrect.</h1>';
-        header('location:../connexion.php');
+        $_SESSION['erreur'] = '<p class="erreur">Le mot de passe saisi est incorrect.</p>';
+        header('Location: ../connexion.php');
+        exit();
     }
 } else {
-    $_SESSION['erreur'] = '<h1 class="erreur">Désolé, votre compte n\'existe pas ! Veuillez vous inscrire.</h1>';
-    header('location:../connexion.php');
+    $_SESSION['erreur'] = '<p class="erreur">Veuillez fournir une adresse email et un mot de passe.</p>';
+    header('Location: ../connexion.php');
+    exit();
 }
 
 deconnexionBD($mabd);
