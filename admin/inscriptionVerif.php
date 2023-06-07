@@ -24,15 +24,8 @@ try {
         exit();
     } else {
         $mdp_hash = password_hash($mdp, PASSWORD_BCRYPT, ['cost' => 12]);
-        $req = $mabd->prepare('INSERT INTO utilisateurs (user_nom, user_prenom, user_mail, user_mdp, user_genre, user_bio, user_car) VALUES (:nom, :prenom, :email, :mdp, :genre, :bio, :voiture)');
-        $req->execute(array(':nom' => $nom, ':prenom' => $prenom, ':email' => $email, ':mdp' => $mdp_hash, ':genre' => $genre, ':bio' => $bio, ':voiture' => $voiture));
-
-        // Si la voiture est spécifiée, enregistrer les détails de la voiture
-        if ($voiture === 'oui' && !empty($detailsVoiture)) {
-            $id_utilisateur = $mabd->lastInsertId(); // Récupérer l'ID de l'utilisateur nouvellement inséré
-            $req = $mabd->prepare('UPDATE utilisateurs SET user_car_details = :details WHERE id_utilisateur = :id');
-            $req->execute(array(':details' => $detailsVoiture, ':id' => $id_utilisateur));
-        }
+        $req = $mabd->prepare('INSERT INTO utilisateurs (user_nom, user_prenom, user_mail, user_mdp, user_genre, user_bio, user_car) VALUES (:nom, :prenom, :email, :mdp, :genre, :bio, :car)');
+        $req->execute(array(':nom' => $nom, ':prenom' => $prenom, ':email' => $email, ':mdp' => $mdp_hash, ':genre' => $genre, ':bio' => $bio, ':car' => $detailsVoiture));
 
         // Afficher un message de succès ou rediriger vers une autre page
         echo "Inscription réussie !";
