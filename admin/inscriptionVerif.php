@@ -6,7 +6,6 @@ $prenom = ucfirst($_POST['prenom']);
 $email = $_POST['email'];
 $mdp = $_POST['mdp'];
 $genre = $_POST['genre'];
-$bio = ucfirst($_POST['bio']);
 $voiture = $_POST['voiture'];
 $detailsVoiture = $_POST['detailsVoiture'];
 
@@ -25,8 +24,8 @@ try {
     } else {
         // Sécurisation du mot de passe avec un hash
         $mdp_hash = password_hash($mdp, PASSWORD_BCRYPT, ['cost' => 12]);
-        $req = $mabd->prepare('INSERT INTO utilisateurs (user_nom, user_prenom, user_mail, user_mdp, user_genre, user_bio, user_car) VALUES (:nom, :prenom, :email, :mdp, :genre, :bio, :car)');
-        $req->execute(array(':nom' => $nom, ':prenom' => $prenom, ':email' => $email, ':mdp' => $mdp_hash, ':genre' => $genre, ':bio' => $bio, ':car' => $detailsVoiture));
+        $req = $mabd->prepare('INSERT INTO utilisateurs (user_nom, user_prenom, user_mail, user_mdp, user_genre, user_car) VALUES (:nom, :prenom, :email, :mdp, :genre, :car)');
+        $req->execute(array(':nom' => $nom, ':prenom' => $prenom, ':email' => $email, ':mdp' => $mdp_hash, ':genre' => $genre, ':car' => $detailsVoiture));
 
         // Connexion automatique de l'utilisateur
         $user = grab_user($mabd, $email);
