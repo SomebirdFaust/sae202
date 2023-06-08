@@ -14,13 +14,6 @@ require 'header.php';
         <title>Connexion</title>
 </head>
 <body>
- <div id="contenu"> 
- <h1>Connexion</h1> 
- <form action="admin/connexionVerif.php" method="post"> 
- Adresse e-mail : <input type="text" name="email" /><br />  
- Mot de passe : <input type="password" name="mdp" /><br />  
- <input type="submit" value="Envoyer"> 
- </form> 
         <div id="contenu"> 
                 <h1>Connexion</h1> 
                 <form action="admin/connexionVerif.php" method="post"> 
