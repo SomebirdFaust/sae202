@@ -30,9 +30,6 @@ require 'header.php';
         <option value="autre">Autre</option>
     </select><br><br>
 
-    <label for="bio">A propos de vous :</label>
-    <input type="text" id="bio" name="bio" required><br><br>
-
     <label for="voiture">Avez-vous une voiture ?</label><br>
   <input type="radio" name="voiture" value="oui" onclick="showTextField()"> Oui
   <input type="radio" name="voiture" value="non" onclick="hideTextField()"> Non<br><br>
