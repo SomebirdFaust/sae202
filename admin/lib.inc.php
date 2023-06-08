@@ -1,29 +1,31 @@
 <?php
-//voir si une session existe déjà, sinn la créer
+// Vérifier si une session existe déjà, sinon la créer
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-//voir si la bd est déjà co, sinon la connecter
+
+// Vérifier si la connexion à la base de données est déjà établie, sinon la connecter
 if (!function_exists('connexionBD')) {
     function connexionBD()
     {
-        $mabd = null;
         $mabd = new PDO('mysql:host=localhost;dbname=sae202;charset=UTF8;', 'sae202admin', 'WW3dbpasswd202');
         $mabd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $mabd->query('SET NAMES utf8;');
         return $mabd;
     }
 }
-//voir si la bd est déjà déco, sinon la déconnecter
+
+// Vérifier si la déconnexion de la base de données est déjà effectuée, sinon la faire
 if (!function_exists('deconnexionBD')) {
     function deconnexionBD(&$mabd)
     {
-        unset($mabd);
+        $mabd = null;
     }
 }
 
-
+// Fonction pour déconnecter l'utilisateur
 function deconnecterUtilisateur() {
+    // Démarrer la session
     session_start();
 
     // Détruire toutes les variables de session
@@ -49,3 +51,4 @@ function grab_user($mabd) {
     }
     return null;
 }
+?>
