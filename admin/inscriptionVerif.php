@@ -1,6 +1,14 @@
 <?php
 require 'lib.inc.php';
 
+// Fonction pour récupérer les informations de l'utilisateur connecté
+function grab_user($mabd, $email) {
+    $req = $mabd->prepare('SELECT * FROM utilisateurs WHERE user_mail = :email');
+    $req->execute(array(':email' => $email));
+    $user = $req->fetch(PDO::FETCH_ASSOC);
+    return $user;
+}
+
 $nom = ucfirst($_POST['nom']);
 $prenom = ucfirst($_POST['prenom']);
 $email = $_POST['email'];
@@ -45,3 +53,4 @@ try {
 
 deconnexionBD($mabd);
 ?>
+
