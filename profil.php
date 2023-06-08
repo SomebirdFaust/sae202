@@ -35,9 +35,6 @@ if ($user) {
 } else {
     echo "Vous n'êtes pas connecté(e) !";
 }
-
-deconnexionBD($mabd);
-
 ?>
 
 <form action="deconnexion.php" method="post">
@@ -46,6 +43,7 @@ deconnexionBD($mabd);
 
 
 <?php
+deconnexionBD($mabd);
 require 'footer.php';
 ?>
 
