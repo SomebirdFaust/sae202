@@ -2,6 +2,7 @@
 session_start();
 require 'lib.inc.php';
 
+// Vérifier si l'email et le mdp sont corrects
 if (isset($_POST['email']) && isset($_POST['mdp'])) {
     $email = $_POST['email'];
     $mdp = $_POST['mdp'];
@@ -15,7 +16,7 @@ if (isset($_POST['email']) && isset($_POST['mdp'])) {
 
     $ligne = $stmt->fetch(PDO::FETCH_ASSOC);
     if ($ligne && password_verify($mdp, $ligne['user_mdp'])) {
-        $_SESSION['email'] = $ligne['user_mail'];
+        $_SESSION['user_id'] = $ligne['user_id']; // Ajouter cette ligne pour enregistrer l'ID de l'utilisateur connecté
         header('Location: ../index.php');
         exit();
     } else {
@@ -30,4 +31,4 @@ if (isset($_POST['email']) && isset($_POST['mdp'])) {
 }
 
 deconnexionBD($mabd);
-?>
+

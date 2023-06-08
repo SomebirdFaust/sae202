@@ -1,11 +1,13 @@
 <?php
 require 'admin/lib.inc.php';
-require 'header.php';
 
-$_SESSION=array();
+deconnecterUtilisateur();
 
+//détruire la session
+session_start();
 session_destroy();
 
-header('location:index.php');
-
+//rediriger vers la page d'accueil ou une autre page après la déconnexion
+header('Location: index.php');
+exit();
 ?>

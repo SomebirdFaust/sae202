@@ -12,26 +12,20 @@ require 'header.php';
         <title>Connexion</title>
 </head>
 <body>
- <div id="contenu"> 
- <h1>Connexion</h1> 
- <form action="admin/connexionVerif.php" method="post"> 
- Adresse e-mail : <input type="text" name="email" /><br />  
- Mot de passe : <input type="password" name="mdp" /><br />  
- <input type="submit" value="Envoyer"> 
- </form> 
         <div id="contenu"> 
                 <h1>Connexion</h1> 
                 <form action="admin/connexionVerif.php" method="post"> 
-                Adresse e-mail : <input type="text" name="email" /><br />  
-                Mot de passe : <input type="password" name="mdp" /><br />  <input type="submit" value="Envoyer"> 
+                Adresse e-mail : <input type="email" name="email" /><br />  
+                Mot de passe : <input type="password" name="mdp" /><br />  
+                <input type="submit" value="Envoyer"> 
                 </form> 
 
     <?php
-            if (!empty($_SESSION['erreur'])) {
+        if (!empty($_SESSION['erreur'])) {
             echo $_SESSION['erreur'];
-            unset ($_SESSION['erreur']);
-            }
-            //var_dump($_SESSION);
+            unset($_SESSION['erreur']);
+        }
+        //var_dump($_SESSION);
     ?>
 
  </div> 
@@ -41,4 +35,4 @@ require 'header.php';
 
 <?php 
 require 'footer.php';
-?> 
+?>
