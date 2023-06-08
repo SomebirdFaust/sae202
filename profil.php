@@ -15,7 +15,7 @@
 
 <?php
 $mabd = connexionBD();
-$user = userConnect($mabd);
+$user = grab_user($mabd);
 
 if ($user) {
     echo '<div id="infos_profil">';
