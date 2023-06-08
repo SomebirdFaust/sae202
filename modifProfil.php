@@ -1,4 +1,18 @@
-<div id="contenu">
+<?php 
+        require 'admin/lib.inc.php';
+        require 'header.php';
+    ?> 
+    <!DOCTYPE html>
+    <html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Profil</title>
+    </head>
+    <body>
+        
+    <div id="contenu">
     <h1>Votre profil :</h1>
     <h3>Vos informations :</h3>
     <h3>
@@ -42,4 +56,10 @@
     </h3>
 </div>
 
-<?php require 'footer.php'; ?>
+<?php
+    require 'footer.php';
+    ?>
+</body>
+</html>
+
+
