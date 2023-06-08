@@ -9,8 +9,6 @@ require 'header.php';
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/styles.css">
-        <script src="js/script.js" defer></script>
         <title>Connexion</title>
 </head>
 <body>
@@ -18,15 +16,16 @@ require 'header.php';
                 <h1>Connexion</h1> 
                 <form action="admin/connexionVerif.php" method="post"> 
                 Adresse e-mail : <input type="text" name="email" /><br />  
-                Mot de passe : <input type="password" name="mdp" /><br />  <input type="submit" value="Envoyer"> 
+                Mot de passe : <input type="password" name="mdp" /><br />  
+                <input type="submit" value="Envoyer"> 
                 </form> 
 
     <?php
-            if (!empty($_SESSION['erreur'])) {
+        if (!empty($_SESSION['erreur'])) {
             echo $_SESSION['erreur'];
-            unset ($_SESSION['erreur']);
-            }
-            //var_dump($_SESSION);
+            unset($_SESSION['erreur']);
+        }
+        //var_dump($_SESSION);
     ?>
 
  </div> 
@@ -36,4 +35,4 @@ require 'header.php';
 
 <?php 
 require 'footer.php';
-?> 
+?>
