@@ -39,7 +39,7 @@ function deconnecterUtilisateur() {
 }
 
 // Fonction pour récupérer les informations de l'utilisateur connecté
-function userConnect($mabd) {
+function grab_user($mabd) {
     if (isset($_SESSION['user_id'])) {
         $userId = $_SESSION['user_id'];
         $req = $mabd->prepare('SELECT * FROM utilisateurs WHERE user_id = :user_id');
