@@ -37,7 +37,7 @@ if ($user) {
 }
 ?>
 
-    <p href="modifProfil.php">Modifier le profil</p>
+<a href="modifProfil.php">Modifier le profil</a>
     
 <form action="deconnexion.php" method="post">
     <button type="submit">Déconnexion</button>
