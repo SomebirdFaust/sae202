@@ -1,5 +1,5 @@
 <?php
-require 'lib.inc.php';
+require 'admin/lib.inc.php';
 
 $nom = ucfirst($_POST['nom']);
 $prenom = ucfirst($_POST['prenom']);
@@ -24,11 +24,11 @@ try {
             $req->execute(array(':nom' => $nom, ':prenom' => $prenom, ':bio' => $bio, ':car' => $voiture, ':email' => $email));
         }
 
-        header('location: ../profil.php?succes=1');
+        header('location: profil.php?succes=1');
         exit();
     } else {
         echo "Utilisateur non trouvé !";
-        header('location: ../modifProfil.php?erreur=1');
+        header('location: modifProfil.php?erreur=1');
         exit();
     }
 } catch (PDOException $e) {
