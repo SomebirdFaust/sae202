@@ -1,5 +1,5 @@
 <?php
-require 'lib.inc.php';
+require 'admin/lib.inc.php';
 
 $user_id = $_POST['user_id'];
 
@@ -14,11 +14,11 @@ try {
         $req = $mabd->prepare('DELETE FROM utilisateurs WHERE user_id = :user_id');
         $req->execute(array(':user_id' => $user_id));
 
-        header('location: ../index.php?deleted=1');
+        header('location: index.php?deleted=1');
         exit();
     } else {
         echo "Utilisateur non trouvé !";
-        header('location: ../modifProfil.php?erreur=1');
+        header('location: modifProfil.php?erreur=1');
         exit();
     }
 } catch (PDOException $e) {
