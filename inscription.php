@@ -10,7 +10,7 @@ require 'header.php';
 </head>
 <body>
     <h2>Inscription</h2>
-    <form action="admin/inscriptionVerif.php" method="POST">
+    <form action="inscriptionVerif.php" method="POST">
     <label for="nom">Nom :</label>
     <input type="text" id="nom" name="nom" required><br><br>
 
