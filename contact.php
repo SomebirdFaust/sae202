@@ -17,7 +17,7 @@
     <main>
         <h1 class="h1">CONTACT</h1>
 
-        <form id="form_contact" action="admin/confirmationMail.php" method="post">
+        <form id="form_contact" action="confirmationMail.php" method="post">
             <div id="en-tete">
                 <div id="div_prenom">
                     <label for="prenom">Prénom <span>*</span></label>
