@@ -36,6 +36,7 @@ if ($user) {
     echo '<input type="submit" value="Enregistrer les modifications">';
     echo '</form>';
     echo '<input type="hidden" name="user_id" value="' . $user['user_id'] . '">';
+
 } else {
     echo "Vous n'êtes pas connecté(e) !";
 }
