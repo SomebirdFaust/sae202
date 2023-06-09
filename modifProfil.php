@@ -17,7 +17,7 @@ $mabd = connexionBD();
 $user = grab_user($mabd);
 
 if ($user) {
-    echo '<form action="admin/validModifProfil.php" method="post">';
+    echo '<form action="validModifProfil.php" method="post">';
     echo '<div id="infos_profil">';
     echo 'Prenom : <input type="text" name="prenom" value="' . ucfirst($user['user_prenom']) . '"><br />';
     echo 'Nom : <input type="text" name="nom" value="' . ucfirst($user['user_nom']) . '"><br />';
@@ -42,7 +42,7 @@ if ($user) {
 }
 ?>
 
-<a href="admin/supprProfil.php">Supprimer le compte.</a>
+<a href="supprProfil.php">Supprimer le compte.</a>
 
 <hr />
 
