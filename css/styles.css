@@ -113,6 +113,61 @@
         background-color: #fff;
       }
 
+      #voiture_profil{
+        margin: auto;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #voiture_profil img{
+        width: 50px;
+      }
+
+      #infos_profil, #bio_profil, #voiture_profil, #erreur_connexion_profil{
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      #bio_profil{
+        margin-bottom: 25px;
+        width: 70%;
+        font-size: 17px;
+        text-align: start;
+        background-color: #d9d9d9;
+        border-radius: 10px;
+        padding: 15px;
+      }
+
+      #erreur_connexion_profil{
+        margin: auto;
+        text-align: center;
+      }
+
+      #boutons_profil{
+        margin: auto;
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      #boutons_profil button{
+        width: 200px;
+        height: 40px;
+        margin-top: 10px;
+        font-size: 18px;
+        border-radius: 15px;
+        color: #FFF;
+      }
+
+      #bouton_modif button{
+        background-color: #5bacc7;
+      }
+
+      #bouton_deconnexion button{
+        background-color: #e31e2f;
+      }
+
       /* FOOTER */
 
       footer{
@@ -122,7 +177,8 @@
         height: 60px;
         align-content: center;
         justify-content: center;
-        
+        position: fixed;
+        bottom: 0;
       }
 
       footer a{

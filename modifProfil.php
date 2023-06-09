@@ -13,7 +13,7 @@
     <body>
         
     <div id="contenu">
-    <h1>Votre profil :</h1>
+    <h1>Modification du profil</h1>
     <h3>Vos informations :</h3>
     <h3>
         <?php
