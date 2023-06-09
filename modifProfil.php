@@ -17,7 +17,7 @@ $mabd = connexionBD();
 $user = grab_user($mabd);
 
 if ($user) {
-    echo '<form action="validModifProfil.php" method="post">';
+    echo '<form action="../validModifProfil.php" method="post">';
     echo '<div id="infos_profil">';
     echo '<input type="text" name="prenom" value="' . ucfirst($user['user_prenom']) . '"><br />';
     echo '<input type="text" name="nom" value="' . ucfirst($user['user_nom']) . '"><br />';
