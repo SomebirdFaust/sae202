@@ -1,5 +1,5 @@
 <?php
-require 'lib.inc.php';
+require 'admin/lib.inc.php';
 
 $nom = ucfirst($_POST['nom']);
 $prenom = ucfirst($_POST['prenom']);
@@ -19,7 +19,7 @@ try {
     if ($result['count'] > 0) {
         // Utilisateur existant, afficher un message d'erreur ou rediriger vers une autre page
         echo "Cet email est déjà utilisé, veuillez vous connecter !";
-        header('location: ../inscription.php?erreur=1');
+        header('location: inscription.php?erreur=1');
         exit();
     } else {
         // Sécurisation du mot de passe avec un hash
@@ -35,7 +35,7 @@ try {
         }
 
         // Rediriger vers une autre page
-        header('location: ../index.php?succes=1');
+        header('location: index.php?succes=1');
         exit();
     }
 } catch (PDOException $e) {
