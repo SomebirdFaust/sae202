@@ -40,6 +40,8 @@ if ($user) {
 }
 ?>
 
+<a href="admin/supprProfil.php">Supprimer le compte.</a>
+
 <hr />
 
 <?php
@@ -47,3 +49,4 @@ require 'footer.php';
 ?>
 </body>
 </html>
+
