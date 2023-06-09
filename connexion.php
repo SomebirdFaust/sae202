@@ -12,13 +12,20 @@ require 'header.php';
         <title>Connexion</title>
 </head>
 <body>
-        <div id="contenu"> 
-                <h1>Connexion</h1> 
-                <form action="admin/connexionVerif.php" method="post"> 
-                Adresse e-mail : <input type="email" name="email" /><br />  
-                Mot de passe : <input type="password" name="mdp" /><br />  
-                <input type="submit" value="Envoyer"> 
-                </form> 
+    <div id="connexion"> 
+            <h1>Connexion</h1> 
+            <img src="img/avatar.png" alt="">
+            <form action="admin/connexionVerif.php" method="post"> 
+                <label for="email">E-mail* : </label><br>
+                <input type="email" name="email" /><br> 
+                <label for="mdp">Mot de passe* : </label><br>
+                <input type="password" name="mdp" /><br>  
+                <div id="div_submit_connexion">
+                    <input id="submit_connexion" type="submit" value="Connexion"> 
+                </div>
+            </form> <br>
+            <p>Vous n'avez pas de compte?</p>
+            <a href="inscription.php"><p>Inscrivez vous!</p></a>
 
     <?php
         if (!empty($_SESSION['erreur'])) {
@@ -28,7 +35,7 @@ require 'header.php';
         //var_dump($_SESSION);
     ?>
 
- </div> 
+    </div> 
 
 </body>
 </html>

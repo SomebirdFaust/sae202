@@ -3,6 +3,17 @@
     padding: 0;
 }
 
+p, li, a, input, label{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 18px;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: "margot", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 @media screen and (max-width:480px){ 
 
     body{
@@ -46,7 +57,6 @@
         display: block;
         transition: 0.3s;
         text-align: start;
-        font-family: Arial, Helvetica, sans-serif;
       }
   
       .sidenav a:hover {
@@ -97,7 +107,6 @@
       #infos_profil p{
         font-size: 20px;
         margin-bottom: 5px;
-        font-family: Arial, Helvetica, sans-serif;
       }
 
       #bio_profil{
@@ -123,21 +132,22 @@
 
       #voiture_profil img{
         width: 50px;
+        margin-right: 5px;
       }
 
       #infos_profil, #bio_profil, #voiture_profil, #erreur_connexion_profil{
         font-size: 20px;
-        font-family: Arial, Helvetica, sans-serif;
       }
 
       #bio_profil{
         margin-bottom: 25px;
         width: 70%;
-        font-size: 17px;
+        font-size: 15px;
         text-align: start;
         background-color: #d9d9d9;
         border-radius: 10px;
         padding: 15px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
       }
 
       #erreur_connexion_profil{
@@ -162,10 +172,12 @@
 
       #bouton_modif button{
         background-color: #5bacc7;
+        border: 1px solid #5bacc7;
       }
 
       #bouton_deconnexion button{
         background-color: #e31e2f;
+        border: 1px solid #e31e2f;
       }
 
       /* FOOTER */
@@ -184,7 +196,6 @@
       footer a{
         text-decoration: none;
         padding: 0 2px 0 2px;
-        font-family: Arial, Helvetica, sans-serif;
         font-size: 13px;
         color: #FFF;
       }
@@ -203,7 +214,65 @@
 
       #mentions_legales{
         margin: 20px 30px;
-        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      /* PAGE CONNEXION */
+
+      #connexion{
+        margin: auto;
+        text-align: center;
+      }
+
+      #connexion h1{
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 20px;
+      }
+
+      #connexion img{
+        width: 175px;
+        margin-bottom: 30px;
+      }
+
+      #connexion input{
+        width: 100%;
+        height: 35px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        background-color: #d9d9d9;
+        border: #d9d9d9;
+      }
+
+      #connexion p{
+        font-size: 15px;
+        color: #000;
+      }
+
+      #connexion a{
+        color: #000;
+      }
+
+      #connexion form{
+        margin: auto;
+        width: 70%;
+        text-align: start;
+      }
+
+      #div_submit_connexion{
+        display: flex;
+        justify-content: center;
+      }
+
+      input#submit_connexion{
+        width: 55%;
+        height: 35px;
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        background-color: #e31e2f;
+        border: #e31e2f;
+        color: #FFF;
       }
 
 
