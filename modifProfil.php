@@ -21,7 +21,7 @@ if ($user) {
     echo '<div id="infos_profil">';
     echo 'Prenom : <input type="text" name="prenom" value="' . ucfirst($user['user_prenom']) . '"><br />';
     echo 'Nom : <input type="text" name="nom" value="' . ucfirst($user['user_nom']) . '"><br />';
-    echo 'Email : <input type="email" name="email" value="' . $user['user_mail'] . '"><br />';
+    echo 'Email : <input type="email" name="email" value="' . $user['user_mail'] . '" readonly><br />';
     echo 'Mot de Passe : <input type="password" name="mdp" value=""><br />';
     echo '</div>';
 
