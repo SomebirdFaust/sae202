@@ -12,30 +12,43 @@ require 'header.php';
     <title>Modification Profil</title>
 </head>
 <body>
+<div id="img_modif_profil">
+    <img src="img/avatar.png" alt="avatar">
+</div>
+
 <?php
 $mabd = connexionBD();
 $user = grab_user($mabd);
 
 if ($user) {
-    echo '<form action="validModifProfil.php" method="post">';
-    echo '<div id="infos_profil">';
-    echo 'Prenom : <input type="text" name="prenom" value="' . ucfirst($user['user_prenom']) . '"><br />';
-    echo 'Nom : <input type="text" name="nom" value="' . ucfirst($user['user_nom']) . '"><br />';
-    echo 'Email : <input type="email" name="email" value="' . $user['user_mail'] . '" readonly><br />';
-    echo 'Mot de Passe : <input type="password" name="mdp" value=""><br />';
-    echo '</div>';
+    echo '<div id="modif_profil">';
+        echo '<form action="validModifProfil.php" method="post">';
+        echo '<div id="infos_profil">';
+            echo '<label for="prenom">Prénom</label> <br />'; 
+            echo '<input class="input" type="text" name="prenom" value="' . ucfirst($user['user_prenom']) . '"><br />';
+            echo '<label for="nom">Nom</label> <br />';
+            echo '<input class="input" type="text" name="nom" value="' . ucfirst($user['user_nom']) . '"><br />';
+            echo '<label for="genre">Genre</label> <br />';
+            echo '<input class="input" type="text" name="genre" value="' . ucfirst($user['user_genre']) . '"><br />';
+            echo '<label for="email">Email</label> <br />';
+            echo '<input class="input" type="text" name="email" value="' . $user['user_mail'] . '"><br />';
+            echo '<label for="vehicule">Véhicule</label> <br />';
+            echo '<input class="input" type="text" name="vehicule" value="' . ucfirst($user['user_car']) . '"><br />';
+        echo '</div>';
 
-    echo '<div id="bio_profil">';
-    echo 'Votre Bio : <textarea name="bio">' . ucfirst($user['user_bio']) . '</textarea><br />';
-    echo '</div>';
+        echo '<div id="bio_profil">';
+        echo '<label for="biographie">Biographie</label> <br />';
+        echo '<textarea class="input" name="bio">' . ucfirst($user['user_bio']) . '</textarea><br />';
+        echo '</div>';
 
-    echo '<div id="voiture_profil">';
-    echo 'Votre voiture : <input type="text" name="voiture" value="' . ucfirst($user['user_car']) . '"><br />';
-    echo '</div>';
+        echo '<div id="voiture_profil">';
+        echo 'Votre voiture : <input type="text" name="voiture" value="' . ucfirst($user['user_car']) . '"><br />';
+        echo '</div>';
 
-    echo '<input type="submit" value="Enregistrer les modifications">';
-    echo '</form>';
-    echo '<input type="hidden" name="user_id" value="' . $user['user_id'] . '">';
+        echo '<input type="submit" value="Enregistrer les modifications">';
+        echo '</form>';
+        echo '<input type="hidden" name="user_id" value="' . $user['user_id'] . '">';
+    echo '</div>';
 
 } else {
     echo "Vous n'êtes pas connecté(e) !";
