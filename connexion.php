@@ -32,7 +32,6 @@ require 'header.php';
             echo $_SESSION['erreur'];
             unset($_SESSION['erreur']);
         }
-        //var_dump($_SESSION);
     ?>
 
     </div> 
