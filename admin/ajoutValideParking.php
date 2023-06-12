@@ -17,7 +17,6 @@
     $mabd->query('SET NAMES utf8;');
 
     $req = 'INSERT INTO parkings (`park_nom`,`park_loc`) VALUES("'. $nom .'" , "'. $loc.'")';
-    //echo $req;
     $resultat = $mabd->query($req);
 
 
