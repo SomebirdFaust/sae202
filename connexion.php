@@ -15,7 +15,7 @@ require 'header.php';
     <div id="connexion"> 
             <h1>Connexion</h1> 
             <img src="img/avatar.png" alt="">
-            <form action="admin/connexionVerif.php" method="post"> 
+            <form action="connexionVerif.php" method="post"> 
                 <label for="email">E-mail* : </label><br>
                 <input class="input" type="email" name="email" /><br> 
                 <label for="mdp">Mot de passe* : </label><br>
