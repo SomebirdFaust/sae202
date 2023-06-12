@@ -1,24 +1,12 @@
-<?php
-require 'admin/lib.inc.php';
-
-$user_id = $_POST['user_id'];
-
-try {
-    $mabd = connexionBD();
-    $req = $mabd->prepare('SELECT COUNT(*) as count FROM utilisateurs WHERE user_id = :user_id');
-    $req->execute(array(':user_id' => $user_id));
-    $result = $req->fetch(PDO::FETCH_ASSOC);
-
-    if ($result['count'] > 0) {
-        $req = $mabd->prepare('DELETE FROM utilisateurs WHERE user_id = :user_id');
-        $req->execute(array(':user_id' => $user_id));
-
-        header('location: index.php?deleted=1');
-        exit();
-    }
-} catch (PDOException $e) {
-    die("Erreur de connexion à la base de données : " . $e->getMessage());
-}
-
-deconnexionBD($mabd);
-?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suppression Profil</title>
+</head>
+<body>
+<p>Êtes-vous sûr de vouloir supprimer votre profil ?</p>
+<a href="supprProfilVerif.php">Supprimer le compte.</a>
+</body>
+</html>
