@@ -70,16 +70,9 @@
                         
                     }
                 
-                
-                //if (count($_POST)==0) {
-                //   $erreurs!=0;}
-                //else {
-                //    $erreurs=0;}
-               
                 if (isset($_SESSION['information'])) {
                    echo '<p>'.$_SESSION['information'].'</p>'."\n";}
-                
-                // + quand cliqué sur envoyer, tous les champs s'effacent
+               
                 ?>
 
                 <input id="submit" type="submit" value="Envoyer"/>
