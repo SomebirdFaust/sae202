@@ -49,9 +49,6 @@ if ($user) {
         echo '</form>';
         echo '<input type="hidden" name="user_id" value="' . $user['user_id'] . '">';
     echo '</div>';
-
-} else {
-    echo "Vous n'êtes pas connecté(e) !";
 }
 ?>
 
