@@ -16,10 +16,6 @@ try {
 
         header('location: index.php?deleted=1');
         exit();
-    } else {
-        echo "Utilisateur non trouvé !";
-        header('location: modifProfil.php?erreur=1');
-        exit();
     }
 } catch (PDOException $e) {
     die("Erreur de connexion à la base de données : " . $e->getMessage());
