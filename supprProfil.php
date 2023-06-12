@@ -10,7 +10,6 @@ try {
     $result = $req->fetch(PDO::FETCH_ASSOC);
 
     if ($result['count'] > 0) {
-        // Suppression de l'utilisateur et de ses données
         $req = $mabd->prepare('DELETE FROM utilisateurs WHERE user_id = :user_id');
         $req->execute(array(':user_id' => $user_id));
 
