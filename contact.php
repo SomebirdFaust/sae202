@@ -16,7 +16,6 @@
 <div class="corps">
     <main>
 <?php
-session_start();
 
 if (isset($_SESSION['success_message'])) {
     echo '<h3>' . $_SESSION['success_message'] . '</h3>';
