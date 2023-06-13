@@ -1,5 +1,4 @@
 <?php 
-    require 'admin/lib.inc.php';
     require 'header.php';
 ?> 
 
@@ -9,85 +8,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contactez-nous!</title>
+    <title>Contactez-nous !</title>
 </head>
 <body>
 
 <div class="corps">
     <main>
-        <h1 class="h1">CONTACT</h1>
 
-        <form id="form_contact" action="confirmationMail.php" method="post">
-            <div id="en-tete">
-                <div id="div_prenom">
-                    <label for="prenom">Prénom <span>*</span></label>
-                    <input type="text" name="prenom" id="prenom" placeholder="Prénom"/>
-                    <?php
-                    
-                    if (isset($_SESSION['prenom'])) {
-                    echo '<p>'.$_SESSION['prenom'].'</p>'."\n";
-                    
-                    }
-                    
-                
-                    ?>
-                </div>
+<h1 class="h1">CONTACT</h1>
 
-                <div id="div_nom">
-                    <label for="nom">Nom <span>*</span></label>
-                    <input type="text" name="nom" id="nom" placeholder="Nom"/>
-                    <?php
-                    
-                    if (isset($_SESSION['nom'])) {
-                        echo '<p>'.$_SESSION['nom'].'</p>'."\n";
-                        
-                        }
+<?php
 
-            
-                    
-                    ?>
-                </div>
-            </div>
- 
-                <label for="email">E-mail <span>*</span></label>
-                <input type="email" name="email" id="email" placeholder="nom@domaine.fr"/>
-                <?php
-                
-                if (isset($_SESSION['email'])) {
-                    echo '<p>'.$_SESSION['email'].'</p>'."\n";
-                    
-                    }
+if (isset($_SESSION['success_message'])) {
+    echo '<h3>' . $_SESSION['success_message'] . '</h3>';
+    unset($_SESSION['success_message']);
+} elseif (isset($_SESSION['error_message'])) {
+    echo '<h3>' . $_SESSION['error_message'] . '</h3>';
+    unset($_SESSION['error_message']);
+}
+?>
 
-                ?>
-                <label for="message">Message <span>*</span></label>
-                <textarea name="message" id="message" placeholder="Votre message" cols="30" rows="10"></textarea>
-                <?php
+<form action="contactVerif.php" method="POST">
+    <div id="en-tete">
+        <div id="div_prenom">
+            <label for="prenom">Prénom *</label><br>
+            <input type="text" id="prenom" name="prenom" required><br><br>
+        </div>
 
-                $erreurs=0;
+        <div id="div_nom">
+            <label for="nom">Nom *</label><br>
+            <input type="text" id="nom" name="nom" required><br><br>
+        </div>
+    </div>
 
-                if (isset($_SESSION['message'])) {
-                    echo '<p>'.$_SESSION['message'].'</p>'."\n";
-                        
-                    }
-                
-                
-                //if (count($_POST)==0) {
-                //   $erreurs!=0;}
-                //else {
-                //    $erreurs=0;}
-               
-                if (isset($_SESSION['information'])) {
-                   echo '<p>'.$_SESSION['information'].'</p>'."\n";}
-                
-                // + quand cliqué sur envoyer, tous les champs s'effacent
-                ?>
+    <label for="email">Email *</label><br>
+    <input type="email" id="email" name="email" placeholder="nom@domaine.fr/com" required><br><br>
 
-                <input id="submit" type="submit" value="Envoyer"/>
-        </form>
-    </main>
+    <label for="message">Message *</label><br>
+    <textarea name="message" id="message" placeholder="Votre message" cols="30" rows="10" required></textarea><br><br>
+
+    <input type="submit" value="Soumettre">
+</form>
+
+</main>
 </div>
-
-
 
 <?php
 require 'footer.php';

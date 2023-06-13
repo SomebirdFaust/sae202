@@ -1,5 +1,4 @@
-<?php 
-    require 'admin/lib.inc.php';
+<?php
     require 'header.php';
 ?> 
 <!DOCTYPE html>

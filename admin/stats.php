@@ -1,3 +1,7 @@
+<?php 
+require 'lib.inc.php';
+?>
+
 <?php
 // fonction total des réservations
 function obtenirTotalReservations() {
