@@ -1,5 +1,4 @@
 <?php 
-    require 'admin/lib.inc.php';
     require 'header.php';
 ?> 
 
@@ -29,7 +28,7 @@ if (isset($_SESSION['success_message'])) {
 }
 ?>
 
-<form action="verifContact.php" method="POST">
+<form action="contactVerif.php" method="POST">
     <div id="en-tete">
         <div id="div_prenom">
             <label for="prenom">Prénom *</label><br>
