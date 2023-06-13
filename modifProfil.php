@@ -26,12 +26,12 @@ if ($user) {
             echo '<input class="input" type="text" name="prenom" value="' . ucfirst($user['user_prenom']) . '"><br />';
             echo '<label for="nom">Nom</label> <br />';
             echo '<input class="input" type="text" name="nom" value="' . ucfirst($user['user_nom']) . '"><br />';
-            echo '<label for="genre">Genre</label> <br />';
-            echo '<input class="input" type="text" name="genre" value="' . ['user_genre'] . '"><br />';
+            echo '<label for="genre">Pronoms</label> <br />';
+            echo '<input class="input" type="text" name="genre" value="' . $user['user_genre'] . '"><br />';
             echo '<label for="email">Email</label> <br />';
             echo '<input class="input" type="text" name="email" value="' . $user['user_mail'] . '"><br />';
-            echo '<label for="vehicule">Véhicule</label> <br />';
-            echo '<input class="input" type="text" name="vehicule" value="' . ucfirst($user['user_car']) . '"><br />';
+            echo '<label for="voiture">Véhicule</label> <br />';
+            echo '<input class="input" type="text" name="voiture" value="' . ucfirst($user['user_car']) . '"><br />';
 
             echo '<label for="bio">Biographie (300 caractères max)</label> <br />';
             echo '<textarea class="input" name="bio">' . ucfirst($user['user_bio']) . '</textarea><br />';
@@ -40,7 +40,7 @@ if ($user) {
                 echo '<input type="submit" value="Enregistrer">';
             echo '</div>';
             echo '<div id="modif_profil_supprimer">';
-                echo '<a href="supprProfil.php">Supprimer le compte.</a>';
+                echo '<a href="supprProfil.php">Supprimer le compte</a>';
             echo '</div>';
 
             echo '</form>';

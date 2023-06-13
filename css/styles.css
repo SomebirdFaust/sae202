@@ -315,7 +315,7 @@ h1, h2, h3, h4, h5, h6{
         justify-content: center;
       }
 
-      #modif_profil_enregistrer input, #modif_profil_supprimer input{
+      #modif_profil_enregistrer input, #modif_profil_supprimer a{
         width: auto;
         height: 35px;
         text-align: center;
@@ -334,9 +334,12 @@ h1, h2, h3, h4, h5, h6{
         border: #5bacc7;
       }
 
-      #modif_profil_supprimer input{
+      #modif_profil_supprimer a{
         background-color: #e31e2f;
         border: #e31e2f;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
       }
 
       #modif_profil_supprimer{
