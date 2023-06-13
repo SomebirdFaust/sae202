@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contactez-nous!</title>
+    <title>Contactez-nous !</title>
 </head>
 <body>
 
@@ -17,70 +17,35 @@
     <main>
         <h1 class="h1">CONTACT</h1>
 
-        <form id="form_contact" action="confirmationMail.php" method="post">
-            <div id="en-tete">
-                <div id="div_prenom">
-                    <label for="prenom">Prénom <span>*</span></label>
-                    <input type="text" name="prenom" id="prenom" placeholder="Prénom"/>
-                    <?php
-                    
-                    if (isset($_SESSION['prenom'])) {
-                    echo '<p>'.$_SESSION['prenom'].'</p>'."\n";
-                    
-                    }
-                    
-                
-                    ?>
-                </div>
+        <form action="confirmationContact.php" method="POST">
+    <div id="en-tete">
+        <div id="div_prenom">
+            <label for="prenom">Prénom *</label>
+            <input type="text" id="prenom" name="prenom" required><br><br>
+        </div>
 
-                <div id="div_nom">
-                    <label for="nom">Nom <span>*</span></label>
-                    <input type="text" name="nom" id="nom" placeholder="Nom"/>
-                    <?php
-                    
-                    if (isset($_SESSION['nom'])) {
-                        echo '<p>'.$_SESSION['nom'].'</p>'."\n";
-                        
-                        }
+        <div id="div_nom">
+            <label for="nom">Nom *</label>
+            <input type="text" id="nom" name="nom" required><br><br>
+        </div>
+    </div>
 
-            
-                    
-                    ?>
-                </div>
-            </div>
- 
-                <label for="email">E-mail <span>*</span></label>
-                <input type="email" name="email" id="email" placeholder="nom@domaine.fr"/>
-                <?php
-                
-                if (isset($_SESSION['email'])) {
-                    echo '<p>'.$_SESSION['email'].'</p>'."\n";
-                    
-                    }
+    <label for="email">Email *</label>
+    <input type="email" id="email" name="email" placeholder="nom@domaine.fr/com" required><br><br>
 
-                ?>
-                <label for="message">Message <span>*</span></label>
-                <textarea name="message" id="message" placeholder="Votre message" cols="30" rows="10"></textarea>
-                <?php
+    <label for="mdp">Message *</label>
+    <textarea name="message" id="message" placeholder="Votre message" cols="30" rows="10" required></textarea><br><br>
 
-                $erreurs=0;
+    <input type="submit" value="Soumettre">
+</form>
+<?php
+if (isset($_SESSION['erreur'])) {
+    echo $_SESSION['erreur'];
+}
+?>
 
-                if (isset($_SESSION['message'])) {
-                    echo '<p>'.$_SESSION['message'].'</p>'."\n";
-                        
-                    }
-                
-                if (isset($_SESSION['information'])) {
-                   echo '<p>'.$_SESSION['information'].'</p>'."\n";}
-               
-                ?>
-
-                <input id="submit" type="submit" value="Envoyer"/>
-        </form>
-    </main>
+</main>
 </div>
-
-
 
 <?php
 require 'footer.php';

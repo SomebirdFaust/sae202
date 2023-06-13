@@ -8,6 +8,7 @@
     <hr> <h1>Confirmation d'ajout</h1> <hr>
     <h2>Vous venez d'ajouter un parking</h2>
     <hr>
+    
     <?php
     $num=$_POST['num'];
     $nom=$_POST['nom'];
@@ -18,8 +19,7 @@
 
     $req = 'INSERT INTO parkings (`park_nom`,`park_loc`) VALUES("'. $nom .'" , "'. $loc.'")';
     $resultat = $mabd->query($req);
-
-
     ?>
+
 </body>
 </html>
