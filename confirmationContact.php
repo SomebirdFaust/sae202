@@ -1,17 +1,15 @@
 <?php
 require 'admin/lib.inc.php';
-$_SESSION['information']='';
 ?>
 
-
 <?php
-if (count($_POST) == 0) {
+if (empty($_POST)) {
     header('Location: contact.php');
     exit();
 }
 
-$affichage_retour = '';
 $erreurs = 0;
+$prenom = $nom = $message = $email = '';
 
 if (!empty($_POST['prenom'])) {
     $prenom = ucfirst(mb_strtolower($_POST['prenom']));
@@ -26,17 +24,16 @@ if (!empty($_POST['nom'])) {
 }
 
 if (!empty($_POST['message'])) {
-    $message = $_POST['message'];
+    $message = trim($_POST['message']);
+    if (empty($message)) {
+        $erreurs++;
+    }
 } else {
     $erreurs++;
 }
 
-if (!empty($_POST['email'])) {
-    if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-        $email = $_POST['email'];
-    } else {
-        $erreurs++;
-    }
+if (!empty($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+    $email = $_POST['email'];
 } else {
     $erreurs++;
 }
@@ -48,20 +45,19 @@ if ($erreurs == 0) {
         'Reply-to' => $email,
         'X-Mailer' => 'PHP/' . phpversion()
     );
-//    $email_dest = 'leane.berlo@etudiant.univ-reims.fr';
-$email_dest = 'flore.gaulard@etudiant.univ-reims.fr';
+    $email_dest = 'flore.gaulard@etudiant.univ-reims.fr';
 
-$headers = implode("\r\n", $headers);
-if (mail($email_dest, $subject, $message, $headers)) {
-    $_SESSION['ok'] = 'Veuillez réessayer.';
+    $headers = implode("\r\n", $headers);
+    if (mail($email_dest, $subject, $message, $headers)) {
+        echo 'Votre mail a bien été envoyé :)';
+    } else {
+        $erreurs++;
+    }
 } else {
-    $erreurs++;
+    echo 'Veuillez réessayer.';
 }
-} else {
-    $_SESSION['erreur'] = 'Veuillez réessayer.';
-}
-
 ?>
+
 <?php
 header('Location: contact.php');
 ?>

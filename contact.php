@@ -20,20 +20,20 @@
         <form action="confirmationContact.php" method="POST">
     <div id="en-tete">
         <div id="div_prenom">
-            <label for="prenom">Prénom *</label>
+            <label for="prenom">Prénom *</label><br>
             <input type="text" id="prenom" name="prenom" required><br><br>
         </div>
 
         <div id="div_nom">
-            <label for="nom">Nom *</label>
+            <label for="nom">Nom *</label><br>
             <input type="text" id="nom" name="nom" required><br><br>
         </div>
     </div>
 
-    <label for="email">Email *</label>
+    <label for="email">Email *</label><br>
     <input type="email" id="email" name="email" placeholder="nom@domaine.fr/com" required><br><br>
 
-    <label for="mdp">Message *</label>
+    <label for="mdp">Message *</label><br>
     <textarea name="message" id="message" placeholder="Votre message" cols="30" rows="10" required></textarea><br><br>
 
     <input type="submit" value="Soumettre">
@@ -41,6 +41,8 @@
 <?php
 if (isset($_SESSION['erreur'])) {
     echo $_SESSION['erreur'];
+}else{
+    echo'<h3>Votre message a bien été envoyé !</h3>';
 }
 ?>
 
