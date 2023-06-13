@@ -15,9 +15,21 @@
 
 <div class="corps">
     <main>
-        <h1 class="h1">CONTACT</h1>
+<?php
+session_start();
 
-        <form action="confirmationContact.php" method="POST">
+if (isset($_SESSION['success_message'])) {
+    echo '<h3>' . $_SESSION['success_message'] . '</h3>';
+    unset($_SESSION['success_message']);
+} elseif (isset($_SESSION['error_message'])) {
+    echo '<h3>' . $_SESSION['error_message'] . '</h3>';
+    unset($_SESSION['error_message']);
+}
+?>
+
+<h1 class="h1">CONTACT</h1>
+
+<form action="verifContact.php" method="POST">
     <div id="en-tete">
         <div id="div_prenom">
             <label for="prenom">Prénom *</label><br>
