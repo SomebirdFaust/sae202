@@ -18,6 +18,17 @@
 
 <h1 class="h1">CONTACT</h1>
 
+<?php
+
+if (isset($_SESSION['success_message'])) {
+    echo '<h3>' . $_SESSION['success_message'] . '</h3>';
+    unset($_SESSION['success_message']);
+} elseif (isset($_SESSION['error_message'])) {
+    echo '<h3>' . $_SESSION['error_message'] . '</h3>';
+    unset($_SESSION['error_message']);
+}
+?>
+
 <form action="verifContact.php" method="POST">
     <div id="en-tete">
         <div id="div_prenom">
@@ -39,17 +50,6 @@
 
     <input type="submit" value="Soumettre">
 </form>
-
-<?php
-
-if (isset($_SESSION['success_message'])) {
-    echo '<h3>' . $_SESSION['success_message'] . '</h3>';
-    unset($_SESSION['success_message']);
-} elseif (isset($_SESSION['error_message'])) {
-    echo '<h3>' . $_SESSION['error_message'] . '</h3>';
-    unset($_SESSION['error_message']);
-}
-?>
 
 </main>
 </div>
