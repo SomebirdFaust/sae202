@@ -23,7 +23,6 @@ $user = grab_user($mabd);
 if ($user) {
     echo '<div id="modif_profil">';
         echo '<form action="validModifProfil.php" method="post">';
-        echo '<div id="infos_profil">';
             echo '<label for="prenom">Prénom</label> <br />'; 
             echo '<input class="input" type="text" name="prenom" value="' . ucfirst($user['user_prenom']) . '"><br />';
             echo '<label for="nom">Nom</label> <br />';
@@ -34,30 +33,25 @@ if ($user) {
             echo '<input class="input" type="text" name="email" value="' . $user['user_mail'] . '"><br />';
             echo '<label for="vehicule">Véhicule</label> <br />';
             echo '<input class="input" type="text" name="vehicule" value="' . ucfirst($user['user_car']) . '"><br />';
-        echo '</div>';
 
-        echo '<div id="bio_profil">';
-        echo '<label for="biographie">Biographie</label> <br />';
-        echo '<textarea class="input" name="bio">' . ucfirst($user['user_bio']) . '</textarea><br />';
-        echo '</div>';
+            echo '<label for="bio">Biographie (300 caractères max)</label> <br />';
+            echo '<textarea class="input" name="bio">' . ucfirst($user['user_bio']) . '</textarea><br />';
 
-        echo '<div id="voiture_profil">';
-        echo 'Votre voiture : <input type="text" name="voiture" value="' . ucfirst($user['user_car']) . '"><br />';
-        echo '</div>';
+            echo '<div id="modif_profil_enregistrer">';
+                echo '<input type="submit" value="Enregistrer">';
+            echo '</div>';
+            echo '<div id="modif_profil_supprimer">';
+                echo '<input type="submit" value="Supprimer le compte">';
+            echo '</div>';
 
-        echo '<input type="submit" value="Enregistrer les modifications">';
-        echo '</form>';
-        echo '<input type="hidden" name="user_id" value="' . $user['user_id'] . '">';
+            echo '</form>';
+            echo '<input type="hidden" name="user_id" value="' . $user['user_id'] . '">';
     echo '</div>';
 
 } else {
     echo "Vous n'êtes pas connecté(e) !";
 }
 ?>
-
-<a href="supprProfil.php">Supprimer le compte.</a>
-
-<hr />
 
 <?php
 require 'footer.php';

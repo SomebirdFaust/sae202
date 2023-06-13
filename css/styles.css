@@ -3,7 +3,7 @@
     padding: 0;
 }
 
-p, li, a, input, label{
+p, li, a, input, label, textarea{
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 18px;
 }
@@ -273,6 +273,7 @@ h1, h2, h3, h4, h5, h6{
         background-color: #e31e2f;
         border: #e31e2f;
         color: #FFF;
+        border-radius: 10px;
       }
 
 
@@ -289,17 +290,61 @@ h1, h2, h3, h4, h5, h6{
         width: 175px;
       }
 
+      #modif_profil{
+        margin: auto;
+        text-align: center;
+      }
+    
       #modif_profil form{
         margin: auto;
         width: 70%;
         text-align: start;
       }
 
-      #modif_profil input{
+      #modif_profil input, #modif_profil textarea{
         padding-left: 10px;
+        margin-left: -5px;
       }
 
+      #modif_profil textarea{
+        height: 250px;
+      }
 
+      #modif_profil_enregistrer{
+        display: flex;
+        justify-content: center;
+      }
+
+      #modif_profil_enregistrer input, #modif_profil_supprimer input{
+        width: auto;
+        height: 35px;
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        background-color: #5bacc7;
+        border: #5bacc7;
+        color: #FFF;
+        border-radius: 10px;
+        font-size: 15px;
+        padding: 0 10px;
+      }
+
+      #modif_profil_enregistrer input{
+        background-color: #5bacc7;
+        border: #5bacc7;
+      }
+
+      #modif_profil_supprimer input{
+        background-color: #e31e2f;
+        border: #e31e2f;
+      }
+
+      #modif_profil_supprimer{
+        display: flex;
+        justify-content: center;
+        margin-top: -40px;
+        margin-bottom: 70px;
+      }
   
   
 
