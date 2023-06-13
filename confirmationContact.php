@@ -1,60 +1,35 @@
 <?php
 require 'admin/lib.inc.php';
+$_SESSION['information']='';
 ?>
 
 <?php
-if (empty($_POST)) {
-    header('Location: contact.php');
-    exit();
-}
+session_start();
 
-$erreurs = 0;
-$prenom = $nom = $message = $email = '';
-
-if (!empty($_POST['prenom'])) {
-    $prenom = ucfirst(mb_strtolower($_POST['prenom']));
-} else {
-    $erreurs++;
-}
-
-if (!empty($_POST['nom'])) {
-    $nom = ucfirst(mb_strtolower($_POST['nom']));
-} else {
-    $erreurs++;
-}
-
-if (!empty($_POST['message'])) {
-    $message = trim($_POST['message']);
-    if (empty($message)) {
-        $erreurs++;
-    }
-} else {
-    $erreurs++;
-}
-
-if (!empty($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+if (isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['email']) && isset($_POST['message'])) {
+    $prenom = $_POST['prenom'];
+    $nom = $_POST['nom'];
     $email = $_POST['email'];
-} else {
-    $erreurs++;
-}
+    $message = $_POST['message'];
 
-if ($erreurs == 0) {
-    $subject = 'SAE202 : demande de ' . $prenom . ' ' . $nom;
-    $headers = array(
-        'From' => $email,
-        'Reply-to' => $email,
-        'X-Mailer' => 'PHP/' . phpversion()
-    );
-    $email_dest = 'flore.gaulard@etudiant.univ-reims.fr';
+    if (!empty($prenom) && !empty($nom) && !empty($email) && !empty($message)) {
+        $prenom = ucfirst(mb_strtolower($prenom));
+        $nom = ucfirst(mb_strtolower($nom));
+        
+        $subject = 'SAE202 : demande de ' . $prenom . ' ' . $nom;
+        $headers = "From: $email\r\n";
+        $email_dest = 'flore.gaulard@etudiant.univ-reims.fr';
 
-    $headers = implode("\r\n", $headers);
-    if (mail($email_dest, $subject, $message, $headers)) {
-        echo 'Votre mail a bien été envoyé :)';
+        if (mail($email_dest, $subject, $message, $headers)) {
+            echo '<h3>Votre message a bien été envoyé !</h3>';
+        } else {
+            echo '<h3>Erreur lors de l\'envoi du message. Veuillez réessayer.</h3>';
+        }
     } else {
-        $erreurs++;
+        echo '<h3>Tous les champs sont obligatoires. Veuillez les remplir.</h3>';
     }
 } else {
-    echo 'Veuillez réessayer.';
+    echo '<h3>Veuillez remplir le formulaire et soumettre votre demande.</h3>';
 }
 ?>
 

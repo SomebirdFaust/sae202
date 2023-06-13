@@ -33,7 +33,7 @@
     <label for="email">Email *</label><br>
     <input type="email" id="email" name="email" placeholder="nom@domaine.fr/com" required><br><br>
 
-    <label for="mdp">Message *</label><br>
+    <label for="message">Message *</label><br>
     <textarea name="message" id="message" placeholder="Votre message" cols="30" rows="10" required></textarea><br><br>
 
     <input type="submit" value="Soumettre">
