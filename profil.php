@@ -34,24 +34,27 @@ if ($user) {
     echo '</div>';
 } else {
     echo '<div id="erreur_connexion_profil">';
-    echo "Vous n'êtes pas connecté(e) !";
+    echo '<p>Vous n\'êtes pas connecté(e) !</p>';
+
+    echo '<div id="boutons_profil">';
+        echo '<div id="bouton_connexion">';
+            echo '<form action="connexion.php" method="post">';
+                echo '<button type="submit">Se connecter</button>';
+            echo '</form>';
+        echo '</div>';
+
+        echo '<div id="bouton_inscription">';
+            echo '<form action="inscription.php" method="post">';
+                echo '<button type="submit">S\'inscrire</button>';
+            echo '</form>';
+        echo '</div>';
     echo '</div>';
+
+echo '</div>';
+
 }
+
 ?>
-
-<div id="boutons_profil">
-    <div id="bouton_modif">
-        <form action="modifProfil.php" method="post">
-            <button type="submit">Modifier le profil</button>
-        </form>
-    </div>
-
-    <div id="bouton_deconnexion">
-        <form action="deconnexion.php" method="post">
-            <button type="submit">Déconnexion</button>
-        </form>
-    </div>
-</div>
 
 <?php
 deconnexionBD($mabd);

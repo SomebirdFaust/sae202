@@ -153,6 +153,7 @@ h1, h2, h3, h4, h5, h6{
       #erreur_connexion_profil{
         margin: auto;
         text-align: center;
+        margin-top: 50px;
       }
 
       #boutons_profil{
@@ -163,22 +164,19 @@ h1, h2, h3, h4, h5, h6{
 
       #boutons_profil button{
         width: 200px;
-        height: 40px;
+        height: 35px;
         margin-top: 10px;
         font-size: 18px;
         border-radius: 15px;
         color: #FFF;
       }
 
-      #bouton_modif button{
+      #bouton_connexion button, #bouton_inscription button{
         background-color: #5bacc7;
         border: 1px solid #5bacc7;
       }
 
-      #bouton_deconnexion button{
-        background-color: #e31e2f;
-        border: 1px solid #e31e2f;
-      }
+
 
       /* FOOTER */
 
