@@ -38,13 +38,6 @@
 
     <input type="submit" value="Soumettre">
 </form>
-<?php
-if (isset($_SESSION['erreur'])) {
-    echo $_SESSION['erreur'];
-}else{
-    echo'<h3>Votre message a bien été envoyé !</h3>';
-}
-?>
 
 </main>
 </div>
