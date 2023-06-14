@@ -20,6 +20,7 @@ if ($user) {
     echo '<img src="img/avatar.png" alt="avatar">'. '<br />';
     echo '<p>' . ucfirst($user['user_prenom']) . '</p>' . "\n";
     echo '<p>' . ucfirst($user['user_nom'])  . '</p>' . "\n";
+    echo '<p>' . $user['user_genre']  . '</p>' . "\n";
     echo '<p>' . $user['user_mail'] . '</p>';
     echo '</div>';
 
