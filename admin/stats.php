@@ -24,6 +24,15 @@ $nombreUtilisateurs = $row['nombre_utilisateurs'];
 
 echo "Nombre d'utilisateurs : " . $nombreUtilisateurs;
 ?>
+<br>
+<?php
+$req = "SELECT COUNT(reserv_id) AS nombre_reserv FROM reservations";
+$rresult = $mabd->query($req);
+$row = $rresult->fetch(PDO::FETCH_ASSOC);
+$nombreReserv = $row['nombre_reserv'];
+
+echo "Nombre d'utilisateurs : " . $nombreReserv;
+?>
 
 </body>
 </html>
