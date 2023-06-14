@@ -21,13 +21,13 @@ try {
     $park_id = $resultat['park_id'];
 
     // Insérer une nouvelle entrée dans la table trajets avec l'ID de l'utilisateur
-    $req = $mabd->prepare('INSERT INTO trajets (_park_id, _user_id, traj_arrivee, date, traj_heure_depart, traj_places) VALUES (:park_id, :user_id, :traj_arrivee, :date, :heure, :places)');
+    $req = $mabd->prepare('INSERT INTO trajets (_park_id, _user_id, traj_arrivee, traj_date, traj_heure_depart, traj_places) VALUES (:park_id, :user_id, :traj_arrivee, :traj_date, :heure, :places)');
     $req->bindParam(':park_id', $park_id);
     $req->bindParam(':user_id', $user_id);
     $req->bindParam(':traj_arrivee', $destination);
-    $req->bindParam(':date', $date);
-    $req->bindParam(':heure', $heure);
-    $req->bindParam(':places', $places);
+    $req->bindParam(':traj_date', $date);
+    $req->bindParam(':traj_heure_depart', $heure);
+    $req->bindParam(':traj_places', $places);
     $req->execute();
 
     header('Location: succesCreaTrajet.php');
