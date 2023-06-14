@@ -3,12 +3,6 @@
 <h1 id="accueil_logo">Car & Cie</h1>
 
 <div id="recherche_trajet">
-    <!-- champs à faire apparaitre : 
-        départ
-        destination
-        date
-        bouton submit
-    -->
     <form action="resultTrajet.php" method="POST">
     <label for="depart">Départ</label>
     <select class="input" name="depart" id="depart" required>
