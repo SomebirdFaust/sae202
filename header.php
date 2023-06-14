@@ -10,6 +10,7 @@ require 'admin/lib.inc.php';
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/styles.css">
         <link rel="stylesheet" href="https://use.typekit.net/nbt8kxx.css">
+        <link rel="stylesheet" href="https://use.typekit.net/nbt8kxx.css">
         <script src="js/script.js" defer></script>
     </head>
     <body>
@@ -24,6 +25,7 @@ require 'admin/lib.inc.php';
         <li><a href="parkings.php">Les parkings</a></li>
         <li><a href="connexion.php">Connexion</a></li>
         <li><a href="inscription.php">Inscription</a></li>
+        <li><a href="publierTrajet.php">Publier un trajet</a></li>
       </ul>
     </div>
 

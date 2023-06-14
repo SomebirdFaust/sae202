@@ -451,6 +451,17 @@ h1, h2, h3, h4, h5, h6{
         display: flex;
         align-items: center;
       }
+
+      /* PAGE ACCUEIL */
+
+      #accueil_logo{
+        font-size: 60px;
+        text-align: center;
+        font-family: "margot", sans-serif;
+        font-weight: 400;
+        font-style: italic;
+        color: #e31e2f;
+      }
   
 
 }
