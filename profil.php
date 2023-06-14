@@ -69,26 +69,27 @@ if ($user) {
 
     // Afficher les trajets créés par l'utilisateur s'il a une voiture
     if (!empty($user['user_car'])) {
-        $requeteCrees = $mabd->prepare("SELECT t.traj_date, t._park_id, t.traj_arrivee FROM trajets AS t
+        $requeteCrees = $mabd->prepare("SELECT t.traj_date, p.park_nom, t.traj_arrivee FROM trajets AS t
+                                        INNER JOIN parkings AS p ON t._park_id = p.park_id
                                         WHERE t._user_id = :user_id");
         $requeteCrees->bindParam(':user_id', $user['user_id']);
         $requeteCrees->execute();
-
+    
         echo '<h3>Trajets créés</h3>';
         $trajetCree = $requeteCrees->fetch();
         if ($trajetCree) {
             while ($trajetCree) {
                 echo "Date de départ : " . $trajetCree['traj_date'] . "<br>";
-                echo "Départ : " . $trajetCree['_park_id'] . "<br>";
+                echo "Départ : " . $trajetCree['park_nom'] . "<br>";
                 echo "Arrivée : " . $trajetCree['traj_arrivee'] . "<br>";
                 echo "<a href='modifierTrajet.php?trajet_id=" . $trajetCree['traj_id'] . "'>Modifier</a> ";
-
+    
                 $trajetCree = $requeteCrees->fetch();
             }
         } else {
             echo "Vous n'avez pas créé de trajet.<br>";
         }
-    }
+    }    
 
     deconnexionBD($mabd);
 } else {
