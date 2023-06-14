@@ -22,15 +22,37 @@ require 'admin/lib.inc.php';
 <nav>
     <a href="index.php"><img id="logo" src="img/logo.png" alt="logo"></a>
     <div id="mySidenav" class="sidenav">
-      <a id="closeBtn" href="#" class="close">×</a>
-      <ul>
-        <li><a href="profil.php">Mon profil</a></li>
-        <li><a href="parkings.php">Les parkings</a></li>
-        <li><a href="connexion.php">Connexion</a></li>
-        <li><a href="inscription.php">Inscription</a></li>
-        <li><a href="publierTrajet.php">Publier un trajet</a></li>
-      </ul>
-    </div>
+  <a id="closeBtn" href="#" class="close">×</a>
+  <ul>
+    <?php
+    if (isset($_SESSION['user_id'])) {
+        echo '<li><a href="profil.php">Mon profil</a></li>';
+    } else {
+        echo '<li style="display: none;"><a href="profil.php">Mon profil</a></li>';
+    }
+    ?>
+    <li><a href="parkings.php">Les parkings</a></li>
+    <?php
+    if (isset($_SESSION['user_id'])) {
+        echo '<li style="display: none;"><a href="connexion.php">Connexion</a></li>';
+        echo '<li style="display: none;"><a href="inscription.php">Inscription</a></li>';
+    } else {
+        echo '<li><a href="connexion.php">Connexion</a></li>';
+        echo '<li><a href="inscription.php">Inscription</a></li>';
+    }
+    ?>
+<?php
+if (isset($_SESSION['user_id'])) {
+    if (!empty($user['user_car'])) {
+        echo '<li><a href="publierTrajet.php">Publier un trajet</a></li>';
+    } else {
+        echo '<li style="display: none;"><a href="publierTrajet.php">Publier un trajet</a></li>';
+    }
+}
+?>
+  </ul>
+</div>
+
 
     <a href="#" id="openBtn">
       <span class="burger-icon">

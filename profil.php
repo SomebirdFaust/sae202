@@ -82,7 +82,7 @@ if ($user) {
                 echo "Date de départ : " . $trajetCree['traj_date'] . "<br>";
                 echo "Départ : " . $trajetCree['park_nom'] . "<br>";
                 echo "Arrivée : " . $trajetCree['traj_arrivee'] . "<br>";
-                echo "<a href='modifierTrajet.php?trajet_id=" . $trajetCree['traj_id'] . "'>Modifier</a> ";
+                echo "<a href='modifTrajet.php?trajet_id=" . $trajetCree['traj_id'] . "'>Modifier</a> ";
     
                 $trajetCree = $requeteCrees->fetch();
             }
