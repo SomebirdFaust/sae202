@@ -60,7 +60,6 @@ if ($user) {
             echo "Départ : " . $trajetReserve['_park_id'] . "<br>";
             echo "Arrivée : " . $trajetReserve['traj_arrivee'] . "<br>";
             echo "<a href='modifierTrajet.php?trajet_id=" . $trajetReserve['traj_id'] . "'>Modifier</a> ";
-            echo "<a href='supprimerTrajet.php?trajet_id=" . $trajetReserve['traj_id'] . "'>Supprimer</a><br>";
 
             $trajetReserve = $requeteReserves->fetch();
         }
@@ -80,10 +79,9 @@ if ($user) {
         if ($trajetCree) {
             while ($trajetCree) {
                 echo "Date de départ : " . $trajetCree['traj_date'] . "<br>";
-                echo "Départ : " . $trajetCree['traj_date'] . "<br>";
+                echo "Départ : " . $trajetCree['_park_id'] . "<br>";
                 echo "Arrivée : " . $trajetCree['traj_arrivee'] . "<br>";
                 echo "<a href='modifierTrajet.php?trajet_id=" . $trajetCree['traj_id'] . "'>Modifier</a> ";
-                echo "<a href='supprimerTrajet.php?trajet_id=" . $trajetCree['traj_id'] . "'>Supprimer</a><br>";
 
                 $trajetCree = $requeteCrees->fetch();
             }
