@@ -39,7 +39,7 @@ if ($user) {
 
             echo '<label for="bio">Biographie (300 caractères max)</label> <br />';
             echo '<textarea class="input" name="bio" oninput="countCharacters(this)">' . ucfirst($user['user_bio']) . '</textarea>';
-            echo '<div id="characterCount">300 caractères restants</div><br />';            
+            echo '<div id="characterCount">300</div><br />';            
 
             echo '<div id="modif_profil_enregistrer">';
                 echo '<input type="submit" value="Enregistrer">';

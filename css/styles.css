@@ -550,3 +550,17 @@ body{
 
 
 }
+/*compteur de caractères dans la bio*/
+.character-counter {
+  position: relative;
+}
+
+.character-counter textarea {
+  padding-right: 70px;
+}
+
+.character-counter #characterCount {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
