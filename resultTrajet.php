@@ -18,7 +18,7 @@ $mabd = connexionBD();
 
 $requete = $mabd->prepare("SELECT t.*, u.user_nom, u.user_prenom FROM trajets AS t
                           INNER JOIN utilisateurs AS u ON t._user_id = u.user_id
-                          WHERE t._park_id = :_park_id AND t.traj_dest = :traj_arrivee AND t.traj_date > :traj_date");
+                          WHERE t._park_id = :_park_id AND t.traj_arrivee = :traj_arrivee AND t.traj_date > :traj_date");
 $requete->bindParam(':_park_id', $depart);
 $requete->bindParam(':traj_arrivee', $destination);
 $requete->bindParam(':traj_date', $date);
