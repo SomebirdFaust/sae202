@@ -18,7 +18,7 @@ $mabd = connexionBD();
 
 $requete = $mabd->prepare("SELECT t.*, u.user_nom, u.user_prenom FROM trajets AS t
                           INNER JOIN utilisateurs AS u ON t._user_id = u.user_id
-                          WHERE t._parking = :_parking AND t.traj_dest = :traj_arrivee AND t.traj_date > :date");
+                          WHERE t._parking = :_parking AND t.traj_dest = :traj_arrivee AND t.traj_date > :traj_date");
 $requete->bindParam(':_parking', $depart);
 $requete->bindParam(':traj_arrivee', $destination);
 $requete->bindParam(':traj_date', $date);
@@ -31,8 +31,6 @@ while ($resultat = $requete->fetch()) {
     echo "Nombre de places disponibles : " . $resultat['traj_places'] . "<br>";
     echo "<a href='reservTrajet.php?trajet_id=" . $resultat['traj_id'] . "'>Réserver</a><br>";
 }
-
-$mabd = null;
 
 $mabd = null;
 ?>
