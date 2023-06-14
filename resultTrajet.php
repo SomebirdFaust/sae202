@@ -24,12 +24,17 @@ $requete->bindParam(':traj_arrivee', $destination);
 $requete->bindParam(':traj_date', $date);
 $requete->execute();
 
-while ($resultat = $requete->fetch()) {
-    echo "Nom du conducteur : " . $resultat['user_nom'] . " " . $resultat['user_prenom'] . "<br>";
-    echo "Date de départ : " . $resultat['traj_date'] . "<br>";
-    echo "Heure de départ : " . $resultat['traj_heure_depart'] . "<br>";
-    echo "Nombre de places disponibles : " . $resultat['traj_places'] . "<br>";
-    echo "<a href='reservTrajet.php?trajet_id=" . $resultat['traj_id'] . "'>Réserver</a><br>";
+// Vérifier si des résultats sont retournés
+if ($requete->rowCount() > 0) {
+    while ($resultat = $requete->fetch()) {
+        echo "Nom du conducteur : " . $resultat['user_nom'] . " " . $resultat['user_prenom'] . "<br>";
+        echo "Date de départ : " . $resultat['traj_date'] . "<br>";
+        echo "Heure de départ : " . $resultat['traj_heure_depart'] . "<br>";
+        echo "Nombre de places disponibles : " . $resultat['traj_places'] . "<br>";
+        echo "<a href='reservTrajet.php?trajet_id=" . $resultat['traj_id'] . "'>Réserver</a><br>";
+    }
+} else {
+    echo "Aucun trajet correspondant.";
 }
 
 $mabd = null;
