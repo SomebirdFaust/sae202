@@ -11,8 +11,11 @@ require 'admin/lib.inc.php';
         <link rel="stylesheet" href="css/styles.css">
         <link rel="stylesheet" href="https://use.typekit.net/nbt8kxx.css">
         <link rel="stylesheet" href="https://use.typekit.net/nbt8kxx.css">
-        <script src="js/script.js" defer></script>
-    </head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300&display=swap" rel="stylesheet">
+
+      </head>
     <body>
         
 

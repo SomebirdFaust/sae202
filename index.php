@@ -23,13 +23,13 @@
             nouvelles personnes.</p>
         </div>
         <div class="question">
-            <h3>Combien coûte un trajet en covoiturage ?</h3>
+            <h3>Combien coûte un trajet en covoiturage ?</h3><br>
             <p>Notre site est entièrement gratuit! Les conducteurs sont gratifiés 
             par votre bonne humeur et le sentiment d'être utile, 
             tout en préservant l'environnement!</p>
         </div>
         <div class="question">
-            <h3>Comment proposer un trajet de covoiturage ?</h3>
+            <h3>Comment proposer un trajet de covoiturage ?</h3><br>
             <p>Pour proposer un trajet, vous devez disposer d'un compte utilisateur 
             et être connecté. Si vous n'en avez pas encore, il vous suffit d'en 
             créer un en vous rendant sur la page "inscription" dans le menu. 

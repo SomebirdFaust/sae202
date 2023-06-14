@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    color: #181818;
 }
 
 p, li, a, input, label, textarea, option, select{
@@ -9,9 +10,7 @@ p, li, a, input, label, textarea, option, select{
 }
 
 h1, h2, h3, h4, h5, h6{
-  font-family: "margot", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+  font-family: 'Geologica', sans-serif;
 }
 
 @media screen and (max-width:480px){ 
@@ -491,6 +490,7 @@ h1, h2, h3, h4, h5, h6{
       #questions h1{
         text-align: center;
         margin-bottom: 20px;
+        font-size: 21px;
       }
 
       .question{
@@ -498,6 +498,30 @@ h1, h2, h3, h4, h5, h6{
         border-radius: 15px;
         padding: 10px;
         margin-bottom: 20px;
+      }
+
+      .titre{
+        width: 360px;
+        border-color: #000000;
+        border-top: 1px solid;
+        border-left: 1px solid;
+        border-right: 1px solid;
+        border-bottom: 2px dashed;
+        background-color: #eeeeee;
+      }
+
+      .blocTexte{
+        width: 350px;
+        background-color: #ffeae1;
+        padding: 5px;
+        display : block;
+        border: 1px solid #000000;
+      }
+
+      .cacher{
+        top: -25px;
+        position: relative;
+        text-align:right;
       }
   
 
