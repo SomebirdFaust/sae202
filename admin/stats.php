@@ -1,8 +1,9 @@
 <?php 
 require 'lib.inc.php';
 ?>
-
 <?php
+$mabd = connexionBD();
+
 // fonction total des réservations
 function obtenirTotalReservations() {
   // requête SQL le total des réservations
@@ -30,5 +31,4 @@ function obtenirReservationsSemaine() {
   return $reservations;
 }
 
-// ...
 ?>

@@ -40,7 +40,7 @@ if ($user) {
                 echo '<input type="submit" value="Enregistrer">';
             echo '</div>';
             echo '<div id="modif_profil_supprimer">';
-                echo '<a href="supprProfil.php">Supprimer le compte</a>';
+                echo '<a href="supprProfil.php">Supprimer le compte.</a>';
             echo '</div>';
 
             echo '</form>';
