@@ -36,12 +36,13 @@ require 'admin/lib.inc.php';
     if (isset($_SESSION['user_id'])) {
         echo '<li style="display: none;"><a href="connexion.php">Connexion</a></li>';
         echo '<li style="display: none;"><a href="inscription.php">Inscription</a></li>';
+        echo '<li><a href="publierTrajet.php">Publier un trajet</a></li>';
     } else {
         echo '<li><a href="connexion.php">Connexion</a></li>';
         echo '<li><a href="inscription.php">Inscription</a></li>';
+        echo '<li style="display: none;"><a href="inscription.php">Inscription</a></li>';    
     }
     ?>
-    <li><a href="publierTrajet.php">Publier un trajet</a></li>
   </ul>
 </div>
 
