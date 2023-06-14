@@ -14,7 +14,7 @@ require 'admin/lib.inc.php';
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300&display=swap" rel="stylesheet">
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
       </head>
     <body>
         
@@ -23,7 +23,7 @@ require 'admin/lib.inc.php';
     <a href="index.php"><img id="logo" src="img/logo.png" alt="logo"></a>
     <div id="mySidenav" class="sidenav">
   <a id="closeBtn" href="#" class="close">×</a>
-  <ul id="nav">
+  <ul>
     <?php
     if (isset($_SESSION['user_id'])) {
         echo '<li><a href="profil.php">Mon profil</a></li>';
@@ -41,15 +41,7 @@ require 'admin/lib.inc.php';
         echo '<li><a href="inscription.php">Inscription</a></li>';
     }
     ?>
-<?php
-if (isset($_SESSION['user_id'])) {
-    // Vérifier si l'utilisateur a ajouté une voiture
-    if (!empty($utilisateurs['user_car'])) {
-        echo '<li><a href="publierTrajet.php">Publier un trajet</a></li>';
-    }
-}
-?>
-
+    <li><a href="publierTrajet.php">Publier un trajet</a></li>
   </ul>
 </div>
 
@@ -65,22 +57,6 @@ if (isset($_SESSION['user_id'])) {
     </nav>
 
     </div>
-    <script>
-$(document).ready(function() {
-    // Vérifier si l'utilisateur est connecté
-    var isLoggedIn = <?php echo isset($_SESSION['user_id']) ? 'true' : 'false'; ?>;
-    
-    // Vérifier si l'utilisateur a une voiture
-    var hasCar = <?php echo !empty($user['user_car']) ? 'true' : 'false'; ?>;
-    
-    // Cacher le lien "Publier un trajet" si l'utilisateur n'est pas connecté ou n'a pas de voiture
-    if (!isLoggedIn || !hasCar) {
-        $('#navigation li:nth-child(5)').hide(); // Cacher le 5ème élément de la liste (index basé sur 1)
-    }
-});
-</script>
-
-</body>
 </header>
 
 
