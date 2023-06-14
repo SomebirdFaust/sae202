@@ -37,10 +37,26 @@ require 'lib.inc.php';
     ?>
 
         </tbody>
+<br>
+<?php
+$mabd = connexionBD();
+$mabd->query('SET NAMES utf8;');
+$req = "SELECT
+        (SELECT COUNT(traj_id) FROM trajets) AS nombre_trajets,
+        (SELECT COUNT(user_id) FROM utilisateurs) AS nombre_utilisateurs,
+        (SELECT COUNT(reserv_id) FROM reservations) AS nombre_reservations";
+
+$result = $mabd->query($req);
+$row = $result->fetch(PDO::FETCH_ASSOC);
+
+$nombreTrajets = $row['nombre_trajets'];
+$nombreUtilisateurs = $row['nombre_utilisateurs'];
+$nombreReservations = $row['nombre_reservations'];
+
+echo "Nombre de trajets : " . $nombreTrajets . "<br>";
+echo "Nombre d'utilisateurs : " . $nombreUtilisateurs . "<br>";
+echo "Nombre de réservations : " . $nombreReservations;
+?>
+
 </body>
 </html>
-
-
-<?php
-//include '../footer.php';
-?>
