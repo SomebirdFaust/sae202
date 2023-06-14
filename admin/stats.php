@@ -1,6 +1,10 @@
 <?php 
 require 'lib.inc.php';
 ?>
+
+<!DOCTYPE html>
+<html lang="fr">
+<body>
 <?php
 $mabd = connexionBD();
 $mabd->query('SET NAMES utf8;');
@@ -11,6 +15,7 @@ $nombreTrajets = $row['nombre_trajets'];
 
 echo "Nombre de trajets : " . $nombreTrajets;
 ?>
+<br>
 <?php
 $req = "SELECT COUNT(user_id) AS nombre_utilisateurs FROM utilisateurs";
 $uresult = $mabd->query($req);
@@ -20,3 +25,5 @@ $nombreUtilisateurs = $row['nombre_utilisateurs'];
 echo "Nombre d'utilisateurs : " . $nombreUtilisateurs;
 ?>
 
+</body>
+</html>
