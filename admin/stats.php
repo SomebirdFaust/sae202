@@ -3,6 +3,16 @@ require 'lib.inc.php';
 ?>
 <?php
 $mabd = connexionBD();
+$mabd->query('SET NAMES utf8;');
+$req = "SELECT * FROM trajets";
+$resultat = $mabd->query($req);
+
+foreach ($resultat as $value) {
+echo '<tr>' ;
+echo '<td>'.$value['traj_id'] . '</td>';
+echo '</tr>';
+}
+?>
 
 // fonction total des réservations
 function obtenirTotalReservations() {
