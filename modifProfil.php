@@ -60,7 +60,7 @@ if ($user) {
         var remainingLength = maxLength - currentLength;
 
         var counter = document.getElementById("characterCount");
-        counter.textContent = remainingLength + " caractères restants";
+        counter.textContent = remainingLength;
 
         if (currentLength > maxLength) {
             textarea.value = textarea.value.substring(0, maxLength); // Limite la saisie à 300 caractères
