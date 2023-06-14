@@ -69,7 +69,7 @@ if ($user) {
 
     // Afficher les trajets créés par l'utilisateur s'il a une voiture
     if (!empty($user['user_car'])) {
-        $requeteCrees = $mabd->prepare("SELECT t.traj_date, p.park_nom, t.traj_arrivee FROM trajets AS t
+        $requeteCrees = $mabd->prepare("SELECT t.traj_id, t.traj_date, p.park_nom, t.traj_arrivee FROM trajets AS t
                                         INNER JOIN parkings AS p ON t._park_id = p.park_id
                                         WHERE t._user_id = :user_id");
         $requeteCrees->bindParam(':user_id', $user['user_id']);
@@ -89,7 +89,7 @@ if ($user) {
         } else {
             echo "Vous n'avez pas créé de trajet.<br>";
         }
-    }    
+    }  
 
     deconnexionBD($mabd);
 } else {
