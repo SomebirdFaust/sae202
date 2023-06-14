@@ -41,7 +41,25 @@ require 'admin/lib.inc.php';
         echo '<li><a href="inscription.php">Inscription</a></li>';
     }
     ?>
-    <li><a href="publierTrajet.php">Publier un trajet</a></li>
+<?php
+function checkPublicationLink()
+{
+    // Vérifier si l'utilisateur est connecté
+    if (!isset($_SESSION['user_id'])) {
+        return 'connexion.php'; // Rediriger vers la page de connexion
+    }
+
+    // Vérifier si l'utilisateur a une voiture
+    $mabd = connexionBD();
+    $user = grab_user($mabd);
+    if (empty($user['user_car'])) {
+        return 'profil.php'; // Rediriger vers la page de profil
+    }
+
+    return 'publierTrajet.php'; // Lien valide pour publier un trajet
+}
+?>
+
   </ul>
 </div>
 
