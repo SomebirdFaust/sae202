@@ -45,8 +45,8 @@ if ($user) {
     echo '</div>';
 
     // Afficher les trajets réservés par l'utilisateur
-    $requeteReserves = $mabd->prepare("SELECT t.traj_date, t.depart, t.destination FROM trajets AS t
-                                      INNER JOIN utilisateurs AS u ON t.conducteur_id = u.user_id
+    $requeteReserves = $mabd->prepare("SELECT t.traj_date, t._park_id, t.traj_arrivee FROM trajets AS t
+                                      INNER JOIN utilisateurs AS u ON t._user_id = u.user_id
                                       INNER JOIN reservations AS r ON t.traj_id = r._traj_id
                                       WHERE r._user_id = :user_id");
     $requeteReserves->bindParam(':user_id', $user['user_id']);
@@ -70,8 +70,8 @@ if ($user) {
 
     // Afficher les trajets créés par l'utilisateur s'il a une voiture
     if (!empty($user['user_car'])) {
-        $requeteCrees = $mabd->prepare("SELECT t.traj_date, t.depart, t.destination FROM trajets AS t
-                                        WHERE t.conducteur_id = :user_id");
+        $requeteCrees = $mabd->prepare("SELECT t.traj_date, t._park_id, t.traj_arrivee FROM trajets AS t
+                                        WHERE t._user_id = :user_id");
         $requeteCrees->bindParam(':user_id', $user['user_id']);
         $requeteCrees->execute();
 
