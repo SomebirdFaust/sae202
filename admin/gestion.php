@@ -37,6 +37,7 @@ require 'lib.inc.php';
     ?>
 
         </tbody>
+<br><br>
 <?php
 $mabd = connexionBD();
 $mabd->query('SET NAMES utf8;');
