@@ -14,6 +14,7 @@ require 'lib.inc.php';
     <a href="../index.php">retour </a>
     <hr> <h1>Gestion des parkings</h1> <hr>
     <a href="ajoutParking.php">Ajouter un parking</a>
+    <a href="stats.php">Stats</a>
     <table border=1 class="table">
     <thead>
         <tr><td>N° d'authentification</td><td>Nom</td><td>Localisation</td><td>Modifier</td><td>Supprimer</td>
@@ -39,8 +40,3 @@ require 'lib.inc.php';
         </tbody>
 </body>
 </html>
-
-
-<?php
-        echo '<a href="stats.php> stats </a>';
-?>
