@@ -23,7 +23,7 @@
     </select>
 
     <label for="nom">Destination</label>
-    <input class="input" type="text" id="dest" name="dest" required><br><br>
+    <input class="input" type="text" id="dest" name="dest" required placeholder="Ville"><br><br>
 
     <label for="date">Date</label>
     <input class="input" type="date" id="date" name="date" required><br><br>
