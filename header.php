@@ -21,7 +21,7 @@ require 'admin/lib.inc.php';
 
 <nav>
     <a href="index.php"><img id="logo" src="img/logo.png" alt="logo"></a>
-    <div id="mySidenav" class="sidenav">
+<div id="mySidenav" class="sidenav">
   <a id="closeBtn" href="#" class="close">×</a>
   <ul>
     <?php
@@ -41,25 +41,7 @@ require 'admin/lib.inc.php';
         echo '<li><a href="inscription.php">Inscription</a></li>';
     }
     ?>
-<?php
-function checkPublicationLink()
-{
-    // Vérifier si l'utilisateur est connecté
-    if (!isset($_SESSION['user_id'])) {
-        return 'connexion.php'; // Rediriger vers la page de connexion
-    }
-
-    // Vérifier si l'utilisateur a une voiture
-    $mabd = connexionBD();
-    $user = grab_user($mabd);
-    if (empty($user['user_car'])) {
-        return 'profil.php'; // Rediriger vers la page de profil
-    }
-
-    return 'publierTrajet.php'; // Lien valide pour publier un trajet
-}
-?>
-
+    <li><a href="publierTrajet.php">Publier un trajet</a></li>
   </ul>
 </div>
 
