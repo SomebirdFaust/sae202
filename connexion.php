@@ -13,7 +13,7 @@ require 'header.php';
 <body>
     <div id="connexion"> 
             <h1>Connexion</h1> 
-            <img src="img/avatar.png" alt="">
+            <img src="img/avatar.png" alt="avatar">
             <form action="connexionVerif.php" method="post"> 
                 <label for="email">E-mail* : </label><br>
                 <input class="input" type="email" name="email" /><br> 
@@ -24,7 +24,7 @@ require 'header.php';
                 </div>
             </form> <br>
             <p>Vous n'avez pas de compte?</p>
-            <a href="inscription.php"><p>Inscrivez vous!</p></a>
+            <a href="inscription.php"><p>Inscrivez-vous!</p></a>
 
     <?php
         if (!empty($_SESSION['erreur'])) {

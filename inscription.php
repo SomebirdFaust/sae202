@@ -8,38 +8,58 @@ require 'header.php';
     <title>Inscription</title>
 </head>
 <body>
-    <h2>Inscription</h2>
-    <form action="inscriptionVerif.php" method="POST">
-      <label for="nom">Nom :</label>
-      <input type="text" id="nom" name="nom" required><br><br>
 
-      <label for="prenom">Prénom :</label>
-      <input type="text" id="prenom" name="prenom" required><br><br>
+    <div id="inscription">
+      <h1>Inscription</h1>
+      <img src="img/avatar.png" alt="avatar">
+      <form action="inscriptionVerif.php" method="POST">
+        <label for="prenom">Prénom*</label>
+        <input class="input" type="text" id="prenom" name="prenom" required><br><br>
 
-      <label for="email">Email :</label>
-      <input type="email" id="email" name="email" required><br><br>
+        <label for="nom">Nom*</label>
+        <input class="input" type="text" id="nom" name="nom" required><br><br>
 
-      <label for="mdp">Mot de passe :</label>
-      <input type="password" id="mdp" name="mdp" required><br><br>
+        <label for="genre">Pronoms*</label>
+        <select class="input" name="genre" id="genre" required>
+            <option value="homme">Il</option>
+            <option value="femme">Elle</option>
+            <option value="autre">Iel</option>
+        </select><br><br>
 
-      <label for="genre">Genre :</label>
-      <select name="genre" id="genre" required>
-          <option value="homme">Homme</option>
-          <option value="femme">Femme</option>
-          <option value="autre">Autre</option>
-      </select><br><br>
+        <label for="email">Email*</label>
+        <input class="input" type="email" id="email" name="email" required><br><br>
 
-      <label for="voiture">Avez-vous une voiture ?</label><br>
-    <input type="radio" name="voiture" value="oui" onclick="showTextField()"> Oui
-    <input type="radio" name="voiture" value="non" onclick="hideTextField()"> Non<br><br>
+        <label for="mdp">Mot de passe*</label>
+        <input class="input" type="password" id="mdp" name="mdp" required><br><br>
 
-    <div id="detailsVoiture" style="display: none;">
-      <label for="detailsVoiture">Précisez la marque, la couleur et le modèle de votre voiture :</label><br>
-      <input type="text" name="detailsVoiture" placeholder="Marque, couleur, modèle"><br><br>
+          <label for="voiture">Avez-vous une voiture ?*</label><br>
+          <div id="radio_voiture">
+          <div id="oui">
+            <input class="input" type="radio" name="voiture" value="oui" onclick="showTextField()">
+            <label for="voiture">Oui</label>
+          </div>
+          <div id="non">
+            <input class="input" type="radio" name="voiture" value="non" onclick="hideTextField()"><br>
+            <label for="voiture">Non</label>
+          </div>
+        </div>
+
+
+        <div id="detailsVoiture" style="display: none;">
+          <label for="detailsVoiture">Précisez la marque, la couleur et le modèle de votre voiture :*</label><br>
+          <input class="input" type="text" name="detailsVoiture" placeholder="Marque, couleur, modèle" required><br><br>
+        </div>
+
+        <div id="inscription_submit">
+          <input type="submit" value="En route!">
+        </div>
+
+      </form>
+      <p>Vous avez déjà un compte?</p>
+      <a href="connexion.php"><p>Connectez-vous!</p></a>
     </div>
 
-    <input type="submit" value="Soumettre">
-  </form>
+    
 
 <script>
   function showTextField() {
@@ -61,3 +81,7 @@ if (isset($_GET['erreur']) && $_GET['erreur'] == 1) {
 
 </body>
 </html>
+
+<?php 
+require 'footer.php';
+?>

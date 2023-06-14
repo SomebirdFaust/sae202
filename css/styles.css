@@ -3,7 +3,7 @@
     padding: 0;
 }
 
-p, li, a, input, label, textarea{
+p, li, a, input, label, textarea, option, select{
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 18px;
 }
@@ -308,12 +308,12 @@ h1, h2, h3, h4, h5, h6{
         height: 250px;
       }
 
-      #modif_profil_enregistrer{
+      #modif_profil_enregistrer, #inscription_submit{
         display: flex;
         justify-content: center;
       }
 
-      #modif_profil_enregistrer input, #modif_profil_supprimer a, #submit_contact input{
+      #modif_profil_enregistrer input, #modif_profil_supprimer a, #submit_contact input, #inscription_submit input{
         width: auto;
         height: 35px;
         text-align: center;
@@ -325,7 +325,7 @@ h1, h2, h3, h4, h5, h6{
         padding: 0 10px;
       }
 
-      #modif_profil_enregistrer input, #submit_contact input{
+      #modif_profil_enregistrer input, #submit_contact input, #inscription_submit input{
         background-color: #5bacc7;
         border: #5bacc7;
       }
@@ -392,6 +392,64 @@ h1, h2, h3, h4, h5, h6{
 
       textarea#message.input{
         padding-top: 5px;
+      }
+
+      /* PAGE INCRIPTION */
+
+      #inscription{
+        margin: auto;
+        text-align: center;
+      }
+
+      #inscription h1{
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 20px;
+      }
+
+      #inscription img{
+        width: 175px;
+        margin-bottom: 30px;
+      }
+
+      #inscription form{
+        margin: auto;
+        width: 70%;
+        text-align: start;
+      }
+
+      #inscription{
+        margin-bottom: 100px;
+      }
+
+      #inscription p{
+        font-size: 15px;
+        color: #000;
+      }
+
+      #inscription a{
+        color: #000;
+      }
+
+      #radio_voiture{
+        display: flex;
+      }
+
+      #oui{
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        margin-right: 40px;
+      }
+
+      #oui input, #non input{
+        width: 20px;
+        margin-right: 5px;
+      }
+
+      #non{
+        display: flex;
+        align-items: center;
       }
   
 
