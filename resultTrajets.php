@@ -27,6 +27,7 @@ $requete->execute();
 while ($resultat = $requete->fetch()) {
     echo "Nom du conducteur : " . $resultat['user_nom'] . " " . $resultat['user_prenom'] . "<br>";
     echo "Date de départ : " . $resultat['date'] . "<br>";
+    echo "Heure de départ : " . $resultat['traj_heure_depart'] . "<br>";
     echo "Nombre de places disponibles : " . $resultat['traj_places'] . "<br>";
     echo "<a href='reservTrajet.php?trajet_id=" . $resultat['traj_id'] . "'>Réserver</a><br>";
 }

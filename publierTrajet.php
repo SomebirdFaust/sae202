@@ -30,6 +30,9 @@
     <label for="date">Date</label>
     <input class="input" type="date" id="date" name="date" required><br><br>
 
+    <label for="heure">Heure de départ</label>
+    <input class="input" type="time" id="heure" name="heure" required><br><br>
+
     <label for="places">Nombre de places</label>
     <select class="input" name="places" id="places" required>
         <?php
