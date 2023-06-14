@@ -9,6 +9,31 @@
         date
         bouton submit
     -->
+    <form action="resultTrajet.php" method="POST">
+    <label for="depart">Départ</label>
+    <select class="input" name="depart" id="depart" required>
+        <?php
+        $mabd = connexionBD();
+        $requete = $mabd->query("SELECT park_nom FROM parkings");
+        while ($park = $requete->fetch()) {
+            $parkingNom = $park['park_nom'];
+            echo "<option value='$parkingNom'>$parkingNom</option>";
+        }
+        ?>
+    </select>
+
+    <label for="nom">Destination</label>
+    <input class="input" type="text" id="dest" name="dest" required><br><br>
+
+    <label for="date">Date</label>
+    <input class="input" type="date" id="date" name="date" required><br><br>
+
+    <div id="trajet_submit">
+        <input type="submit" value="En route!">
+    </div>
+</form>
+
+
 </div>
 <div id="video">
     <iframe src="https://www.youtube.com/embed/I_UktiOb_7c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
