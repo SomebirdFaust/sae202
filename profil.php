@@ -45,7 +45,7 @@ if ($user) {
     echo '</div>';
 
     // Afficher les trajets réservés par l'utilisateur
-    $requeteReserves = $mabd->prepare("SELECT t.*, u.user_nom, u.user_prenom FROM trajets AS t
+    $requeteReserves = $mabd->prepare("SELECT t.date, t.depart, t.destination FROM trajets AS t
                                       INNER JOIN utilisateurs AS u ON t.conducteur_id = u.user_id
                                       INNER JOIN reservations AS r ON t.traj_id = r._traj_id
                                       WHERE r._user_id = :user_id");
@@ -56,11 +56,10 @@ if ($user) {
     $trajetReserve = $requeteReserves->fetch();
     if ($trajetReserve) {
         while ($trajetReserve) {
-            echo "Nom du conducteur : " . $trajetReserve['user_nom'] . " " . $trajetReserve['user_prenom'] . "<br>";
             echo "Date de départ : " . $trajetReserve['date'] . "<br>";
-            echo "Nombre de places disponibles : " . $trajetReserve['traj_places'] . "<br>";
-            echo "<a href='modifierTrajet.php?trajet_id=" . $trajetReserve['traj_id'] . "'>Modifier</a> ";
-            echo "<a href='supprimerTrajet.php?trajet_id=" . $trajetReserve['traj_id'] . "'>Supprimer</a><br>";
+            echo "Départ : " . $trajetReserve['depart'] . "<br>";
+            echo "Arrivée : " . $trajetReserve['destination'] . "<br>";
+            echo "<a href='infoReserv.php?trajet_id=" . $trajetReserve['traj_id'] . "'>Modifier</a> ";
 
             $trajetReserve = $requeteReserves->fetch();
         }
@@ -80,11 +79,10 @@ if ($user) {
         $trajetCree = $requeteCrees->fetch();
         if ($trajetCree) {
             while ($trajetCree) {
-                echo "Nom du conducteur : " . $trajetCree['user_nom'] . " " . $trajetCree['user_prenom'] . "<br>";
                 echo "Date de départ : " . $trajetCree['date'] . "<br>";
-                echo "Nombre de places disponibles : " . $trajetCree['traj_places'] . "<br>";
-                echo "<a href='modifierTrajet.php?trajet_id=" . $trajetCree['traj_id'] . "'>Modifier</a> ";
-                echo "<a href='supprimerTrajet.php?trajet_id=" . $trajetCree['traj_id'] . "'>Supprimer</a><br>";
+                echo "Départ : " . $trajetCree['depart'] . "<br>";
+                echo "Arrivée : " . $trajetCree['destination'] . "<br>";
+                echo "<a href='infoTrajet.php?trajet_id=" . $trajetCree['traj_id'] . "'>Modifier</a> ";
 
                 $trajetCree = $requeteCrees->fetch();
             }
