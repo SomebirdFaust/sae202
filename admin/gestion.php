@@ -14,7 +14,6 @@ require 'lib.inc.php';
     <a href="../index.php">retour </a>
     <hr> <h1>Gestion des parkings</h1> <hr>
     <a href="ajoutParking.php">Ajouter un parking</a>
-    <a href="stats.php">Stats</a>
     <table border=1 class="table">
     <thead>
         <tr><td>N° d'authentification</td><td>Nom</td><td>Localisation</td><td>Modifier</td><td>Supprimer</td>
@@ -38,5 +37,25 @@ require 'lib.inc.php';
     ?>
 
         </tbody>
+<?php
+$mabd = connexionBD();
+$mabd->query('SET NAMES utf8;');
+$req = "SELECT
+        (SELECT COUNT(traj_id) FROM trajets) AS nombre_trajets,
+        (SELECT COUNT(user_id) FROM utilisateurs) AS nombre_utilisateurs,
+        (SELECT COUNT(reserv_id) FROM reservations) AS nombre_reservations";
+
+$result = $mabd->query($req);
+$row = $result->fetch(PDO::FETCH_ASSOC);
+
+$nombreTrajets = $row['nombre_trajets'];
+$nombreUtilisateurs = $row['nombre_utilisateurs'];
+$nombreReservations = $row['nombre_reservations'];
+
+echo "Nombre de trajets : " . $nombreTrajets . "<br>";
+echo "Nombre d'utilisateurs : " . $nombreUtilisateurs . "<br>";
+echo "Nombre de réservations : " . $nombreReservations;
+?>
+
 </body>
 </html>
