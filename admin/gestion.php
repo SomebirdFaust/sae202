@@ -42,5 +42,5 @@ require 'lib.inc.php';
 
 
 <?php
-//include '../footer.php';
+        echo '<a href="stats.php> stats </a>';
 ?>
