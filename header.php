@@ -43,13 +43,13 @@ require 'admin/lib.inc.php';
     ?>
 <?php
 if (isset($_SESSION['user_id'])) {
+    // Vérifier si l'utilisateur a ajouté une voiture
     if (!empty($user['user_car'])) {
         echo '<li><a href="publierTrajet.php">Publier un trajet</a></li>';
-    } else {
-        echo '<li style="display: none;"><a href="publierTrajet.php">Publier un trajet</a></li>';
     }
 }
 ?>
+
   </ul>
 </div>
 
