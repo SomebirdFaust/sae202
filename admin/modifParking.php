@@ -1,3 +1,7 @@
+<?php 
+require 'lib.inc.php';
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,11 +15,11 @@
 <form class="formulaire" method="POST" enctype="multipart/form-data" action="modifValideParking.php">
      <?php
     $num = $_GET['num'];
-    $mabd = new PDO('mysql:host=localhost;dbname=sae202;charset=UTF8;', 'sae202admin', 'WW3dbpasswd202');
+    $mabd = connexionBD();
     $mabd->query('SET NAMES utf8;');
     $req = "SELECT * FROM  parkings WHERE park_id=$num";
     $resultat = $mabd->query($req);
-    $park= $resultat->fetch();
+    $park = $resultat->fetch();
     echo $park['park_nom'];
     ?>
     <hr>

@@ -7,24 +7,48 @@
 <a href="gestion.php">retour</a> 	
 <hr> <h1>Suppression d'un parking</h1> <hr>
 
+<?php 
+require 'lib.inc.php';
+?>
+
 <?php
 // recupérer dans l'url l'id du parking à supprimer
 $num=$_GET['num'];
 $park_nom=$_GET['park_nom'];
 
-$mabd = new PDO('mysql:host=localhost;dbname=sae202;charset=UTF8;', 'sae202admin', 'WW3dbpasswd202');
+$mabd = connexionBD();
 $mabd->query('SET NAMES utf8;');
 
 // tapez ici la requete de suppression du parking dont l'id est passé dans l'url
 $req = 'DELETE FROM parkings WHERE park_id='. $num; 
 
-// cette ligne sert juste pour le debug. à supprimer quand tout marche correctement  
-
-//echo $req;
-
 echo '<h2>Vous venez de supprimer le '.$park_nom.'.</h2>';
 
 $resultat = $mabd->query($req);
+
+try {
+    $mabd = connexionBD();
+    $req = $mabd->prepare('SELECT COUNT(*) as count FROM utilisateurs WHERE user_id = :user_id');
+    $req->execute(array(':user_id' => $user_id));
+    $result = $req->fetch(PDO::FETCH_ASSOC);
+
+    if ($result['count'] > 0) {
+        // Suppression de l'utilisateur et de ses données
+        $req = $mabd->prepare('DELETE FROM utilisateurs WHERE user_id = :user_id');
+        $req->execute(array(':user_id' => $user_id));
+
+        header('location: ../index.php?deleted=1');
+        exit();
+    } else {
+        echo "Utilisateur non trouvé !";
+        header('location: ../modifProfil.php?erreur=1');
+        exit();
+    }
+} catch (PDOException $e) {
+    die("Erreur de connexion à la base de données : " . $e->getMessage());
+}
+
+
 ?>
 
 </body>

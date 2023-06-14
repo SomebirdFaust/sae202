@@ -1,5 +1,4 @@
 <?php
-require 'admin/lib.inc.php';
 require 'header.php';
 ?>
 
@@ -28,7 +27,7 @@ if ($user) {
             echo '<label for="nom">Nom</label> <br />';
             echo '<input class="input" type="text" name="nom" value="' . ucfirst($user['user_nom']) . '"><br />';
             echo '<label for="genre">Genre</label> <br />';
-            echo '<input class="input" type="text" name="genre" value="' . ucfirst($user['user_genre']) . '"><br />';
+            echo '<input class="input" type="text" name="genre" value="' . ['user_genre'] . '"><br />';
             echo '<label for="email">Email</label> <br />';
             echo '<input class="input" type="text" name="email" value="' . $user['user_mail'] . '"><br />';
             echo '<label for="vehicule">Véhicule</label> <br />';
@@ -41,15 +40,12 @@ if ($user) {
                 echo '<input type="submit" value="Enregistrer">';
             echo '</div>';
             echo '<div id="modif_profil_supprimer">';
-                echo '<input type="submit" value="Supprimer le compte">';
+                echo '<a href="supprProfil.php">Supprimer le compte.</a>';
             echo '</div>';
 
             echo '</form>';
             echo '<input type="hidden" name="user_id" value="' . $user['user_id'] . '">';
     echo '</div>';
-
-} else {
-    echo "Vous n'êtes pas connecté(e) !";
 }
 ?>
 

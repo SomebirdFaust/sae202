@@ -1,3 +1,7 @@
+<?php 
+require 'admin/lib.inc.php';
+?> 
+
 <!DOCTYPE html>
     <html lang="fr">
     <head>

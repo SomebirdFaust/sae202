@@ -1,3 +1,7 @@
+<?php 
+require 'lib.inc.php';
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -16,7 +20,7 @@
     </thead>
         <tbody>
     <?php
-    $mabd = new PDO('mysql:host=localhost;dbname=sae202;charset=UTF8;', 'sae202admin', 'WW3dbpasswd202');
+    $mabd = connexionBD();
     $mabd->query('SET NAMES utf8;');
     $req = "SELECT * FROM parkings";
     $resultat = $mabd->query($req);
