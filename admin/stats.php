@@ -31,7 +31,7 @@ $rresult = $mabd->query($req);
 $row = $rresult->fetch(PDO::FETCH_ASSOC);
 $nombreReserv = $row['nombre_reserv'];
 
-echo "Nombre d'utilisateurs : " . $nombreReserv;
+echo "Nombre de réservations : " . $nombreReserv;
 ?>
 
 </body>
