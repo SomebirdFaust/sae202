@@ -13,11 +13,14 @@ h1, h2, h3, h4, h5, h6{
   font-family: 'Geologica', sans-serif;
 }
 
+body{
+  background-color: #fff7f4;
+}
+
 @media screen and (max-width:480px){ 
 
-    body{
-        background-color: #fff7f4;
-    }
+
+    /* HEADER */
 
     nav{
         background-color: #0e8c77 !important;
@@ -47,482 +50,503 @@ h1, h2, h3, h4, h5, h6{
         box-shadow: -5px 0px 50px #0a645557;
       }
   
-      /* Sidenav menu links */
-      .sidenav a {
-        padding: 8px 8px 8px 32px;
-        text-decoration: none;
-        font-size: 20px;
-        color: #fff;
-        display: block;
-        transition: 0.3s;
-        text-align: start;
-      }
+    /* Sidenav menu links */
+    .sidenav a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 20px;
+      color: #fff;
+      display: block;
+      transition: 0.3s;
+      text-align: start;
+    }
+
+    .sidenav a:hover {
+      color: #111;
+    }
+
+    .sidenav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    /* Active class */
+    .sidenav.active {
+      right: 0;
+    }
+
+    /* Close btn */
+    .sidenav .close {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+    }
+
+    /* Icône burger */
+    .burger-icon span {
+      display: block;
+      width: 30px;
+      height: 3px;
+      background-color: #fff;
+      margin-bottom: 6px;
+      margin-right: 20px;
+    }
+
+    /* PAGE PROFIL */
+    #infos_profil{
+      margin: auto;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    #infos_profil img{
+      width: 175px;
+      margin-bottom: 10px;
+    }
+
+    #infos_profil p{
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    #bio_profil{
+      margin: auto;
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    input#bio{
+      width: 75%;
+      height: 100px;
+      border-radius: 10px;
+      background-color: #fff;
+    }
+
+    #voiture_profil{
+      margin: auto;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #voiture_profil img{
+      width: 50px;
+      margin-right: 5px;
+    }
+
+    #infos_profil, #bio_profil, #voiture_profil, #erreur_connexion_profil{
+      font-size: 20px;
+    }
+
+    #bio_profil{
+      margin-bottom: 25px;
+      width: 70%;
+      font-size: 15px;
+      text-align: start;
+      background-color: #d9d9d9;
+      border-radius: 10px;
+      padding: 15px;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    #erreur_connexion_profil{
+      margin: auto;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    #boutons_profil{
+      margin: auto;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    #boutons_profil button, #bouton_modif button, #bouton_deconnexion button{
+      width: 200px;
+      height: 35px;
+      margin-top: 10px;
+      font-size: 18px;
+      border-radius: 15px;
+      color: #FFF;
+    }
+
+    #bouton_connexion button, #bouton_inscription button, #bouton_modif button{
+      background-color: #5bacc7;
+      border: 1px solid #5bacc7;
+    }
+
+    #bouton_deconnexion button{
+      background-color: #e31e2f;
+      border: 1px solid #e31e2f;
+    }
+
+
+
+    /* FOOTER */
+
+    footer{
+      display: flex;
+      background-color: #0e8c77;
+      width: 100%;
+      height: 60px;
+      align-content: center;
+      justify-content: center;
+      position: fixed;
+      bottom: 0;
+    }
+
+    footer a{
+      text-decoration: none;
+      padding: 0 2px 0 2px;
+      font-size: 13px;
+      color: #FFF;
+    }
+
+    footer li{
+      list-style: none;
+    }
+
+    footer ul{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* PAGE MENTIONS LÉGALES */
+
+    #mentions_legales{
+      margin: 20px 30px;
+    }
+
+    /* PAGE CONNEXION */
+
+    #connexion{
+      margin: auto;
+      text-align: center;
+    }
+
+    #connexion h1{
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+
+    #connexion img{
+      width: 175px;
+      margin-bottom: 30px;
+    }
+
+    .input{
+      width: 100%;
+      height: 35px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      background-color: #d9d9d9;
+      border: #d9d9d9;
+    }
+
+    #connexion p{
+      font-size: 15px;
+      color: #000;
+    }
+
+    #connexion a{
+      color: #000;
+    }
+
+    #connexion form{
+      margin: auto;
+      width: 70%;
+      text-align: start;
+    }
+
+    #div_submit_connexion{
+      display: flex;
+      justify-content: center;
+    }
+
+    input#submit_connexion{
+      width: 55%;
+      height: 35px;
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      background-color: #5bacc7;
+      border: #5bacc7;
+      color: #FFF;
+      border-radius: 15px;
+    }
+
+
+    /* PAGE MODIF PROFIL */
+
+    #img_modif_profil{
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+      margin-top: 40px;
+    }
+
+    #img_modif_profil img{
+      width: 175px;
+    }
+
+    #modif_profil{
+      margin: auto;
+      text-align: center;
+    }
   
-      .sidenav a:hover {
-        color: #111;
-      }
-  
-      .sidenav ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-      }
-  
-      /* Active class */
-      .sidenav.active {
-        right: 0;
-      }
-  
-      /* Close btn */
-      .sidenav .close {
-        position: absolute;
-        top: 0;
-        right: 25px;
-        font-size: 36px;
-      }
-  
-      /* Icône burger */
-      .burger-icon span {
-        display: block;
-        width: 30px;
-        height: 3px;
-        background-color: #fff;
-        margin-bottom: 6px;
-        margin-right: 20px;
-      }
-
-      /* PAGE PROFIL */
-      #infos_profil{
-        margin: auto;
-        text-align: center;
-        margin-top: 40px;
-      }
-
-      #infos_profil img{
-        width: 175px;
-        margin-bottom: 10px;
-      }
-
-      #infos_profil p{
-        font-size: 20px;
-        margin-bottom: 5px;
-      }
-
-      #bio_profil{
-        margin: auto;
-        margin-top: 40px;
-        text-align: center;
-      }
-
-      input#bio{
-        width: 75%;
-        height: 100px;
-        border-radius: 10px;
-        background-color: #fff;
-      }
-
-      #voiture_profil{
-        margin: auto;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      #voiture_profil img{
-        width: 50px;
-        margin-right: 5px;
-      }
-
-      #infos_profil, #bio_profil, #voiture_profil, #erreur_connexion_profil{
-        font-size: 20px;
-      }
-
-      #bio_profil{
-        margin-bottom: 25px;
-        width: 70%;
-        font-size: 15px;
-        text-align: start;
-        background-color: #d9d9d9;
-        border-radius: 10px;
-        padding: 15px;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-      }
-
-      #erreur_connexion_profil{
-        margin: auto;
-        text-align: center;
-        margin-top: 50px;
-      }
-
-      #boutons_profil{
-        margin: auto;
-        text-align: center;
-        margin-top: 40px;
-      }
-
-      #boutons_profil button{
-        width: 200px;
-        height: 35px;
-        margin-top: 10px;
-        font-size: 18px;
-        border-radius: 15px;
-        color: #FFF;
-      }
-
-      #bouton_connexion button, #bouton_inscription button{
-        background-color: #5bacc7;
-        border: 1px solid #5bacc7;
-      }
-
-
-
-      /* FOOTER */
-
-      footer{
-        display: flex;
-        background-color: #0e8c77;
-        width: 100%;
-        height: 60px;
-        align-content: center;
-        justify-content: center;
-        position: fixed;
-        bottom: 0;
-      }
-
-      footer a{
-        text-decoration: none;
-        padding: 0 2px 0 2px;
-        font-size: 13px;
-        color: #FFF;
-      }
-
-      footer li{
-        list-style: none;
-      }
-
-      footer ul{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      /* PAGE MENTIONS LÉGALES */
-
-      #mentions_legales{
-        margin: 20px 30px;
-      }
-
-      /* PAGE CONNEXION */
-
-      #connexion{
-        margin: auto;
-        text-align: center;
-      }
-
-      #connexion h1{
-        text-align: center;
-        margin-top: 40px;
-        margin-bottom: 20px;
-      }
-
-      #connexion img{
-        width: 175px;
-        margin-bottom: 30px;
-      }
-
-      .input{
-        width: 100%;
-        height: 35px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        border-radius: 10px;
-        background-color: #d9d9d9;
-        border: #d9d9d9;
-      }
-
-      #connexion p{
-        font-size: 15px;
-        color: #000;
-      }
-
-      #connexion a{
-        color: #000;
-      }
-
-      #connexion form{
-        margin: auto;
-        width: 70%;
-        text-align: start;
-      }
-
-      #div_submit_connexion{
-        display: flex;
-        justify-content: center;
-      }
-
-      input#submit_connexion{
-        width: 55%;
-        height: 35px;
-        text-align: center;
-        margin-top: 40px;
-        margin-bottom: 20px;
-        background-color: #5bacc7;
-        border: #5bacc7;
-        color: #FFF;
-        border-radius: 15px;
-      }
-
-
-      /* PAGE MODIF PROFIL */
-
-      #img_modif_profil{
-        display: flex;
-        justify-content: center;
-        margin-bottom: 30px;
-        margin-top: 40px;
-      }
-
-      #img_modif_profil img{
-        width: 175px;
-      }
-
-      #modif_profil{
-        margin: auto;
-        text-align: center;
-      }
-    
-      #modif_profil form{
-        margin: auto;
-        width: 70%;
-        text-align: start;
-      }
-
-      #modif_profil input, #modif_profil textarea{
-        padding-left: 10px;
-        margin-left: -5px;
-      }
-
-      #modif_profil textarea{
-        height: 250px;
-      }
-
-      #modif_profil_enregistrer, #inscription_submit{
-        display: flex;
-        justify-content: center;
-      }
-
-      #modif_profil_enregistrer input, #modif_profil_supprimer a, #submit_contact input, #inscription_submit input{
-        width: auto;
-        height: 35px;
-        text-align: center;
-        margin-top: 40px;
-        margin-bottom: 20px;
-        color: #FFF;
-        border-radius: 10px;
-        font-size: 15px;
-        padding: 0 10px;
-      }
-
-      #modif_profil_enregistrer input, #submit_contact input, #inscription_submit input{
-        background-color: #5bacc7;
-        border: #5bacc7;
-      }
-
-      #modif_profil_supprimer a{
-        background-color: #e31e2f;
-        border: #e31e2f;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-      }
-
-      #modif_profil_supprimer{
-        display: flex;
-        justify-content: center;
-        margin-top: -40px;
-        margin-bottom: 70px;
-      }
-
-      /* PAGE CONTACT */
-
-      #contact_header h1{
-        margin-top: 40px;
-        text-align: center;
-        margin-bottom: 40px;
-      }
-
-      #contact_header p{
-        width: 70%;
-        margin: auto;
-        font-size: 15px;
-      }
-
-      #contact{
-        margin: auto;
-        text-align: center;
-      }
-
-      #contact form{
-        margin: auto;
-        width: 70%;
-        text-align: start;
-      }
-
-      #contact input, #contact textarea{
-        padding-left: 10px;
-        margin-left: -5px;
-      }
-
-      #contact textarea{
-        height: 250px;
-      }
-  
-      #submit_contact{
-        display: flex;
-        justify-content: center;
-        margin-bottom: 70px;
-      }
-
-      #submit_contact input{
-        padding: 0 50px;
-        margin-top: 5px;
-      }
-
-      textarea#message.input{
-        padding-top: 5px;
-      }
-
-      /* PAGE INCRIPTION */
-
-      #inscription{
-        margin: auto;
-        text-align: center;
-      }
-
-      #inscription h1{
-        text-align: center;
-        margin-top: 40px;
-        margin-bottom: 20px;
-      }
-
-      #inscription img{
-        width: 175px;
-        margin-bottom: 30px;
-      }
-
-      #inscription form{
-        margin: auto;
-        width: 70%;
-        text-align: start;
-      }
-
-      #inscription{
-        margin-bottom: 100px;
-      }
-
-      #inscription p{
-        font-size: 15px;
-        color: #000;
-      }
-
-      #inscription a{
-        color: #000;
-      }
-
-      #radio_voiture{
-        display: flex;
-      }
-
-      #oui{
-        display: flex;
-        align-items: center;
-        justify-content: start;
-        margin-right: 40px;
-      }
-
-      #oui input, #non input{
-        width: 20px;
-        margin-right: 5px;
-      }
-
-      #non{
-        display: flex;
-        align-items: center;
-      }
-
-      /* PAGE ACCUEIL */
-
-      #accueil_logo{
-        font-size: 60px;
-        text-align: center;
-        font-family: "margot", sans-serif;
-        font-weight: 400;
-        font-style: italic;
-        color: #e31e2f;
-        margin: 50px 0;
-      }
-
-      #recherche_trajet{
-        width: 70%;
-        margin: auto;
-      }
-
-      #video{
-        width: 90%;
-        height: 210px;
-        margin: auto;
-      }
-
-      iframe{
-        width: 100%;
-        height: 210px;
-        border-radius: 15px;
-      }
-
-      #questions{
-        width: 70%;
-        margin: auto;
-        margin-top: 50px;
-        margin-bottom: 115px;
-      }
-
-      #questions h1{
-        text-align: center;
-        margin-bottom: 20px;
-        font-size: 21px;
-      }
-
-      .question{
-        background-color: #d9d9d9;
-        border-radius: 15px;
-        padding: 10px;
-        margin-bottom: 20px;
-      }
-
-      .titre{
-        width: 360px;
-        border-color: #000000;
-        border-top: 1px solid;
-        border-left: 1px solid;
-        border-right: 1px solid;
-        border-bottom: 2px dashed;
-        background-color: #eeeeee;
-      }
-
-      .blocTexte{
-        width: 350px;
-        background-color: #ffeae1;
-        padding: 5px;
-        display : block;
-        border: 1px solid #000000;
-      }
-
-      .cacher{
-        top: -25px;
-        position: relative;
-        text-align:right;
-      }
-  
+    #modif_profil form{
+      margin: auto;
+      width: 70%;
+      text-align: start;
+    }
+
+    #modif_profil input, #modif_profil textarea{
+      padding-left: 10px;
+      margin-left: -5px;
+    }
+
+    #modif_profil textarea{
+      height: 250px;
+    }
+
+    #modif_profil_enregistrer, #inscription_submit{
+      display: flex;
+      justify-content: center;
+    }
+
+    #modif_profil_enregistrer input, #modif_profil_supprimer a, #submit_contact input, #inscription_submit input{
+      width: auto;
+      height: 35px;
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      color: #FFF;
+      border-radius: 10px;
+      font-size: 15px;
+      padding: 0 10px;
+    }
+
+    #modif_profil_enregistrer input, #submit_contact input, #inscription_submit input{
+      background-color: #5bacc7;
+      border: #5bacc7;
+    }
+
+    #modif_profil_supprimer a{
+      background-color: #e31e2f;
+      border: #e31e2f;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    #modif_profil_supprimer{
+      display: flex;
+      justify-content: center;
+      margin-top: -40px;
+      margin-bottom: 70px;
+    }
+
+    /* PAGE CONTACT */
+
+    #contact_header h1{
+      margin-top: 40px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    #contact_header p{
+      width: 70%;
+      margin: auto;
+      font-size: 15px;
+    }
+
+    #contact{
+      margin: auto;
+      text-align: center;
+    }
+
+    #contact form{
+      margin: auto;
+      width: 70%;
+      text-align: start;
+    }
+
+    #contact input, #contact textarea{
+      padding-left: 10px;
+      margin-left: -5px;
+    }
+
+    #contact textarea{
+      height: 250px;
+    }
+
+    #submit_contact{
+      display: flex;
+      justify-content: center;
+      margin-bottom: 70px;
+    }
+
+    #submit_contact input{
+      padding: 0 50px;
+      margin-top: 5px;
+    }
+
+    textarea#message.input{
+      padding-top: 5px;
+    }
+
+    /* PAGE INCRIPTION */
+
+    #inscription{
+      margin: auto;
+      text-align: center;
+    }
+
+    #inscription h1{
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+
+    #inscription img{
+      width: 175px;
+      margin-bottom: 30px;
+    }
+
+    #inscription form{
+      margin: auto;
+      width: 70%;
+      text-align: start;
+    }
+
+    #inscription{
+      margin-bottom: 100px;
+    }
+
+    #inscription p{
+      font-size: 15px;
+      color: #000;
+    }
+
+    #inscription a{
+      color: #000;
+    }
+
+    #radio_voiture{
+      display: flex;
+    }
+
+    #oui{
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      margin-right: 40px;
+    }
+
+    #oui input, #non input{
+      width: 20px;
+      margin-right: 5px;
+    }
+
+    #non{
+      display: flex;
+      align-items: center;
+    }
+
+    /* PAGE ACCUEIL */
+
+    #accueil_logo{
+      font-size: 60px;
+      text-align: center;
+      font-family: "margot", sans-serif;
+      font-weight: 400;
+      font-style: italic;
+      color: #e31e2f;
+      margin: 50px 0;
+    }
+
+    #recherche_trajet{
+      width: 70%;
+      margin: auto;
+    }
+
+    #video{
+      width: 90%;
+      height: 210px;
+      margin: auto;
+    }
+
+    iframe{
+      width: 100%;
+      height: 210px;
+      border-radius: 15px;
+    }
+
+    #questions{
+      width: 70%;
+      margin: auto;
+      margin-top: 50px;
+      margin-bottom: 115px;
+    }
+
+    #questions h1{
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 21px;
+    }
+
+    .question{
+      background-color: #d9d9d9;
+      border-radius: 15px;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    .titre{
+      width: 360px;
+      border-color: #000000;
+      border-top: 1px solid;
+      border-left: 1px solid;
+      border-right: 1px solid;
+      border-bottom: 2px dashed;
+      background-color: #eeeeee;
+    }
+
+    .blocTexte{
+      width: 350px;
+      background-color: #ffeae1;
+      padding: 5px;
+      display : block;
+      border: 1px solid #000000;
+    }
+
+    .cacher{
+      top: -25px;
+      position: relative;
+      text-align:right;
+    }
+
+}
+
+
+@media screen and (min-width:480px){
+
+    /* HEADER */
+
+    nav{
+      background-color: #0e8c77;
+      width: 100%;
+      height: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
 
 }

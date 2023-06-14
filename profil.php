@@ -32,6 +32,19 @@ if ($user) {
     echo '<img src="img/voiture.png" alt="icone voiture">';
     echo '<p>' . ucfirst($user['user_car']) . '</p>' . "\n";
     echo '</div>';
+
+    echo '<div id="bouton_modif">';
+        echo '<form action="modifProfil.php" method="post">';
+            echo '<button type="submit">Modifier le profil</button>';
+        echo '</form>';
+    echo '</div>';
+
+    echo '<div id="bouton_deconnexion">';
+        echo '<form action="deconnexion.php" method="post">';
+            echo '<button type="submit">Se déconnecter</button>';
+        echo '</form>';
+    echo '</div>';
+
 } else {
     echo '<div id="erreur_connexion_profil">';
     echo '<p>Vous n\'êtes pas connecté(e) !</p>';
