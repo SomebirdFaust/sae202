@@ -153,6 +153,7 @@ h1, h2, h3, h4, h5, h6{
       #erreur_connexion_profil{
         margin: auto;
         text-align: center;
+        margin-top: 50px;
       }
 
       #boutons_profil{
@@ -163,22 +164,19 @@ h1, h2, h3, h4, h5, h6{
 
       #boutons_profil button{
         width: 200px;
-        height: 40px;
+        height: 35px;
         margin-top: 10px;
         font-size: 18px;
         border-radius: 15px;
         color: #FFF;
       }
 
-      #bouton_modif button{
+      #bouton_connexion button, #bouton_inscription button{
         background-color: #5bacc7;
         border: 1px solid #5bacc7;
       }
 
-      #bouton_deconnexion button{
-        background-color: #e31e2f;
-        border: 1px solid #e31e2f;
-      }
+
 
       /* FOOTER */
 
@@ -315,28 +313,29 @@ h1, h2, h3, h4, h5, h6{
         justify-content: center;
       }
 
-      #modif_profil_enregistrer input, #modif_profil_supprimer input{
+      #modif_profil_enregistrer input, #modif_profil_supprimer a, #submit_contact input{
         width: auto;
         height: 35px;
         text-align: center;
         margin-top: 40px;
         margin-bottom: 20px;
-        background-color: #5bacc7;
-        border: #5bacc7;
         color: #FFF;
         border-radius: 10px;
         font-size: 15px;
         padding: 0 10px;
       }
 
-      #modif_profil_enregistrer input{
+      #modif_profil_enregistrer input, #submit_contact input{
         background-color: #5bacc7;
         border: #5bacc7;
       }
 
-      #modif_profil_supprimer input{
+      #modif_profil_supprimer a{
         background-color: #e31e2f;
         border: #e31e2f;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
       }
 
       #modif_profil_supprimer{
@@ -345,7 +344,55 @@ h1, h2, h3, h4, h5, h6{
         margin-top: -40px;
         margin-bottom: 70px;
       }
+
+      /* PAGE CONTACT */
+
+      #contact_header h1{
+        margin-top: 40px;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      #contact_header p{
+        width: 70%;
+        margin: auto;
+        font-size: 15px;
+      }
+
+      #contact{
+        margin: auto;
+        text-align: center;
+      }
+
+      #contact form{
+        margin: auto;
+        width: 70%;
+        text-align: start;
+      }
+
+      #contact input, #contact textarea{
+        padding-left: 10px;
+        margin-left: -5px;
+      }
+
+      #contact textarea{
+        height: 250px;
+      }
   
+      #submit_contact{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 70px;
+      }
+
+      #submit_contact input{
+        padding: 0 50px;
+        margin-top: 5px;
+      }
+
+      textarea#message.input{
+        padding-top: 5px;
+      }
   
 
 }
