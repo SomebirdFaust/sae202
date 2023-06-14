@@ -27,7 +27,11 @@ if ($user) {
             echo '<label for="nom">Nom</label> <br />';
             echo '<input class="input" type="text" name="nom" value="' . ucfirst($user['user_nom']) . '"><br />';
             echo '<label for="genre">Pronoms</label> <br />';
-            echo '<input class="input" type="text" name="genre" value="' . $user['user_genre'] . '"><br />';
+            echo '<select class="input" name="genre">';
+            echo '<option value="il" ' . ($user['user_genre'] === 'il' ? 'selected' : '') . '>Il</option>';
+            echo '<option value="elle" ' . ($user['user_genre'] === 'elle' ? 'selected' : '') . '>Elle</option>';
+            echo '<option value="iel" ' . ($user['user_genre'] === 'iel' ? 'selected' : '') . '>Iel</option>';
+            echo '</select><br />';            
             echo '<label for="email">Email</label> <br />';
             echo '<input class="input" type="text" name="email" value="' . $user['user_mail'] . '"><br />';
             echo '<label for="voiture">Véhicule</label> <br />';
