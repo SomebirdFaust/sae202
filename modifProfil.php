@@ -38,7 +38,8 @@ if ($user) {
             echo '<input class="input" type="text" name="voiture" value="' . ucfirst($user['user_car']) . '"><br />';
 
             echo '<label for="bio">Biographie (300 caractères max)</label> <br />';
-            echo '<textarea class="input" name="bio">' . ucfirst($user['user_bio']) . '</textarea><br />';
+            echo '<textarea class="input" name="bio" oninput="countCharacters(this)">' . ucfirst($user['user_bio']) . '</textarea>';
+            echo '<div id="characterCount">300 caractères restants</div><br />';            
 
             echo '<div id="modif_profil_enregistrer">';
                 echo '<input type="submit" value="Enregistrer">';
@@ -52,6 +53,20 @@ if ($user) {
     echo '</div>';
 }
 ?>
+<script>
+    function countCharacters(textarea) {
+        var maxLength = 300;
+        var currentLength = textarea.value.length;
+        var remainingLength = maxLength - currentLength;
+
+        var counter = document.getElementById("characterCount");
+        counter.textContent = remainingLength + " caractères restants";
+
+        if (currentLength > maxLength) {
+            textarea.value = textarea.value.substring(0, maxLength); // Limite la saisie à 300 caractères
+        }
+    }
+</script>
 
 <?php
 require 'footer.php';
