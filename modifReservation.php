@@ -1,15 +1,15 @@
 <?php
 // Vérifier si l'ID de la réservation a été transmis
-if(isset($_GET['reservation_id'])) {
-    $reservation_id = $_GET['reservation_id'];
+if(isset($_GET['reserv_id'])) {
+    $reservation_id = $_GET['reserv_id'];
 
     // Connexion à la base de données
     require 'header.php';
     $mabd = connexionBD();
 
     // Récupérer les informations de la réservation
-    $requeteReservation = $mabd->prepare("SELECT * FROM reservations WHERE reservation_id = :reservation_id");
-    $requeteReservation->bindParam(':reservation_id', $reservation_id);
+    $requeteReservation = $mabd->prepare("SELECT * FROM reservations WHERE reserv_id = :reserv_id");
+    $requeteReservation->bindParam(':reserv_id', $reservation_id);
     $requeteReservation->execute();
     $reservation = $requeteReservation->fetch();
 
@@ -32,7 +32,7 @@ if(isset($_GET['reservation_id'])) {
                         // Mettre à jour le nombre de places réservées dans la base de données
                         $requeteModifier = $mabd->prepare("UPDATE reservations SET places_res = :places_res WHERE reservation_id = :reservation_id");
                         $requeteModifier->bindParam(':places_res', $places_res);
-                        $requeteModifier->bindParam(':reservation_id', $reservation_id);
+                        $requeteModifier->bindParam(':reserv_id', $reservation_id);
                         $requeteModifier->execute();
 
                         echo "La réservation a été modifiée avec succès.";
@@ -50,8 +50,8 @@ if(isset($_GET['reservation_id'])) {
                     $requeteMajPlaces->execute();
 
                     // Supprimer la réservation de la base de données
-                    $requeteSupprimer = $mabd->prepare("DELETE FROM reservations WHERE reservation_id = :reservation_id");
-                    $requeteSupprimer->bindParam(':reservation_id', $reservation_id);
+                    $requeteSupprimer = $mabd->prepare("DELETE FROM reservations WHERE reserv_id = :reserv_id");
+                    $requeteSupprimer->bindParam(':reserv_id', $reservation_id);
                     $requeteSupprimer->execute();
 
                     echo "La réservation a été annulée avec succès.";
