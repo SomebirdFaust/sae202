@@ -1,5 +1,5 @@
 <?php
-    require 'header.php';
+require 'header.php';
 ?> 
 <!DOCTYPE html>
 <html lang="fr">
@@ -45,28 +45,31 @@ if ($user) {
     echo '</form>';
     echo '</div>';
 
-    // Afficher les trajets réservés par l'utilisateur
-    $requeteReserves = $mabd->prepare("SELECT t.traj_date, t._park_id, t.traj_arrivee FROM trajets AS t
-                                      INNER JOIN utilisateurs AS u ON t._user_id = u.user_id
-                                      INNER JOIN reservations AS r ON t.traj_id = r._traj_id
-                                      WHERE r._user_id = :user_id");
-    $requeteReserves->bindParam(':user_id', $user['user_id']);
-    $requeteReserves->execute();
+   // Afficher les trajets réservés par l'utilisateur
+$requeteReserves = $mabd->prepare("SELECT t.traj_id, t.traj_date, p.park_nom, t.traj_arrivee, u.user_car FROM trajets AS t
+INNER JOIN utilisateurs AS u ON t._user_id = u.user_id
+INNER JOIN reservations AS r ON t.traj_id = r._traj_id
+INNER JOIN parkings AS p ON t._park_id = p.park_id
+WHERE r._user_id = :user_id");
+$requeteReserves->bindParam(':user_id', $user['user_id']);
+$requeteReserves->execute();
 
-    echo '<h3>Trajets réservés</h3>';
-    $trajetReserve = $requeteReserves->fetch();
-    if ($trajetReserve) {
-        while ($trajetReserve) {
-            echo "Date de départ : " . $trajetReserve['traj_date'] . "<br>";
-            echo "Départ : " . $trajetReserve['_park_id'] . "<br>";
-            echo "Arrivée : " . $trajetReserve['traj_arrivee'] . "<br>";
-            echo "<a href='modifierTrajet.php?trajet_id=" . $trajetReserve['traj_id'] . "'>Modifier</a> ";
+echo '<h3>Trajets réservés</h3>';
+$trajetReserve = $requeteReserves->fetch();
+if ($trajetReserve) {
+while ($trajetReserve) {
+echo "Date de départ : " . $trajetReserve['traj_date'] . "<br>";
+echo "Départ : " . $trajetReserve['park_nom'] . "<br>";
+echo "Arrivée : " . $trajetReserve['traj_arrivee'] . "<br>";
+echo "Modèle de voiture : " . $trajetReserve['user_car'] . "<br>";
+echo "<a href='modifierTrajet.php?trajet_id=" . $trajetReserve['traj_id'] . "'>Modifier</a> ";
 
-            $trajetReserve = $requeteReserves->fetch();
-        }
-    } else {
-        echo "Vous n'avez pas réservé de trajet.<br>";
-    }
+$trajetReserve = $requeteReserves->fetch();
+}
+} else {
+echo "Vous n'avez pas réservé de trajet.<br>";
+}
+
 
     // Afficher les trajets créés par l'utilisateur s'il a une voiture
     if (!empty($user['user_car'])) {
@@ -123,5 +126,3 @@ require 'footer.php';
 
 </body>
 </html>
-
-   
