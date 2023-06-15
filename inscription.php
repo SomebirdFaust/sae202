@@ -83,19 +83,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <label for="voiture">Avez-vous une voiture ?*</label><br>
         <div id="radio_voiture">
-          <div id="oui">
-            <input class="input" type="radio" name="voiture" value="oui" onclick="showTextField()">
-            <label for="voiture">Oui</label>
-          </div>
-          <div id="non">
-            <input class="input" type="radio" name="voiture" value="non" onclick="hideTextField()"><br>
-            <label for="voiture">Non</label>
-          </div>
-        </div>
+    <div id="oui">
+        <input class="input" type="radio" name="voiture" value="oui" onclick="showTextField()">
+        <label for="voiture">Oui</label>
+    </div>
+    <div id="non">
+        <input class="input" type="radio" name="voiture" value="non" onclick="hideTextField()" checked><br>
+        <label for="voiture">Non</label>
+    </div>
+</div>
+
 
         <div id="detailsVoiture" style="display: none;">
           <label for="detailsVoiture">Précisez la marque, la couleur et le modèle de votre voiture :*</label><br>
-          <input class="input" type="text" name="detailsVoiture" placeholder="Marque, couleur, modèle" required><br><br>
+          <input class="input" type="text" name="detailsVoiture" placeholder="Marque, couleur, modèle"><br><br>
         </div>
 
         <div id="inscription_submit">
