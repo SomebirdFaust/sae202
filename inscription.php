@@ -34,14 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $req = $mabd->prepare('INSERT INTO utilisateurs (user_nom, user_prenom, user_mail, user_mdp, user_genre, user_car) VALUES (:nom, :prenom, :email, :mdp, :genre, :car)');
             $req->execute(array(':nom' => $nom, ':prenom' => $prenom, ':email' => $email, ':mdp' => $mdp_hash, ':genre' => $genre, ':car' => $car));
 
-            $user = grab_user($mabd, $email);
-            if ($user) {
-                session_start();
-                $_SESSION['email'] = $user['user_mail'];
-                session_regenerate_id(); // Régénère l'identifiant de session pour des raisons de sécurité
-            }
-
-            header('Location: index.php');
+            header('Location: index.php?succes=1');
             exit();
         }
     } catch (PDOException $e) {
@@ -51,6 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     deconnexionBD($mabd);
 }
 ?>
+
 
 
 <!DOCTYPE html>
