@@ -12,8 +12,6 @@ require 'header.php';
 </head>
 <body>
 
-<div id="modif_reservation">
-
 <?php
 
 $mabd = connexionBD();
@@ -78,7 +76,6 @@ if ($user) {
 }
 
 ?>
-    </div>
 </body>
 </html>
 
