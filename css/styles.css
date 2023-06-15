@@ -884,7 +884,7 @@ footer ul{
 
     /* pour les boutons */
 
-    #submit_connexion, #submit_contact input, #index_connexion button, #index_inscription button, #trajet_submit input{
+    #submit_connexion, #submit_contact input, #index_connexion button, #index_inscription button, #trajet_submit input, #inscription_submit input{
       width: auto;
       padding: 0 20px;
       height: 35px;
@@ -894,7 +894,7 @@ footer ul{
       color: #FFF;
     }
 
-    #submit_connexion, #submit_contact input, #index_connexion button, #index_inscription button, #trajet_submit input{
+    #submit_connexion, #submit_contact input, #index_connexion button, #index_inscription button, #trajet_submit input, #inscription_submit input{
       background-color: #5bacc7;
       border: 1px solid #5bacc7;
     }
@@ -1058,7 +1058,7 @@ footer ul{
     }
 
     #video{
-      margin-top: 350px;
+      margin-top: 450px;
       text-align: center;
       border-radius: 15px;
     }
@@ -1110,6 +1110,53 @@ footer ul{
 
     #depart input, #destination input, #date input, select#depart.input.input_pc{
       width: 250px;
+    }
+
+    /* PAGE INSCRIPTION */
+
+    #inscription{
+      width: 75%;
+      margin: auto;
+      text-align: center;
+      margin-top: 60px;
+      margin-bottom: 100px;
+    }
+
+    #inscription img{
+      width: 220px;
+      margin-bottom: 20px;
+    }
+
+    #inscription h1{
+      font-size: 35px;
+      margin-bottom: 30px;
+    }
+
+    #radio_voiture{
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    #oui{
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      margin-right: 40px;
+    }
+
+    #oui input, #non input{
+      width: 20px;
+      margin-right: 5px;
+    }
+
+    #non{
+      display: flex;
+      align-items: center;
+    }
+
+    #inscription_submit input{
+      margin-bottom: 15px;
     }
 
 
