@@ -19,9 +19,7 @@ if(isset($_POST['trajet_id'])) {
         $requeteSupprimer->bindParam(':trajet_id', $trajet_id);
         $requeteSupprimer->execute();
 
-        echo '<div id="suppr_trajet_ok">';
         header('Location: contact.php');
-        echo '</div>';
     }
 
     // Fermer la connexion à la base de données
