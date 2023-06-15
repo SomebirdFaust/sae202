@@ -9,7 +9,10 @@ if ($user) {
         $reserv_id = $_GET['reserv_id'];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'annuler') {
-            $requeteSuppression = $mabd->prepare("DELETE FROM reservations WHERE reserv_id = :reserv_id AND _user_id = :user_id");
+            // Supprimer la réservation et toutes ses données de la base de données
+            $requeteSuppression = $mabd->prepare("DELETE r.*, t.* FROM reservations AS r
+                                                  INNER JOIN trajets AS t ON r._traj_id = t.traj_id
+                                                  WHERE r.reserv_id = :reserv_id AND r._user_id = :user_id");
             $requeteSuppression->bindParam(':reserv_id', $reserv_id);
             $requeteSuppression->bindParam(':user_id', $user['user_id']);
 
