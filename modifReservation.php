@@ -1,4 +1,16 @@
 <?php
+require 'header.php';
+?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<?php
 // Vérifier si l'ID de la réservation a été transmis
 if(isset($_GET['reserv_id'])) {
     $reservation_id = $_GET['reserv_id'];
@@ -21,23 +33,8 @@ if(isset($_GET['reserv_id'])) {
         $trajet = $requeteTrajet->fetch();
 
         if($trajet) {
-            // Vérifier si l'utilisateur souhaite augmenter le nombre de places réservées
-            if(isset($_POST['places_res'])) {
-                $places_res = $_POST['places_res'];
-
-                // Vérifier si le nombre de places demandées est inférieur ou égal aux places disponibles
-                if($places_res <= $trajet['traj_places']) {
-                    // Mettre à jour le nombre de places réservées dans la base de données
-                    $requeteModifier = $mabd->prepare("UPDATE reservations SET places_res = :places_res WHERE reserv_id = :reserv_id");
-                    $requeteModifier->bindParam(':places_res', $places_res);
-                    $requeteModifier->bindParam(':reserv_id', $reservation_id);
-                    $requeteModifier->execute();
-
-                    echo "La réservation a été modifiée avec succès.";
-                } else {
-                    echo "Nombre de places demandé supérieur aux places disponibles.";
-                }
-            } elseif(isset($_POST['annuler'])) {
+            // Vérifier si l'utilisateur souhaite annuler la réservation
+            if(isset($_POST['annuler'])) {
                 // Annuler la réservation et libérer les places réservées
                 $places_dispo = $trajet['traj_places'] + $reservation['places_res'];
 
@@ -65,3 +62,8 @@ if(isset($_GET['reserv_id'])) {
     echo "ID de réservation non spécifié.";
 }
 ?>
+<?php
+require 'footer.php';
+?>
+</body>
+</html>
