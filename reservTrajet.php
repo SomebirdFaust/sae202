@@ -18,11 +18,6 @@ try {
     $req->execute(['user_id' => $user_id, 'trajet_id' => $trajet_id]);
     $result = $req->fetch(PDO::FETCH_ASSOC);
 
-    if ($result['count'] > 0) {
-        header('Location: erreurTrajet.php');
-        exit();
-    }
-
     $mabd->beginTransaction();
 
     $req_insert_reservation = $mabd->prepare('INSERT INTO reservations (_user_id, _traj_id) VALUES (:user_id, :trajet_id)');
@@ -35,7 +30,7 @@ try {
     $req_select_places->execute(['trajet_id' => $trajet_id]);
     $result = $req_select_places->fetch(PDO::FETCH_ASSOC);
 
-    if ($result['traj_places'] == 0) {
+    if ($result['traj_places'] == -1) {
         $mabd->rollBack();
         header('Location: erreurTrajet.php');
         exit();

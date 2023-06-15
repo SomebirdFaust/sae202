@@ -44,11 +44,11 @@ try {
     $req->bindValue(':email', $email, PDO::PARAM_STR);
     $req->execute();
 
-    header('location: profil.php?succes=1');
+    deconnexionBD($mabd);
+
+    header('Location: profil.php?succes=1');
     exit();
 } catch (PDOException $e) {
     die("Erreur de connexion à la base de données : " . $e->getMessage());
 }
-
-deconnexionBD($mabd);
 ?>
