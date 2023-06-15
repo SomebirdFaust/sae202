@@ -1,5 +1,20 @@
 <?php
 require 'header.php';
+?>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modification de la réservation</title>
+</head>
+<body>
+
+<div id="modif_reservation">
+
+<?php
 
 $mabd = connexionBD();
 $user = grab_user($mabd);
@@ -62,5 +77,11 @@ if ($user) {
     deconnexionBD($mabd);
 }
 
+?>
+    </div>
+</body>
+</html>
+
+<?php
 require 'footer.php';
 ?>
