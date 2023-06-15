@@ -42,11 +42,6 @@
                 }
                 ?>
             </select><br><br>
-            
-            <div id="publier_trajet_img">
-                <img src="img/pub_traj.png" alt="illustration voiture">
-            </div>
-            
 
             <div id="publier_trajet_submit">
                 <?php
@@ -58,6 +53,11 @@
                 }
                 ?>
             </div>
+            
+            <div id="publier_trajet_img">
+                <img src="img/pub_traj.png" alt="illustration voiture">
+            </div>
+            
         </form>
     </div>
 
