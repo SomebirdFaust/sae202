@@ -1,12 +1,14 @@
 <?php
 require 'header.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Modifier la réservation</title>
 </head>
 <body>
     
@@ -19,7 +21,7 @@ if(isset($_GET['reserv_id'])) {
 
     // Récupérer les informations de la réservation
     $requeteReservation = $mabd->prepare("SELECT * FROM reservations WHERE reserv_id = :reserv_id");
-    $requeteReservation->bindParam(':reserv_id', $reservation['_reserv_id']);
+    $requeteReservation->bindParam(':reserv_id', $reservation_id);
     $requeteReservation->execute();
     $reservation = $requeteReservation->fetch();
 
@@ -60,8 +62,10 @@ if(isset($_GET['reserv_id'])) {
     echo "ID de réservation non spécifié.";
 }
 ?>
+
 <?php
 require 'footer.php';
 ?>
+
 </body>
 </html>
