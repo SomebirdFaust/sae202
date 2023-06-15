@@ -49,16 +49,15 @@ if ($user) {
             echo "<input type='hidden' name='action' value='annuler'>";
             echo "<button type='submit'>Annuler la réservation</button>";
             echo "</form>";
-        } else {
-            echo "Réservation non trouvée.";
+
+            // Bouton pour rediriger vers la page profil
+            echo "<a href='profil.php'>Retourner à la page profil</a>";
         }
     } else {
         echo "ID de réservation non spécifié.";
     }
 
     deconnexionBD($mabd);
-} else {
-    echo "Vous n'êtes pas connecté(e) !";
 }
 
 require 'footer.php';
