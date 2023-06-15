@@ -17,6 +17,12 @@ try {
     $requete->execute();
     $parking_depart = $requete->fetch(PDO::FETCH_ASSOC);
 
+    // Récupérer l'ID du parking de destination
+    $requete = $mabd->prepare("SELECT park_id FROM parkings WHERE park_nom = :dest");
+    $requete->bindValue(':dest', $dest, PDO::PARAM_STR);
+    $requete->execute();
+    $parking_dest = $requete->fetch(PDO::FETCH_ASSOC);
+
     if (!$parking_depart || !$parking_dest) {
         // Gérer le cas où le parking n'est pas trouvé
         header('Location: profil.php');
@@ -33,7 +39,7 @@ try {
         exit();
     }
 
-    $requete = $mabd->prepare("UPDATE trajets SET _park_id = :park_id, traj_arrivee = :dest_id, traj_date = :date, traj_heure_depart = :heure, traj_places = :places WHERE traj_id = :trajet_id");
+    $requete = $mabd->prepare("UPDATE trajets SET _park_id = :depart_id, traj_arrivee = :dest_id, traj_date = :date, traj_heure_depart = :heure, traj_places = :places WHERE traj_id = :trajet_id");
     $requete->bindValue(':depart_id', $parking_depart['park_id'], PDO::PARAM_INT);
     $requete->bindValue(':dest_id', $parking_dest['park_id'], PDO::PARAM_INT);
     $requete->bindValue(':date', $date, PDO::PARAM_STR);
