@@ -27,9 +27,11 @@
         echo '</form>';
     } else {
         // Utilisateur non connecté
-        echo '<h1>Veuillez vous connecter ou vous inscrire</h1>';
-        echo '<a href="connexion.php"><button>Connexion</button></a>';
-        echo '<a href="inscription.php"><button>Inscription</button></a>';
+        echo '<h1>Pour effectuer une recherche, veuillez vous authentifier.</h1>';
+        echo '<div id="boutons_index">';
+        echo '<a id="index_connexion" href="connexion.php"><button>Connexion</button></a><br>';
+        echo '<a id="index_inscription" href="inscription.php"><button>Inscription</button></a>';
+        echo '</div>';
     }
     ?>
 </div>
