@@ -34,14 +34,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $req = $mabd->prepare('INSERT INTO utilisateurs (user_nom, user_prenom, user_mail, user_mdp, user_genre, user_car) VALUES (:nom, :prenom, :email, :mdp, :genre, :car)');
             $req->execute(array(':nom' => $nom, ':prenom' => $prenom, ':email' => $email, ':mdp' => $mdp_hash, ':genre' => $genre, ':car' => $car));
 
-            // Script pour la connexion automatique de l'utilisateur après l'inscription
-            echo '<script>';
-            echo 'window.onload = function() {';
-            echo 'document.forms["loginForm"]["email"].value = "' . $email . '";';
-            echo 'document.forms["loginForm"]["mdp"].value = "' . $mdp . '";';
-            echo 'document.forms["loginForm"].submit();';
-            echo '}';
-            echo '</script>';
+            // Récupérer l'ID de l'utilisateur nouvellement inscrit
+            $id_utilisateur = $mabd->lastInsertId();
+
+            // Connexion automatique de l'utilisateur en créant une session
+            session_start();
+            $_SESSION['id_utilisateur'] = $id_utilisateur;
+            $_SESSION['email'] = $email;
 
             header('Location: index.php?succes=1');
             exit();
@@ -53,6 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     deconnexionBD($mabd);
 }
 ?>
+
 
 
 <!DOCTYPE html>
