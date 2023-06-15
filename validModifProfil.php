@@ -36,6 +36,14 @@ try {
         $req->execute();
     }
 
+    // Mise à jour du nom, prénom et genre de l'utilisateur
+    $req = $mabd->prepare('UPDATE utilisateurs SET user_nom = :nom, user_prenom = :prenom, user_genre = :genre WHERE user_mail = :email');
+    $req->bindValue(':nom', $nom, PDO::PARAM_STR);
+    $req->bindValue(':prenom', $prenom, PDO::PARAM_STR);
+    $req->bindValue(':genre', $genre, PDO::PARAM_STR);
+    $req->bindValue(':email', $email, PDO::PARAM_STR);
+    $req->execute();
+
     header('location: profil.php?succes=1');
     exit();
 } catch (PDOException $e) {
@@ -44,6 +52,3 @@ try {
 
 deconnexionBD($mabd);
 ?>
-
-
-
