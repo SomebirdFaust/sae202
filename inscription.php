@@ -1,5 +1,7 @@
 <?php
 require 'admin/lib.inc.php';
+require 'header.php';
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nom = ucfirst($_POST['nom']);
@@ -122,3 +124,5 @@ if (isset($_GET['erreur']) && $_GET['erreur'] == 1) {
 
 </body>
 </html>
+
+<?php require 'footer.php'; ?>
