@@ -790,10 +790,15 @@ footer ul{
       margin-top: 50px;
     }
 
+    #modif_trajet h2{
+      margin-bottom: 20px;
+      font-size: 21px;
+    }
+
     #modif_trajet_suppr{
       margin: auto;
       text-align: center;
-      margin-top: 0px;
+      margin-top: 50px;
     }
 
     #modif_trajet_suppr form{
@@ -888,7 +893,7 @@ footer ul{
     #submit_connexion, #submit_contact input, #index_connexion button, 
     #index_inscription button, #trajet_submit input, 
     #inscription_submit input, #modif_profil_enregistrer input, 
-    #modif_profil_supprimer input{
+    #modif_profil_supprimer input, #annul_reservation button{
       width: auto;
       padding: 0 20px;
       height: 35px;
@@ -905,7 +910,7 @@ footer ul{
       border: 1px solid #5bacc7;
     }
 
-    #modif_profil_supprimer input{
+    #modif_profil_supprimer input, #annul_reservation button{
       background-color: #e31e2f !important;
       border: 1px solid #e31e2f !important;
     }
@@ -1203,7 +1208,46 @@ footer ul{
       margin-bottom: 20px;
     }
 
+    /* PAGE MODIF RESERVATION*/
 
+    #modif_reservation{
+      width: 70%;
+      margin: auto;
+      margin-top: 60px;
+      text-align: center;
+    }
+
+    #annul_reservation{
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+    }
+
+     /* PAGE MODIF TRAJET */
+
+     #modif_trajet{
+      width: 75%;
+      margin: auto;
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    #modif_trajet h2{
+      margin-bottom: 20px;
+      font-size: 21px;
+    }
+
+    #modif_trajet_suppr{
+      margin: auto;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    #modif_trajet_suppr form{
+      margin: auto;
+      width: 70%;
+      text-align: start;
+    }
 
 
     /* PAGE PARKINGS */
