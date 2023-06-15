@@ -1,5 +1,5 @@
 <?php
-    require 'header.php';
+require 'header.php';
 ?> 
 <!DOCTYPE html>
 <html lang="fr">
@@ -42,22 +42,15 @@
                 }
                 ?>
             </select><br><br>
+
+            <div id="publier_trajet_submit">
+                <input type='submit' value='Publier le trajet'>
+            </div>
             
             <div id="publier_trajet_img">
                 <img src="img/pub_traj.png" alt="illustration voiture">
             </div>
             
-
-            <div id="publier_trajet_submit">
-                <?php
-                // Vérifier si l'utilisateur n'a pas de voiture
-                if (empty($user['user_car'])) {
-                    echo "<p>Vous n'avez pas de voiture. Vous ne pouvez pas publier de trajet.</p>";
-                } else {
-                    echo "<input type='submit' value='Publier le trajet'>";
-                }
-                ?>
-            </div>
         </form>
     </div>
 
@@ -65,5 +58,5 @@
 </html>
 
 <?php
-    require 'footer.php';
+require 'footer.php';
 ?>

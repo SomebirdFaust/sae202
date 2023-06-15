@@ -1,5 +1,5 @@
 <?php
-    require 'header.php';
+require 'header.php';
 ?> 
 
 <!DOCTYPE html>
@@ -23,22 +23,42 @@ try {
     $result = $req->fetch(PDO::FETCH_ASSOC);
 
     if ($result['count'] > 0) {
+        $mabd->beginTransaction();
+
+        // Supprimer les réservations de l'utilisateur
+        $req_delete_reservations = $mabd->prepare('DELETE FROM reservations WHERE _user_id = :_user_id');
+        $req_delete_reservations->bindValue(':_user_id', $user_id, PDO::PARAM_INT);
+        $req_delete_reservations->execute();
+        $req_delete_reservations->closeCursor();
+
+        // Mettre à jour le nombre de places réservées dans les trajets correspondants
+        $req_update_trajets = $mabd->prepare('UPDATE trajets SET traj_places = traj_places + 1 WHERE traj_id IN (
+                                                SELECT _traj_id FROM reservations WHERE _user_id = :_user_id
+                                            )');
+        $req_update_trajets->bindValue(':_user_id', $user_id, PDO::PARAM_INT);
+        $req_update_trajets->execute();
+        $req_update_trajets->closeCursor();
+
+        // Supprimer l'utilisateur
+        $req_delete_utilisateur = $mabd->prepare('DELETE FROM utilisateurs WHERE user_id = :user_id');
+        $req_delete_utilisateur->bindValue(':user_id', $user_id, PDO::PARAM_INT);
+        $req_delete_utilisateur->execute();
+        $req_delete_utilisateur->closeCursor();
+
+        $mabd->commit();
+
+        // Destruction de la session
+        session_unset();
+        session_destroy();
+
         echo '<div id="confirmation_suppr_compte">';
-        echo '<p>Êtes-vous sûr(e) de vouloir supprimer votre compte ?</p>';
-        echo '</div>';
-        echo '<div id="suppr_profil_supprimer">';
-        echo '<form action="supprProfilVerif.php" method="post">';
-        echo '<input type="hidden" name="user_id" value="' . $user_id . '">';
-        echo '<input id="suppr_profil_bouton" class="input" type="submit" value="Supprimer le compte">';
-        echo '</form>';
-        echo '<form action="profil.php" method="post">';
-        echo '<input class="input" type="submit" value="Retour au profil">';
-        echo '</form>';
+        echo '<p>Votre compte a été supprimé avec succès.</p>';
         echo '</div>';
     } else {
         echo '<div>Utilisateur non trouvé.</div>';
     }
 } catch (PDOException $e) {
+    $mabd->rollBack();
     die("Erreur de connexion à la base de données : " . $e->getMessage());
 }
 
@@ -48,5 +68,5 @@ deconnexionBD($mabd);
 </html>
 
 <?php
-    require 'footer.php';
+require 'footer.php';
 ?>
