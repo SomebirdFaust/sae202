@@ -15,8 +15,6 @@ require 'header.php';
 if(isset($_GET['reserv_id'])) {
     $reservation_id = $_GET['reserv_id'];
 
-    // Connexion à la base de données
-    require 'header.php';
     $mabd = connexionBD();
 
     // Récupérer les informations de la réservation
