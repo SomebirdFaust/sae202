@@ -38,11 +38,13 @@ if ($user) {
 
         if ($reservation) {
             // Afficher les détails de la réservation
-            echo "Conducteur : " . $reservation['conducteur'] . "<br>";
-            echo "Date de départ : " . $reservation['traj_date'] . "<br>";
-            echo "Départ : " . $reservation['park_nom'] . "<br>";
-            echo "Arrivée : " . $reservation['traj_arrivee'] . "<br>";
-            echo "Modèle de voiture : " . $reservation['user_car'] . "<br>";
+            echo '<div id="modif_reservation">';
+            echo "<p>Conducteur : " . $reservation['conducteur'] . "</p><br>";
+            echo "<p>Date de départ : " . $reservation['traj_date'] . "</p><br>";
+            echo "<p>Départ : " . $reservation['park_nom'] . "</p><br>";
+            echo "<p>Arrivée : " . $reservation['traj_arrivee'] . "</p><br>";
+            echo "<p>Modèle de voiture : " . $reservation['user_car'] . "</p><br>";
+            echo '</div>';
 
             // Formulaire d'annulation de la réservation
             echo "<form action='modifReservation.php?reserv_id=$reserv_id' method='post'>";

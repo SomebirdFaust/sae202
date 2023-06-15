@@ -30,17 +30,19 @@ try {
 
     // Vérifier si des résultats sont retournés
     if ($requete->rowCount() > 0) {
+        echo '<h3 id="h3_resultat_trajet">Résultat(s) de la recherche : </h3>';
         while ($resultat = $requete->fetch()) {
             echo '<div id="resultat_ok">';
-            echo "Nom du conducteur : " . $resultat['user_nom'] . " " . $resultat['user_prenom'] . "<br>";
-            echo "Voiture : " . $resultat['user_car'] . "<br>";
-            echo "Date de départ : " . $resultat['traj_date'] . "<br>";
-            echo "Heure de départ : " . $resultat['traj_heure_depart'] . "<br>";
-            echo "Nombre de places disponibles : " . $resultat['traj_places'] . "<br>";
-            echo "Lieu de départ : " . $resultat['park_nom'] . "<br>";
+            echo "<p>Nom du conducteur : " . $resultat['user_nom'] . " " . $resultat['user_prenom'] . "</p><br>";
+            echo "<p>Voiture : " . $resultat['user_car'] . "</p><br>";
+            echo "<p>Date de départ : " . $resultat['traj_date'] . "</p><br>";
+            echo "<p>Heure de départ : " . $resultat['traj_heure_depart'] . "</p><br>";
+            echo "<p>Nombre de places disponibles : " . $resultat['traj_places'] . "</p><br>";
+            echo "<p>Lieu de départ : " . $resultat['park_nom'] . "</p><br>";
             echo "<a href='reservTrajet.php?trajet_id=" . $resultat['traj_id'] . "'>Réserver</a><br>";
             echo '</div>';
         }
+        echo '<br><br><br>';
     } else {
         echo '<div id="echec_result_trajet">';
         echo '<p>Je n\'ai pas trouvé de trajet correspondant à ta recherche.</p> <br>';

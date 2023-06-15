@@ -1,3 +1,7 @@
+<?php
+require 'header.php';
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -6,7 +10,10 @@
     <title>Trajet déjà réservé</title>
 </head>
 <body>
- <p>Ce trajet a déjà été réservé ! Veuillez réessayer.</p>
- <a href="index.php">Retour à l'accueil</a>   
+    <div id="erreur_trajet">
+        <p>Ce trajet a déjà été réservé ! Veuillez réessayer.</p>
+    </div>
 </body>
 </html>
+
+<?php require 'footer.php'; ?>

@@ -58,21 +58,23 @@ if ($user) {
     $requeteReserves->bindParam(':user_id', $user['user_id']);
     $requeteReserves->execute();
 
-    echo '<h3>Trajets réservés</h3>';
+    echo '<div id="trajets_reserves_profil">';
+    echo '<h3>Trajets réservés : </h3>';
     $trajetsReserves = $requeteReserves->fetchAll();
     if ($trajetsReserves) {
         foreach ($trajetsReserves as $trajetReserve) {
-            echo "Conducteur : " . $trajetReserve['conducteur'] . "<br>";
-            echo "Date de départ : " . $trajetReserve['traj_date'] . "<br>";
-            echo "Départ : " . $trajetReserve['park_nom'] . "<br>";
-            echo "Arrivée : " . $trajetReserve['traj_arrivee'] . "<br>";
-            echo "Modèle de voiture : " . $trajetReserve['user_car'] . "<br>";
-            echo "<a href='modifReservation.php?reserv_id=" . $trajetReserve['reserv_id'] . "'>Modifier</a> ";
+            echo "<br><p>Conducteur : " . $trajetReserve['conducteur'] . "</p><br>";
+            echo "<p>Date de départ : " . $trajetReserve['traj_date'] . "</p><br>";
+            echo "<p>Départ : " . $trajetReserve['park_nom'] . "</p><br>";
+            echo "<p>Arrivée : " . $trajetReserve['traj_arrivee'] . "</p><br>";
+            echo "<p>Modèle de voiture : " . $trajetReserve['user_car'] . "</p><br>";
+            echo "<a href='modifReservation.php?reserv_id=" . $trajetReserve['reserv_id'] . "'>Voir le détail</a> ";
             echo "<br>";
         }
     } else {
-        echo "Vous n'avez pas réservé de trajet.<br>";
+        echo '<p>Vous n\'avez pas réservé de trajet.</p><br>';
     }
+    echo '</div>';
 
     // Afficher les trajets créés par l'utilisateur s'il a une voiture
     if (!empty($user['user_car'])) {

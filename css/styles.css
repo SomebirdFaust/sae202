@@ -282,6 +282,22 @@ footer ul{
       margin-bottom: 50px;
     }
 
+    #trajets_reserves_profil{
+      width: 70%;
+      margin: auto;
+      background-color: #d9d9d9;
+      border-radius: 15px;
+      padding: 10px;
+    }
+
+    #trajets_reserves_profil p{
+      font-size: 16px;
+    }
+
+    #trajets_reserves_profil h3{
+      margin-bottom: 20px;
+    }
+
 
 
     /* PAGE MENTIONS LÉGALES */
@@ -675,6 +691,41 @@ footer ul{
       width: 100%;
     }
 
+    #resultat_ok{
+      width: 70%;
+      margin: auto;
+      padding: 10px;
+      background-color: #d9d9d9;
+      border-radius: 15px;
+      margin-bottom: 50px;
+    }
+
+    #h3_resultat_trajet{
+      text-align: center;
+      margin-top: 50px;
+      font-size: 21px;
+      margin-bottom: 50px;
+    }
+
+    /* PAGE ERREUR TRAJET */
+
+    #erreur_trajet, #succes_trajet{
+      width: 70%;
+      margin: auto;
+      margin-top: 50px;
+    }
+
+    #erreur_trajet p, #succes_trajet p{
+      text-align: center;
+    }
+
+    /* PAGE MODIF RESERVATION */
+
+    #modif_reservation {
+      width: 70%;
+      margin: auto;
+      margin-top: 50px;
+    }
 
     
 

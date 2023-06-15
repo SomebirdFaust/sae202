@@ -1,3 +1,7 @@
+<?php
+require 'header.php';
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -6,7 +10,10 @@
     <title>Succès</title>
 </head>
 <body>
- <p>Le trajet a bien été réservé !</p>
- <a href="index.php">Retour à l'accueil</a>   
+    <div id="succes_trajet">
+        <p>Le trajet a bien été réservé !</p>
+    </div>
 </body>
 </html>
+
+<?php require 'footer.php'; ?>
