@@ -46,10 +46,10 @@ require 'header.php';
             <div id="publier_trajet_submit">
                 <?php
                 // Vérifier si l'utilisateur a une voiture
-                if (empty($user['user_car'])) {
-                    echo "<p>Vous n'avez pas de voiture. Vous ne pouvez pas publier de trajet.</p>";
-                } else {
+                if (!empty($user['user_car'])) {
                     echo "<input type='submit' value='Publier le trajet'>";
+                } else {
+                    echo "<p>Vous n'avez pas de voiture. Vous ne pouvez pas publier de trajet.</p>";
                 }
                 ?>
             </div>
