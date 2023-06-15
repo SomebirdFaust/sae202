@@ -47,8 +47,8 @@ if ($user) {
             echo '</form>';
 
             echo '<div id="modif_profil_supprimer">';
-                echo '<form action="supprProfilVerif.php" method="post">';
-                echo '<input type="hidden" name="user_id" value="' . $user['user_id'] . '">'; // Champ caché pour récupérer l'ID de l'utilisateur
+                echo '<form action="supprProfil.php" method="post">';
+                echo '<input type="hidden" name="user_id" value="' . $user['user_id'] . '">';
                 echo '<input type="submit" value="Supprimer le compte">';
                 echo '</form>';
             echo '</div>';
@@ -66,7 +66,7 @@ if ($user) {
         counter.textContent = remainingLength;
 
         if (currentLength > maxLength) {
-            textarea.value = textarea.value.substring(0, maxLength); // Limite la saisie à 300 caractères
+            textarea.value = textarea.value.substring(0, maxLength);
         }
     }
 </script>

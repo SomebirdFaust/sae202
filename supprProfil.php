@@ -6,7 +6,12 @@
     <title>Suppression Profil</title>
 </head>
 <body>
-<p>Êtes-vous sûr de vouloir supprimer votre profil ?</p>
-<a href="supprProfilVerif.php">Supprimer le compte.</a>
+<?php
+echo '<div id="modif_profil_supprimer">';
+    echo '<form action="supprProfilVerif.php" method="post">';
+    echo '<input type="hidden" name="user_id" value="' . $user['user_id'] . '">';
+    echo '</form>';
+    echo '</div>';
+?>
 </body>
 </html>
