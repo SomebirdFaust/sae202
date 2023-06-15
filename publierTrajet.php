@@ -1,5 +1,5 @@
 <?php
-    require 'header.php';
+require 'header.php';
 ?> 
 <!DOCTYPE html>
 <html lang="fr">
@@ -45,7 +45,7 @@
 
             <div id="publier_trajet_submit">
                 <?php
-                // Vérifier si l'utilisateur n'a pas de voiture
+                // Vérifier si l'utilisateur a une voiture
                 if (empty($user['user_car'])) {
                     echo "<p>Vous n'avez pas de voiture. Vous ne pouvez pas publier de trajet.</p>";
                 } else {
@@ -65,5 +65,5 @@
 </html>
 
 <?php
-    require 'footer.php';
+require 'footer.php';
 ?>
