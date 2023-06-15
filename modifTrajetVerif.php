@@ -19,7 +19,7 @@ try {
 
     if (!$parking_depart || !$parking_dest) {
         // Gérer le cas où le parking n'est pas trouvé
-        header('Location: trajets.php');
+        header('Location: profil.php');
         exit();
     }
 
@@ -29,7 +29,7 @@ try {
     $trajet = $requete->fetch(PDO::FETCH_ASSOC);
 
     if (!$trajet || $trajet['_user_id'] !== $_SESSION['user_id']) {
-        header('Location: trajets.php');
+        header('Location: profil.php');
         exit();
     }
 
@@ -42,7 +42,7 @@ try {
     $requete->bindValue(':trajet_id', $trajet_id, PDO::PARAM_INT);
     $requete->execute();
 
-    header('Location: trajets.php?success=1');
+    header('Location: profil.php?success=1');
     exit();
 } catch (PDOException $e) {
     die("Erreur de connexion à la base de données : " . $e->getMessage());
