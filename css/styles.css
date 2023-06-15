@@ -503,6 +503,10 @@ footer ul{
       padding-top: 5px;
     }
 
+    #contact img{
+      display: none;
+    }
+
     /* PAGE INCRIPTION */
 
     #inscription{
@@ -861,6 +865,36 @@ footer ul{
 
 @media screen and (min-width:480px){
 
+    /* pour les champs de formulaire*/
+
+    .input_pc{
+      width: 25%;
+      height: 35px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      background-color: #d9d9d9;
+      border: #d9d9d9;
+      padding-left: 5px;
+    }
+
+    /* pour les boutons */
+
+    #submit_connexion, #submit_contact input{
+      width: auto;
+      padding: 0 20px;
+      height: 35px;
+      margin-top: 10px;
+      font-size: 18px;
+      border-radius: 15px;
+      color: #FFF;
+    }
+
+    #submit_connexion, #submit_contact input{
+      background-color: #5bacc7;
+      border: 1px solid #5bacc7;
+    }
+
     /* HEADER */
 
     #nav_tel{
@@ -911,6 +945,7 @@ footer ul{
     #connexion{
       margin-top: 60px;
       text-align: center;
+      margin-bottom: 100px;
     }
 
     #connexion h1{
@@ -920,18 +955,65 @@ footer ul{
 
     #connexion img{
       width: 220px;
+      margin-bottom: 20px;
     }
 
-    .input_pc{
-      width: 25%;
-      height: 35px;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      border-radius: 10px;
-      background-color: #d9d9d9;
-      border: #d9d9d9;
-      padding-left: 5px;
+    /* PAGE CONTACT */
+
+    #contact_header h1{
+      text-align: center;
+      margin-top: 60px;
+      font-size: 35px;
     }
+
+    #contact_header p{
+      width: 50%;
+      margin: auto;
+      margin-top: 50px;
+      margin-bottom: 70px;
+      line-height: 30px;
+    }
+
+    #contact{
+      width: 100%;
+      margin-bottom: 200px;
+      margin-top: 75px;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    #contact img{
+      width: 250px;
+      height: 400px;
+      margin-right: 200px;
+      margin-top: 50px;
+    }
+
+    #contact form{
+      margin-left: 200px;
+    }
+
+    #contact input, #contact textarea{
+      width: 100%;
+    }
+
+    #contact textarea{
+      resize: none;
+      height: 200px;
+    }
+
+    #submit_contact{
+      text-align: center;
+    }
+
+    #submit_contact input{
+      width: auto;
+    }
+
+
+    
+
+    
 
 
 
