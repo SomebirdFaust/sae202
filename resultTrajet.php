@@ -23,7 +23,7 @@ try {
                               INNER JOIN utilisateurs AS u ON t._user_id = u.user_id
                               INNER JOIN parkings AS p ON t._park_id = p.park_id
                               WHERE p.park_nom = :depart AND t.traj_arrivee = :destination AND t.traj_date >= :date
-                              AND t.traj_places > 0"); // Ajout de la condition pour masquer les trajets avec 0 places disponibles
+                              AND t.traj_places > 0");
     $requete->bindParam(':depart', $depart);
     $requete->bindParam(':destination', $destination);
     $requete->bindParam(':date', $date);
