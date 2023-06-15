@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['email'] = $user['user_mail'];
             }
 
-            header('Location: index.php?succes=1');
+            header('Location: index.php');
             exit();
         }
     } catch (PDOException $e) {
@@ -50,6 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     deconnexionBD($mabd);
 }
 ?>
+
 
 <!DOCTYPE html>
 <html>
