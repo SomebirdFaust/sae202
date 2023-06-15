@@ -34,7 +34,13 @@ if ($requete->rowCount() > 0) {
         echo "<a href='reservTrajet.php?trajet_id=" . $resultat['traj_id'] . "'>Réserver</a><br>";
     }
 } else {
-    echo "Aucun trajet correspondant.";
+    echo '<div id="echec_result_trajet">';
+    echo '<p>Je n\'ai pas trouvé de trajet correspondant à ta recherche.</p> <br>';
+    echo '<p> Essaye d\'ajuster ta recherche ou reviens plus tard.</p>';
+    echo '</div>';
+    echo '<div id="echec_result_trajet_img">';
+    echo '<img src="img/echec.png" alt="poussant tenant une pencarte échec">';
+    echo '</div>';
 }
 
 $mabd = null;
@@ -42,3 +48,5 @@ $mabd = null;
 
 </body>
 </html>
+
+<?php require 'footer.php'; ?>

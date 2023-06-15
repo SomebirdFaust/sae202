@@ -52,6 +52,12 @@
 <div id="questions">
     <h1>FAQ</h1>
         <div class="question">
+            <h3>Car & Cie, c’est quoi ?</h3><br>
+            <p>Car & Cie est une plateforme de covoiturage en ligne spécialement 
+                conçue pour les étudiants en MMI. Gratuit, pratique et accessible, 
+                le site a été conçu pour faciliter votre quotidien.</p>
+        </div>
+        <div class="question">
             <h3>Pourquoi faire du covoiturage?</h3><br>
             <p>En tant qu’étudiant, on est souvent confronté à des contraintes 
             budgétaires, le covoiturage nous permet donc de faire des économies 

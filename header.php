@@ -37,10 +37,22 @@ require 'admin/lib.inc.php';
         echo '<li style="display: none;"><a href="connexion.php">Connexion</a></li>';
         echo '<li style="display: none;"><a href="inscription.php">Inscription</a></li>';
         echo '<li><a href="publierTrajet.php">Publier un trajet</a></li>';
+
+        echo '<div id="bouton_deconnexion_header">';
+        echo '<form action="deconnexion.php" method="post">';
+        echo '<button type="submit">Se déconnecter</button>';
+        echo '</form>';
+        echo '</div>';
     } else {
         echo '<li><a href="connexion.php">Connexion</a></li>';
         echo '<li><a href="inscription.php">Inscription</a></li>';
-        echo '<li style="display: none;"><a href="inscription.php">Inscription</a></li>';    
+        echo '<li style="display: none;"><a href="inscription.php">Inscription</a></li>';  
+        
+        echo '<div style="display: none; id="bouton_deconnexion_header">';
+        echo '<form action="deconnexion.php" method="post">';
+        echo '<button type="submit">Se déconnecter</button>';
+        echo '</form>';
+        echo '</div>';
     }
     ?>
   </ul>
