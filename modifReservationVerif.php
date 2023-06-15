@@ -1,5 +1,5 @@
 <?php
-require 'header.php';
+require 'admin/lib.inc.php';
 
 $mabd = connexionBD();
 $user = grab_user($mabd);
