@@ -19,7 +19,9 @@ if(isset($_POST['trajet_id'])) {
         $requeteSupprimer->bindParam(':trajet_id', $trajet_id);
         $requeteSupprimer->execute();
 
-        echo "Le trajet a été supprimé avec succès.";
+        echo '<div id="suppr_trajet_ok">';
+        echo '<p>Le trajet a été supprimé avec succès.</p>';
+        echo '</div>';
     }
 
     // Fermer la connexion à la base de données
