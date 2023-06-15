@@ -37,7 +37,7 @@ if(isset($_POST['reservation_id'])) {
 
                         echo "La réservation a été modifiée avec succès.";
                     } else {
-                        echo "Nombre de places demandées supérieur aux places disponibles.";
+                        echo "Nombre de places demandé supérieur aux places disponibles.";
                     }
                 } elseif(isset($_POST['annuler'])) {
                     // Annuler la réservation et libérer les places réservées
@@ -56,11 +56,7 @@ if(isset($_POST['reservation_id'])) {
 
                     echo "La réservation a été annulée avec succès.";
                 }
-            } else {
-                echo "Trajet non trouvé.";
             }
-        } else {
-            echo "Vous n'êtes pas autorisé(e) à modifier cette réservation.";
         }
     } else {
         echo "Réservation non trouvée.";
