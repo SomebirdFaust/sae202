@@ -53,7 +53,12 @@ require 'header.php';
             
         </form>
     </div>
-
+    <?php
+if (isset($_GET['message'])) {
+    urldecode($_GET['message']);
+    echo "<p>Vous n'avez pas de voiture</p>";
+}
+?>
 </body>
 </html>
 

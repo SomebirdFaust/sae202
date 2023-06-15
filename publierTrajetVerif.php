@@ -19,8 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user = $req->fetch(PDO::FETCH_ASSOC);
 
         if (empty($user['user_car'])) {
-            header('Location: publierTrajet.php');
-            $messageErreur = "Vous n'avez pas de voiture.";
+            header('Location: publierTrajet.php?message=' . $message);
         } else {
             $requete = $mabd->prepare("SELECT park_id FROM parkings WHERE park_nom = :depart");
             $requete->bindValue(':depart', $depart);
