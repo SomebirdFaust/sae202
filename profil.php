@@ -45,57 +45,55 @@ if ($user) {
     echo '</form>';
     echo '</div>';
 
-   // Afficher les trajets réservés par l'utilisateur
-$requeteReserves = $mabd->prepare("SELECT t.traj_id, t.traj_date, p.park_nom, t.traj_arrivee, u.user_car, u.user_nom FROM trajets AS t
-INNER JOIN utilisateurs AS u ON t._user_id = u.user_id
-INNER JOIN reservations AS r ON t.traj_id = r._traj_id
-INNER JOIN parkings AS p ON t._park_id = p.park_id
-WHERE r._user_id = :user_id");
-$requeteReserves->bindParam(':user_id', $user['user_id']);
-$requeteReserves->execute();
+    // Afficher les trajets réservés par l'utilisateur
+    $requeteReserves = $mabd->prepare("SELECT t.traj_id, t.traj_date, p.park_nom, t.traj_arrivee, u.user_car, CONCAT(u.user_nom, ' ', u.user_prenom) AS conducteur 
+                                      FROM trajets AS t
+                                      INNER JOIN utilisateurs AS u ON t._user_id = u.user_id
+                                      INNER JOIN reservations AS r ON t.traj_id = r._traj_id
+                                      INNER JOIN parkings AS p ON t._park_id = p.park_id
+                                      WHERE r._user_id = :user_id");
+    $requeteReserves->bindParam(':user_id', $user['user_id']);
+    $requeteReserves->execute();
 
-echo '<h3>Trajets réservés</h3>';
-$trajetReserve = $requeteReserves->fetch();
-if ($trajetReserve) {
-while ($trajetReserve) {
-echo "Nom du conducteur : " . $trajetReserve['user_nom'] . "<br>";
-echo "Date de départ : " . $trajetReserve['traj_date'] . "<br>";
-echo "Départ : " . $trajetReserve['park_nom'] . "<br>";
-echo "Arrivée : " . $trajetReserve['traj_arrivee'] . "<br>";
-echo "Modèle de voiture : " . $trajetReserve['user_car'] . "<br>";
-echo "<a href='modifierTrajet.php?trajet_id=" . $trajetReserve['traj_id'] . "'>Modifier</a> ";
-echo"<br>";
-
-$trajetReserve = $requeteReserves->fetch();
-}
-} else {
-echo "Vous n'avez pas réservé de trajet.<br>";
-}
-
+    echo '<h3>Trajets réservés</h3>';
+    $trajetsReserves = $requeteReserves->fetchAll();
+    if ($trajetsReserves) {
+        foreach ($trajetsReserves as $trajetReserve) {
+            echo "Conducteur : " . $trajetReserve['conducteur'] . "<br>";
+            echo "Date de départ : " . $trajetReserve['traj_date'] . "<br>";
+            echo "Départ : " . $trajetReserve['park_nom'] . "<br>";
+            echo "Arrivée : " . $trajetReserve['traj_arrivee'] . "<br>";
+            echo "Modèle de voiture : " . $trajetReserve['user_car'] . "<br>";
+            echo "<a href='modifierTrajet.php?trajet_id=" . $trajetReserve['traj_id'] . "'>Modifier</a> ";
+            echo "<br>";
+        }
+    } else {
+        echo "Vous n'avez pas réservé de trajet.<br>";
+    }
 
     // Afficher les trajets créés par l'utilisateur s'il a une voiture
     if (!empty($user['user_car'])) {
-        $requeteCrees = $mabd->prepare("SELECT t.traj_id, t.traj_date, p.park_nom, t.traj_arrivee FROM trajets AS t
-                                        INNER JOIN parkings AS p ON t._park_id = p.park_id
-                                        WHERE t._user_id = :user_id");
+        $requeteCrees = $mabd->prepare("SELECT t.traj_id, t.traj_date, p.park_nom, t.traj_arrivee 
+                                       FROM trajets AS t
+                                       INNER JOIN parkings AS p ON t._park_id = p.park_id
+                                       WHERE t._user_id = :user_id");
         $requeteCrees->bindParam(':user_id', $user['user_id']);
         $requeteCrees->execute();
-    
+
         echo '<h3>Trajets créés</h3>';
-        $trajetCree = $requeteCrees->fetch();
-        if ($trajetCree) {
-            while ($trajetCree) {
+        $trajetsCrees = $requeteCrees->fetchAll();
+        if ($trajetsCrees) {
+            foreach ($trajetsCrees as $trajetCree) {
                 echo "Date de départ : " . $trajetCree['traj_date'] . "<br>";
                 echo "Départ : " . $trajetCree['park_nom'] . "<br>";
                 echo "Arrivée : " . $trajetCree['traj_arrivee'] . "<br>";
                 echo "<a href='modifTrajet.php?trajet_id=" . $trajetCree['traj_id'] . "'>Modifier</a> ";
-    
-                $trajetCree = $requeteCrees->fetch();
+                echo "<br>";
             }
         } else {
             echo "Vous n'avez pas créé de trajet.<br>";
         }
-    }  
+    }
 
     deconnexionBD($mabd);
 } else {
