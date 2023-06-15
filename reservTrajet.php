@@ -18,11 +18,6 @@ try {
     $req->execute(['user_id' => $user_id, 'trajet_id' => $trajet_id]);
     $result = $req->fetch(PDO::FETCH_ASSOC);
 
-    if ($result['count'] > 0) {
-        header('Location: erreurTrajet.php');
-        exit();
-    }
-
     $mabd->beginTransaction();
 
     $req_insert_reservation = $mabd->prepare('INSERT INTO reservations (_user_id, _traj_id) VALUES (:user_id, :trajet_id)');

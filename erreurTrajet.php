@@ -14,6 +14,6 @@ require 'header.php';
         <p>Ce trajet a déjà été réservé ! Veuillez réessayer.</p>
     </div>
 </body>
-</html>
+</html> 
 
 <?php require 'footer.php'; ?>
