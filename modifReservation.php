@@ -8,7 +8,7 @@ require 'header.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modification de réservation</title>
+    <title>Annulation de réservation</title>
 </head>
 <body>
 
@@ -42,11 +42,10 @@ if ($user) {
             echo "Arrivée : " . $reservation['traj_arrivee'] . "<br>";
             echo "Modèle de voiture : " . $reservation['user_car'] . "<br>";
 
-            // Formulaire de modification de la réservation
+            // Formulaire d'annulation de la réservation
             echo "<form action='modifReservationVerif.php' method='post'>";
             echo "<input type='hidden' name='reserv_id' value='" . $reservation['traj_id'] . "'>";
-            // Ajoutez ici les champs supplémentaires pour la modification de la réservation
-            echo "<button type='submit'>Modifier</button>";
+            echo "<button type='submit' name='action' value='annuler'>Annuler la réservation</button>";
             echo "</form>";
         } else {
             echo "Réservation non trouvée.";
