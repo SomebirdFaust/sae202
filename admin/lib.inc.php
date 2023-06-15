@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 // Vérifier si la connexion à la base de données est déjà établie, sinon la connecter
 if (!function_exists('connexionBD')) {
