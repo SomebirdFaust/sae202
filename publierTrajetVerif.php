@@ -19,6 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user = $req->fetch(PDO::FETCH_ASSOC);
 
         if (empty($user['user_car'])) {
+            header('Location: publierTrajet.php');
             $messageErreur = "Vous n'avez pas de voiture.";
         } else {
             $requete = $mabd->prepare("SELECT park_id FROM parkings WHERE park_nom = :depart");
@@ -45,34 +46,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     deconnexionBD($mabd);
 }
-
 ?>
-
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Publier un trajet</title>
-
-</head>
-<body>
-    <div id="publier_trajet">
-        <form action="publierTrajet.php" method="POST">
-            <!-- Vos champs de formulaire ici -->
-
-            <div id="publier_trajet_submit">
-                <?php
-                if (isset($messageErreur)) {
-                    echo "<p>$messageErreur</p>";
-                } else {
-                    echo "<input type='submit' value='Publier le trajet'>";
-                }
-                ?>
-            </div>
-        </form>
-    </div>
-
-</body>
-</html>
