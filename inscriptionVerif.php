@@ -23,7 +23,7 @@ try {
     } else {
         $mdp_hash = password_hash($mdp, PASSWORD_BCRYPT, ['cost' => 12]);
         $req = $mabd->prepare('INSERT INTO utilisateurs (user_nom, user_prenom, user_mail, user_mdp, user_genre, user_car) VALUES (:nom, :prenom, :email, :mdp, :genre, :car)');
-        $req->execute(array(':nom' => $nom, ':prenom' => $prenom, ':email' => $email, ':mdp' => $mdp_hash, ':genre' => $genre, ':car' => $detailsVoiture));
+        $req->execute(array(':nom' => $nom, ':prenom' => $prenom, ':email' => $email, ':mdp' => $mdp_hash, ':genre' => $genre, ':car' => $voiture));        
 
         $user = grab_user($mabd, $email);
         if ($user) {
