@@ -44,14 +44,30 @@ require 'header.php';
             </select><br><br>
 
             <div id="publier_trajet_submit">
-                <?php
-                // Vérifier si l'utilisateur a une voiture
-                if (!empty($user['user_car'])) {
-                    echo "<input type='submit' value='Publier le trajet'>";
-                } else {
-                    echo "<p>Vous n'avez pas de voiture. Vous ne pouvez pas publier de trajet.</p>";
-                }
-                ?>
+            <div id="publier_trajet_submit">
+    <?php
+    // Vérifier si l'utilisateur a une voiture
+    try {
+        $mabd = connexionBD();
+
+        // Supposons que vous ayez une table "utilisateurs" avec une colonne "user_car" pour stocker les informations de la voiture
+        $req = $mabd->prepare('SELECT user_car FROM utilisateurs WHERE user_id = :id');
+        $req->execute(array(':id' => $user['user_id']));
+        $result = $req->fetch(PDO::FETCH_ASSOC);
+
+        if (!empty($result['user_car'])) {
+            echo "<input type='submit' value='Publier le trajet'>";
+        } else {
+            echo "<p>Vous n'avez pas de voiture. Vous ne pouvez pas publier de trajet.</p>";
+        }
+    } catch (PDOException $e) {
+        die("Erreur de connexion à la base de données : " . $e->getMessage());
+    }
+
+    deconnexionBD($mabd);
+    ?>
+</div>
+
             </div>
             
             <div id="publier_trajet_img">
