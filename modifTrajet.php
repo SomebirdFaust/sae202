@@ -27,7 +27,6 @@
             <p><strong>Nombre de places :</strong> <?php echo $trajet['traj_places']; ?></p>
 
             <div id="modif_trajet_suppr">
-                <h2>Supprimer le trajet :</h2>
                 <form action="supprTrajet.php" method="POST">
                     <input type="hidden" name="trajet_id" value="<?php echo $trajet_id; ?>">
                     <input type="submit" value="Supprimer le trajet">
