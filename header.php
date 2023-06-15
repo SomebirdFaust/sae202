@@ -14,12 +14,12 @@ require 'admin/lib.inc.php';
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300&display=swap" rel="stylesheet">
-
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       </head>
     <body>
         
 
-<nav>
+  <nav id="nav_tel">
     <a href="index.php"><img id="logo" src="img/logo.png" alt="logo"></a>
     <div id="mySidenav" class="sidenav">
       <a id="closeBtn" href="#" class="close">×</a>
@@ -40,7 +40,19 @@ require 'admin/lib.inc.php';
       </span>
     </a>
 
-    </nav>
+  </nav>
+
+
+  <nav id="nav_pc">
+    <a href="index.php"><img id="logo_header_pc" src="img/logo.png" alt="logo"></a>
+    <ul>
+      <li><a href="publierTrajet.php">Publier un trajet</a></li>
+      <li id="park_header"><a href="parkings.php">Les parkings</a></li>
+      <li></li><li></li><li></li><li></li><li></li><li></li>
+      <li id="conn_inscr_header"><a href="connexion.php">Connexion/</a><a href="inscription.php">Inscription</a></li>
+      <li><a href="profil.php"><img id="avatar_header_pc" src="img/avatar.png" alt="avatar"></a></li>
+    </ul>
+  </nav>
 
     </div>
 </header>

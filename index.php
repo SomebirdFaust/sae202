@@ -10,6 +10,22 @@
         bouton submit
     -->
 </div>
+
+<div id="div_animation">
+    <img id="animation" src="video/animation.gif" alt="Animation voiture qui roule" style="background-color: transparent;"> 
+    <script>
+        $(document).ready(function() {
+          var gif = $('#animation');
+          setTimeout(function() {
+            gif.attr('src', 'img/animation.png');
+          }, 3900);
+        });
+      </script>
+</div>
+
+
+
+
 <div id="video">
     <iframe src="https://www.youtube.com/embed/I_UktiOb_7c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
