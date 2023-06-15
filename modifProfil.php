@@ -33,7 +33,8 @@ if ($user) {
             echo '<option value="iel" ' . ($user['user_genre'] === 'iel' ? 'selected' : '') . '>Iel</option>';
             echo '</select><br />';            
             echo '<label for="email">Email</label> <br />';
-            echo '<input class="input" type="email" name="email" value="' . $user['user_car'] . 'readonly"><br />';
+            echo '<input class="input" type="email" name="email" value="' . $user['user_mail'] . '" readonly><br />';
+
             echo '<label for="voiture">Véhicule</label> <br />';
             echo '<input class="input" type="text" name="voiture" value="' . ucfirst($user['user_car']) . '"><br />';
             echo '<label for="bio">Biographie (300 caractères max)</label> <br />';
