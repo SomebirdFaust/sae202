@@ -1,71 +1,64 @@
 <?php
 require 'header.php';
-?>
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modifier la réservation</title>
-</head>
-<body>
-    
-<?php
-// Vérifier si l'ID de la réservation a été transmis
-if(isset($_GET['reserv_id'])) {
-    $reservation_id = $_GET['reserv_id'];
+$mabd = connexionBD();
+$user = grab_user($mabd);
 
-    $mabd = connexionBD();
+if ($user) {
+    if (isset($_GET['reserv_id'])) {
+        $reserv_id = $_GET['reserv_id'];
 
-    // Récupérer les informations de la réservation
-    $requeteReservation = $mabd->prepare("SELECT * FROM reservations WHERE reserv_id = :reserv_id");
-    $requeteReservation->bindParam(':reserv_id', $reservation_id);
-    $requeteReservation->execute();
-    $reservation = $requeteReservation->fetch();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'annuler') {
+            // Supprimer la réservation et toutes ses données de la base de données
+            $requeteSuppression = $mabd->prepare("DELETE r.*, t.* FROM reservations AS r
+                                                  INNER JOIN trajets AS t ON r._traj_id = t.traj_id
+                                                  WHERE r.reserv_id = :reserv_id AND r._user_id = :user_id");
+            $requeteSuppression->bindParam(':reserv_id', $reserv_id);
+            $requeteSuppression->bindParam(':user_id', $user['user_id']);
 
-    if($reservation) {
-        // Récupérer le trajet correspondant à la réservation
-        $requeteTrajet = $mabd->prepare("SELECT * FROM trajets WHERE traj_id = :trajet_id");
-        $requeteTrajet->bindParam(':trajet_id', $reservation['_traj_id']);
-        $requeteTrajet->execute();
-        $trajet = $requeteTrajet->fetch();
-
-        if($trajet) {
-            // Vérifier si l'utilisateur souhaite annuler la réservation
-            if(isset($_POST['annuler'])) {
-                // Annuler la réservation et libérer les places réservées
-                $places_dispo = $trajet['traj_places'] + $reservation['places_res'];
-
-                // Mettre à jour le nombre de places disponibles dans le trajet
-                $requeteMajPlaces = $mabd->prepare("UPDATE trajets SET traj_places = :places_dispo WHERE traj_id = :trajet_id");
-                $requeteMajPlaces->bindParam(':places_dispo', $places_dispo);
-                $requeteMajPlaces->bindParam(':trajet_id', $trajet['traj_id']);
-                $requeteMajPlaces->execute();
-
-                // Supprimer la réservation de la base de données
-                $requeteSupprimer = $mabd->prepare("DELETE FROM reservations WHERE reserv_id = :reserv_id");
-                $requeteSupprimer->bindParam(':reserv_id', $reservation_id);
-                $requeteSupprimer->execute();
-
+            if ($requeteSuppression->execute()) {
                 echo "La réservation a été annulée avec succès.";
+            } else {
+                echo "Erreur lors de l'annulation de la réservation.";
             }
         }
+
+        // Requête pour récupérer les détails de la réservation
+        $requeteReservation = $mabd->prepare("SELECT t.traj_id, t.traj_date, p.park_nom, t.traj_arrivee, u.user_car, CONCAT(u.user_nom, ' ', u.user_prenom) AS conducteur 
+                                              FROM trajets AS t
+                                              INNER JOIN utilisateurs AS u ON t._user_id = u.user_id
+                                              INNER JOIN reservations AS r ON t.traj_id = r._traj_id
+                                              INNER JOIN parkings AS p ON t._park_id = p.park_id
+                                              WHERE r._user_id = :user_id AND r.reserv_id = :reserv_id");
+        $requeteReservation->bindParam(':user_id', $user['user_id']);
+        $requeteReservation->bindParam(':reserv_id', $reserv_id);
+        $requeteReservation->execute();
+
+        $reservation = $requeteReservation->fetch();
+
+        if ($reservation) {
+            // Afficher les détails de la réservation
+            echo "Conducteur : " . $reservation['conducteur'] . "<br>";
+            echo "Date de départ : " . $reservation['traj_date'] . "<br>";
+            echo "Départ : " . $reservation['park_nom'] . "<br>";
+            echo "Arrivée : " . $reservation['traj_arrivee'] . "<br>";
+            echo "Modèle de voiture : " . $reservation['user_car'] . "<br>";
+
+            // Formulaire d'annulation de la réservation
+            echo "<form action='modifReservation.php?reserv_id=$reserv_id' method='post'>";
+            echo "<input type='hidden' name='action' value='annuler'>";
+            echo "<button type='submit'>Annuler la réservation</button>";
+            echo "</form>";
+
+            // Bouton pour rediriger vers la page profil
+            echo "<a href='profil.php'>Retourner à la page profil</a>";
+        }
     } else {
-        echo "Réservation non trouvée.";
+        echo "ID de réservation non spécifié.";
     }
 
-    // Fermer la connexion à la base de données
     deconnexionBD($mabd);
-} else {
-    echo "ID de réservation non spécifié.";
 }
-?>
 
-<?php
 require 'footer.php';
 ?>
-
-</body>
-</html>
