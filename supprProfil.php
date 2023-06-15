@@ -33,8 +33,8 @@ try {
         $req_delete_reservations->closeCursor();
 
         // Mettre à jour le nombre de places réservées dans les trajets correspondants
-        $req_update_trajets = $mabd->prepare('UPDATE trajets SET trajet_places_res = trajet_places_res + 1 WHERE trajet_id IN (
-                                                SELECT _trajet_id FROM reservations WHERE _user_id = :_user_id
+        $req_update_trajets = $mabd->prepare('UPDATE trajets SET traj_places = traj_places + 1 WHERE traj_id IN (
+                                                SELECT _traj_id FROM reservations WHERE _user_id = :_user_id
                                             )');
         $req_update_trajets->bindValue(':_user_id', $user_id, PDO::PARAM_INT);
         $req_update_trajets->execute();
