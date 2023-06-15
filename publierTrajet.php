@@ -49,7 +49,14 @@
             
 
             <div id="publier_trajet_submit">
-                <input type="submit" value="Publier le trajet">
+                <?php
+                // Vérifier si l'utilisateur n'a pas de voiture
+                if (empty($user['user_car'])) {
+                    echo "<p>Vous n'avez pas de voiture. Vous ne pouvez pas publier de trajet.</p>";
+                } else {
+                    echo "<input type='submit' value='Publier le trajet'>";
+                }
+                ?>
             </div>
         </form>
     </div>

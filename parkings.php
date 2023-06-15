@@ -12,19 +12,26 @@
 </head>
 <body>
 <?php
-    $mabd = connexionBD();
-    $requete = $mabd->query("SELECT park_nom, park_loc FROM parkings");
-    echo '<div id="parking">';
-    echo '<h3>Les parkings :</h3>';
-    while ($park = $requete->fetch()) {
+$mabd = connexionBD();
+$requete = $mabd->query("SELECT park_nom, park_loc, park_img FROM parkings");
+echo '<div id="parking">';
+echo '<h3>Les parkings :</h3>';
+while ($park = $requete->fetch()) {
     $parkingNom = $park['park_nom'];
     $parkingAdresse = $park['park_loc'];
+    $parkingImage = $park['park_img'];
+
     echo "<option value='$parkingNom'>$parkingNom</option>";
     echo "<option value='$parkingAdresse'>$parkingAdresse</option>";
-    }
-    echo '</div>';
-?>
 
+    if (!empty($parkingImage)) {
+        echo "<img src='img/$parkingImage' alt='Image du parking'>";
+    }
+}
+echo '</div>';
+
+deconnexionBD($mabd);
+?>
 
 </body>
 </html>
