@@ -3,6 +3,7 @@
 <h1 id="accueil_logo">Car & Cie</h1>
 
 <div id="recherche_trajet">
+    <h1>Où allez-vous?</h1>
     <form action="resultTrajet.php" method="POST">
     <label for="depart">Départ</label>
     <select class="input" name="depart" id="depart" required>
@@ -17,13 +18,13 @@
     </select>
 
     <label for="nom">Destination</label>
-    <input class="input" type="text" id="dest" name="dest" required placeholder="Ville"><br><br>
+    <input class="input" type="text" id="dest" name="dest" required placeholder="Ville">
 
     <label for="date">Date</label>
-    <input class="input" type="date" id="date" name="date" required><br><br>
+    <input class="input" type="date" id="date" name="date" required>
 
     <div id="trajet_submit">
-        <input type="submit" value="En route!">
+        <input type="submit" value="Rechercher">
     </div>
 </form>
 

@@ -65,7 +65,7 @@ require 'admin/lib.inc.php';
       <li id="park_header"><a href="parkings.php">Les parkings</a></li>
       <li></li><li></li><li></li><li></li><li></li><li></li>
       <li id="conn_inscr_header"><a href="connexion.php">Connexion/</a><a href="inscription.php">Inscription</a></li>
-      <li><a href="profil.php"><img id="avatar_header_pc" src="img/avatar.png" alt="avatar"></a></li>
+      <li><a href="profil.php"><img id="avatar_header_pc" src="img/avatar_blanc.png" alt="avatar"></a></li>
     </ul>
   </nav>
 
