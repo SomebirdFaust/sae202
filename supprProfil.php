@@ -9,9 +9,14 @@
 <?php
 echo '<div id="modif_profil_supprimer">';
     echo '<form action="supprProfilVerif.php" method="post">';
-    echo '<input type="hidden" name="user_id" value="' . $user['user_id'] . '">';
+    if (isset($user) && $user !== null) {
+        echo '<input type="hidden" name="user_id" value="' . $user['user_id'] . '">';
+    } else {
+        echo '<input type="hidden" name="user_id" value="">';
+    }
     echo '</form>';
-    echo '</div>';
+echo '</div>';
 ?>
+
 </body>
 </html>
