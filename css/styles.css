@@ -108,7 +108,7 @@ footer ul{
       display: flex;
       justify-content: center;
       align-items: end;
-      height: 650px;
+      height: 400px;
     }
 
     #bouton_deconnexion_header button{
