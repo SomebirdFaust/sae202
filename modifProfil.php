@@ -23,9 +23,9 @@ if ($user) {
     echo '<div id="modif_profil">';
     echo '<form action="validModifProfil.php" method="post">';
     echo '<label for="prenom">Prénom</label> <br />'; 
-    echo '<input class="input" type="text" name="prenom" value="' . htmlspecialchars(ucfirst($user['user_prenom'])) . '"><br />';
+    echo '<input class="input" type="text" name="prenom" value="' . htmlspecialchars(ucfirst($user['user_prenom']), ENT_QUOTES, 'UTF-8') . '"><br />';
     echo '<label for="nom">Nom</label> <br />';
-    echo '<input class="input" type="text" name="nom" value="' . htmlspecialchars(ucfirst($user['user_nom'])) . '"><br />';
+    echo '<input class="input" type="text" name="nom" value="' . htmlspecialchars(ucfirst($user['user_nom']), ENT_QUOTES, 'UTF-8') . '"><br />';
     echo '<label for="genre">Pronoms</label> <br />';
     echo '<select class="input" name="genre">';
     echo '<option value="il" ' . ($user['user_genre'] === 'il' ? 'selected' : '') . '>Il</option>';
@@ -33,12 +33,12 @@ if ($user) {
     echo '<option value="iel" ' . ($user['user_genre'] === 'iel' ? 'selected' : '') . '>Iel</option>';
     echo '</select><br />';            
     echo '<label for="email">Email</label> <br />';
-    echo '<input class="input" type="email" name="email" value="' . htmlspecialchars($user['user_mail']) . '" readonly><br />';
+    echo '<input class="input" type="email" name="email" value="' . htmlspecialchars($user['user_mail'], ENT_QUOTES, 'UTF-8') . '" readonly><br />';
 
     echo '<label for="voiture">Véhicule</label> <br />';
-    echo '<input class="input" type="text" name="voiture" value="' . htmlspecialchars(ucfirst($user['user_car'])) . '"><br />';
+    echo '<input class="input" type="text" name="voiture" value="' . htmlspecialchars(ucfirst($user['user_car']), ENT_QUOTES, 'UTF-8') . '"><br />';
     echo '<label for="bio">Biographie (300 caractères max)</label> <br />';
-    echo '<textarea class="input" name="bio" oninput="countCharacters(this)">' . htmlspecialchars(ucfirst($user['user_bio'])) . '</textarea>';
+    echo '<textarea class="input" name="bio" oninput="countCharacters(this)">' . htmlspecialchars(ucfirst($user['user_bio']), ENT_QUOTES, 'UTF-8') . '</textarea>';
     echo '<div id="characterCount">300</div><br />';            
 
     echo '<div id="modif_profil_enregistrer">';
@@ -48,7 +48,7 @@ if ($user) {
 
     echo '<div id="modif_profil_supprimer">';
     echo '<form action="supprProfil.php" method="post">';
-    echo '<input type="hidden" name="user_id" value="' . htmlspecialchars($user['user_id']) . '">';
+    echo '<input type="hidden" name="user_id" value="' . htmlspecialchars($user['user_id'], ENT_QUOTES, 'UTF-8') . '">';
     echo '<input type="submit" value="Supprimer le compte">';
     echo '</form>';
     echo '</div>';
