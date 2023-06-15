@@ -19,10 +19,14 @@ try {
     $result = $req->fetch(PDO::FETCH_ASSOC);
 
     if ($result['count'] > 0) {
+        echo 'Voulez vous vraiment supprimer votre compte ?';
         echo '<div id="modif_profil_supprimer">';
         echo '<form action="supprProfilVerif.php" method="post">';
         echo '<input type="hidden" name="user_id" value="' . $user_id . '">';
         echo '<input type="submit" value="Supprimer le compte">';
+        echo '</form>';
+        echo '<form action="Profil.php" method="post">';
+        echo '<input type="submit" value="Retour au profil">';
         echo '</form>';
         echo '</div>';
     } else {

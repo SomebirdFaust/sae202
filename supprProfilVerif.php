@@ -1,5 +1,6 @@
 <?php
 require 'admin/lib.inc.php';
+session_start();
 
 $user_id = $_POST['user_id'];
 
@@ -25,6 +26,10 @@ try {
         $req_delete_utilisateur->closeCursor(); // Ferme le curseur du résultat
 
         $mabd->commit();
+
+        // Destruction de la session
+        session_unset();
+        session_destroy();
 
         header('location: index.php?deleted=1');
         exit();
