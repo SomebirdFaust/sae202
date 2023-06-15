@@ -18,12 +18,20 @@ try {
 
     if ($result['count'] > 0) {
         echo "Cet email est déjà utilisé, veuillez vous connecter !";
-        header('Location: inscription.php?erreur=1');        
+        header('Location: inscription.php?erreur=1');
         exit();
     } else {
         $mdp_hash = password_hash($mdp, PASSWORD_BCRYPT, ['cost' => 12]);
+
+        if (empty($voiture)) {
+            // Si aucun modèle de voiture n'est sélectionné, définir la valeur à NULL
+            $car = null;
+        } else {
+            $car = $detailsVoiture;
+        }
+
         $req = $mabd->prepare('INSERT INTO utilisateurs (user_nom, user_prenom, user_mail, user_mdp, user_genre, user_car) VALUES (:nom, :prenom, :email, :mdp, :genre, :car)');
-        $req->execute(array(':nom' => $nom, ':prenom' => $prenom, ':email' => $email, ':mdp' => $mdp_hash, ':genre' => $genre, ':car' => $detailsVoiture));
+        $req->execute(array(':nom' => $nom, ':prenom' => $prenom, ':email' => $email, ':mdp' => $mdp_hash, ':genre' => $genre, ':car' => $car));
 
         $user = grab_user($mabd, $email);
         if ($user) {
@@ -40,4 +48,3 @@ try {
 
 deconnexionBD($mabd);
 ?>
-

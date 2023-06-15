@@ -46,8 +46,8 @@ require 'header.php';
 
 
         <div id="detailsVoiture" style="display: none;">
-          <label for="detailsVoiture">Précisez la marque, la couleur et le modèle de votre voiture :*</label><br>
-          <input class="input" type="text" name="detailsVoiture" placeholder="Marque, couleur, modèle" required><br><br>
+          <label for="detailsVoiture">Précisez la marque, la couleur et le modèle de votre voiture :</label><br>
+          <input class="input" type="text" name="detailsVoiture" placeholder="Marque, couleur, modèle"><br><br>
         </div>
 
         <div id="inscription_submit">
