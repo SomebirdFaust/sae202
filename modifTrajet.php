@@ -1,6 +1,3 @@
-<?php
-    require 'header.php';
-?> 
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -12,7 +9,7 @@
 </head>
 <body>
     <div id="modif_trajet">
-<?php
+    <?php
     $trajet_id = $_GET['trajet_id']; // Récupère l'ID du trajet à modifier depuis l'URL
     $mabd = connexionBD();
     $requete = $mabd->prepare("SELECT * FROM trajets WHERE traj_id = :trajet_id");
@@ -22,7 +19,7 @@
 
     if ($trajet) {
         ?>
-        <form action="modifTrajetVerif.php" method="POST">
+        <form action="modifTrajetVerif.php" method="POST" id="modif_trajet_form">
             <input type="hidden" name="trajet_id" value="<?php echo $trajet_id; ?>">
 
             <label for="depart">Départ</label>
@@ -62,20 +59,14 @@
         </form>
         
         <div id="modif_trajet_suppr">
-        <form action="supprTrajet.php" method="POST">
-            <input type="hidden" name="trajet_id" value="<?php echo $trajet_id; ?>">
-            <input type="submit" value="Supprimer le trajet">
-        </form>
+            <form action="supprTrajet.php" method="POST">
+                <input type="hidden" name="trajet_id" value="<?php echo $trajet_id; ?>">
+                <input type="submit" value="Supprimer le trajet">
+            </form>
         </div>
-
-        
         <?php
     }
-?>
-</div>
-
-<?php
-    require 'footer.php';
-?>
+    ?>
+    </div>
 </body>
 </html>
