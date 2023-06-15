@@ -13,7 +13,7 @@
 <h1 id="accueil_logo">Car & Cie</h1>
 
 <div id="recherche_trajet">
-    <?php
+    <?php 
     if (isset($_SESSION['user_id'])) {
         echo '<h1>Où allez-vous?</h1>';
         echo '<form action="resultTrajet.php" method="POST">';
