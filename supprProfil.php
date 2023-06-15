@@ -12,7 +12,6 @@ require 'header.php';
 <body>
 <?php
 require 'admin/lib.inc.php';
-session_start();
 
 $user_id = $_POST['user_id'];
 
