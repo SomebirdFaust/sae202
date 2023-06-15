@@ -19,7 +19,7 @@ if(isset($_GET['reserv_id'])) {
 
     // Récupérer les informations de la réservation
     $requeteReservation = $mabd->prepare("SELECT * FROM reservations WHERE reserv_id = :reserv_id");
-    $requeteReservation->bindParam(':reserv_id', $reservation_id);
+    $requeteReservation->bindParam(':reserv_id', $reservation['_reserv_id']);
     $requeteReservation->execute();
     $reservation = $requeteReservation->fetch();
 
