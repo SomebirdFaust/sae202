@@ -325,6 +325,7 @@ footer ul{
 
     #mentions_legales{
       margin: 20px 30px;
+      margin-bottom: 100px;
     }
 
     /* PAGE CONNEXION */
@@ -884,7 +885,10 @@ footer ul{
 
     /* pour les boutons */
 
-    #submit_connexion, #submit_contact input, #index_connexion button, #index_inscription button, #trajet_submit input, #inscription_submit input{
+    #submit_connexion, #submit_contact input, #index_connexion button, 
+    #index_inscription button, #trajet_submit input, 
+    #inscription_submit input, #modif_profil_enregistrer input, 
+    #modif_profil_supprimer input{
       width: auto;
       padding: 0 20px;
       height: 35px;
@@ -894,9 +898,16 @@ footer ul{
       color: #FFF;
     }
 
-    #submit_connexion, #submit_contact input, #index_connexion button, #index_inscription button, #trajet_submit input, #inscription_submit input{
+    #submit_connexion, #submit_contact input, #index_connexion button, 
+    #index_inscription button, #trajet_submit input, 
+    #inscription_submit input, #modif_profil_enregistrer input{
       background-color: #5bacc7;
       border: 1px solid #5bacc7;
+    }
+
+    #modif_profil_supprimer input{
+      background-color: #e31e2f !important;
+      border: 1px solid #e31e2f !important;
     }
 
     /* HEADER */
@@ -1158,6 +1169,41 @@ footer ul{
     #inscription_submit input{
       margin-bottom: 15px;
     }
+
+    /* PAGE MENTIONS LEGALES */
+
+    #mentions_legales{
+      width: 75%;
+      margin: auto;
+      margin-top: 60px;
+    }
+
+    /* PAGE MODIF PROFIL */
+
+    #modif_profil{
+      width: 75%;
+      margin: auto;
+      text-align: center;
+      margin-top: 60px;
+      margin-bottom: 100px;
+    }
+
+    #modif_profil textarea{
+      resize: none;
+      height: 250px;
+    }
+
+    #img_modif_profil{
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    #img_modif_profil img{
+      width: 220px;
+      margin-bottom: 20px;
+    }
+
+
 
 
     /* PAGE PARKINGS */
