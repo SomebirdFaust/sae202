@@ -1,8 +1,13 @@
 <?php
 require 'admin/lib.inc.php';
 
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    header('Location: index.php');
+    exit();
+}
+
 $depart = $_POST['depart'];
-$destination = $_POST['dest'];
+$destination = ucfirst($_POST['dest']);
 $date = $_POST['date'];
 $heure = $_POST['heure'];
 $places = $_POST['places'];
@@ -15,19 +20,19 @@ try {
 
     // Récupérer le park_id correspondant au départ dans la table parkings
     $requete = $mabd->prepare("SELECT park_id FROM parkings WHERE park_nom = :depart");
-    $requete->bindParam(':depart', $depart);
+    $requete->bindValue(':depart', $depart);
     $requete->execute();
     $resultat = $requete->fetch(PDO::FETCH_ASSOC);
     $park_id = $resultat['park_id'];
 
     // Insérer une nouvelle entrée dans la table trajets avec l'ID de l'utilisateur
     $req = $mabd->prepare('INSERT INTO trajets (_park_id, _user_id, traj_arrivee, traj_date, traj_heure_depart, traj_places) VALUES (:park_id, :user_id, :destination, :date, :heure, :places)');
-    $req->bindParam(':park_id', $park_id);
-    $req->bindParam(':user_id', $user_id);
-    $req->bindParam(':destination', $destination);
-    $req->bindParam(':date', $date);
-    $req->bindParam(':heure', $heure);
-    $req->bindParam(':places', $places);
+    $req->bindValue(':park_id', $park_id, PDO::PARAM_INT);
+    $req->bindValue(':user_id', $user_id, PDO::PARAM_INT);
+    $req->bindValue(':destination', $destination);
+    $req->bindValue(':date', $date);
+    $req->bindValue(':heure', $heure);
+    $req->bindValue(':places', $places, PDO::PARAM_INT);
     $req->execute();
 
     header('Location: succesCreaTrajet.php');
