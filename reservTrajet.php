@@ -30,7 +30,7 @@ try {
     $req_select_places->execute(['trajet_id' => $trajet_id]);
     $result = $req_select_places->fetch(PDO::FETCH_ASSOC);
 
-    if ($result['traj_places'] == 0) {
+    if ($result['traj_places'] == -1) {
         $mabd->rollBack();
         header('Location: erreurTrajet.php');
         exit();
