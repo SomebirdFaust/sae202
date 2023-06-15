@@ -25,7 +25,7 @@ try {
         echo '<input type="hidden" name="user_id" value="' . $user_id . '">';
         echo '<input type="submit" value="Supprimer le compte">';
         echo '</form>';
-        echo '<form action="Profil.php" method="post">';
+        echo '<form action="profil.php" method="post">';
         echo '<input type="submit" value="Retour au profil">';
         echo '</form>';
         echo '</div>';
