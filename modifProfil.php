@@ -48,8 +48,9 @@ if ($user) {
                 echo '<a href="supprProfil.php">Supprimer le compte.</a>';
             echo '</div>';
 
-            echo '</form>';
-            echo '<input type="hidden" name="user_id" value="' . $user['user_id'] . '">';
+            echo '<input type="hidden" name="user_id" value="' . $user['user_id'] . '">'; // Champ caché pour récupérer l'ID de l'utilisateur
+
+        echo '</form>';
     echo '</div>';
 }
 ?>
@@ -73,4 +74,3 @@ require 'footer.php';
 ?>
 </body>
 </html>
-
