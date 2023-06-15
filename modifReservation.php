@@ -24,7 +24,7 @@ if ($user) {
         }
 
         // Requête pour récupérer les détails de la réservation
-        $requeteReservation = $mabd->prepare("SELECT t.traj_id, t.traj_date, p.park_nom, t.traj_arrivee, u.user_car, CONCAT(u.user_nom, ' ', u.user_prenom) AS conducteur 
+        $requeteReservation = $mabd->prepare("SELECT t.traj_id, t.traj_date, t.traj_heure_depart, p.park_nom, t.traj_arrivee, u.user_car, CONCAT(u.user_nom, ' ', u.user_prenom) AS conducteur 
                                               FROM trajets AS t
                                               INNER JOIN utilisateurs AS u ON t._user_id = u.user_id
                                               INNER JOIN reservations AS r ON t.traj_id = r._traj_id
@@ -41,6 +41,7 @@ if ($user) {
             echo '<div id="modif_reservation">';
             echo "<p>Conducteur : " . $reservation['conducteur'] . "</p><br>";
             echo "<p>Date de départ : " . $reservation['traj_date'] . "</p><br>";
+            echo "<p>Heure de départ : " . $reservation['traj_heure_depart'] . "</p><br>";
             echo "<p>Départ : " . $reservation['park_nom'] . "</p><br>";
             echo "<p>Arrivée : " . $reservation['traj_arrivee'] . "</p><br>";
             echo "<p>Modèle de voiture : " . $reservation['user_car'] . "</p><br>";

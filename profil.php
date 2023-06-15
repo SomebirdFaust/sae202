@@ -49,7 +49,7 @@ if ($user) {
     echo '</div>';
 
     // Afficher les trajets réservés par l'utilisateur
-    $requeteReserves = $mabd->prepare("SELECT t.traj_id, r.reserv_id, t.traj_date, p.park_nom, t.traj_arrivee, u.user_car, CONCAT(u.user_nom, ' ', u.user_prenom) AS conducteur 
+    $requeteReserves = $mabd->prepare("SELECT t.traj_id, r.reserv_id, t.traj_date, t.traj_heure_depart, p.park_nom, t.traj_arrivee, u.user_car, CONCAT(u.user_nom, ' ', u.user_prenom) AS conducteur 
                                       FROM trajets AS t
                                       INNER JOIN utilisateurs AS u ON t._user_id = u.user_id
                                       INNER JOIN reservations AS r ON t.traj_id = r._traj_id
@@ -65,6 +65,7 @@ if ($user) {
         foreach ($trajetsReserves as $trajetReserve) {
             echo "<br><p>Conducteur : " . $trajetReserve['conducteur'] . "</p><br>";
             echo "<p>Date de départ : " . $trajetReserve['traj_date'] . "</p><br>";
+            echo "<p>Heure de départ : " . $trajetReserve['traj_heure_depart'] . "</p><br>";
             echo "<p>Départ : " . $trajetReserve['park_nom'] . "</p><br>";
             echo "<p>Arrivée : " . $trajetReserve['traj_arrivee'] . "</p><br>";
             echo "<p>Modèle de voiture : " . $trajetReserve['user_car'] . "</p><br>";
@@ -78,7 +79,7 @@ if ($user) {
 
     // Afficher les trajets créés par l'utilisateur s'il a une voiture
     if (!empty($user['user_car'])) {
-        $requeteCrees = $mabd->prepare("SELECT t.traj_id, t.traj_date, p.park_nom, t.traj_arrivee 
+        $requeteCrees = $mabd->prepare("SELECT t.traj_id, t.traj_date, t.traj_heure_depart, p.park_nom, t.traj_arrivee 
                                        FROM trajets AS t
                                        INNER JOIN parkings AS p ON t._park_id = p.park_id
                                        WHERE t._user_id = :user_id");
@@ -90,6 +91,7 @@ if ($user) {
         if ($trajetsCrees) {
             foreach ($trajetsCrees as $trajetCree) {
                 echo "Date de départ : " . $trajetCree['traj_date'] . "<br>";
+                echo "Heure de départ : " . $trajetCree['traj_heure_depart'] . "<br>";
                 echo "Départ : " . $trajetCree['park_nom'] . "<br>";
                 echo "Arrivée : " . $trajetCree['traj_arrivee'] . "<br>";
                 echo "<a href='modifTrajet.php?trajet_id=" . $trajetCree['traj_id'] . "'>Modifier</a> ";
