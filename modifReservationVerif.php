@@ -1,11 +1,11 @@
 <?php
 require 'header.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $mabd = connexionBD();
-    $user = grab_user($mabd);
+$mabd = connexionBD();
+$user = grab_user($mabd);
 
-    if ($user) {
+if ($user) {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (isset($_POST['reserv_id'])) {
             $reserv_id = $_POST['reserv_id'];
 
@@ -23,14 +23,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             echo "ID de réservation non spécifié.";
         }
-
-        deconnexionBD($mabd);
-    } else {
-        echo "Vous n'êtes pas connecté(e) !";
     }
 } else {
-    echo "Méthode de requête invalide.";
+    echo "Vous n'êtes pas connecté(e) !";
 }
+
+deconnexionBD($mabd);
 
 require 'footer.php';
 ?>
@@ -78,11 +76,9 @@ if ($user) {
             // Formulaire d'annulation de la réservation
             echo "<form action='' method='post'>";
             echo "<input type='hidden' name='reserv_id' value='" . $reservation['traj_id'] . "'>";
-            echo "<button type='submit' name='action' value='annuler'>Annuler la réservation</button>";
+            echo "<input type='hidden' name='action' value='annuler'>";
+            echo "<button type='submit'>Annuler la réservation</button>";
             echo "</form>";
-
-            // Bouton pour rediriger vers la page profil.php
-            echo "<a href='profil.php'>Retourner au profil</a>";
         } else {
             echo "Réservation non trouvée.";
         }
@@ -94,8 +90,9 @@ if ($user) {
 } else {
     echo "Vous n'êtes pas connecté(e) !";
 }
-
 ?>
+
+<a href='profil.php'>Retourner au profil</a>
 
 <?php
 require 'footer.php';
