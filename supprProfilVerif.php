@@ -13,14 +13,16 @@ try {
     if ($result['count'] > 0) {
         $mabd->beginTransaction();
 
-        $req_delete_trajets = $mabd->prepare('DELETE FROM trajets_reserves WHERE user_id = :user_id;
-                                              DELETE FROM trajets_publies WHERE user_id = :user_id;');
-        $req_delete_trajets->bindValue(':user_id', $user_id, PDO::PARAM_INT);
+        $req_delete_trajets = $mabd->prepare('DELETE FROM trajets WHERE _user_id = :_user_id;
+                                              DELETE FROM reservations WHERE _user_id = :_user_id;');
+        $req_delete_trajets->bindValue(':_user_id', $user_id, PDO::PARAM_INT);
         $req_delete_trajets->execute();
+        $req_delete_trajets->closeCursor(); // Ferme le curseur du résultat
 
         $req_delete_utilisateur = $mabd->prepare('DELETE FROM utilisateurs WHERE user_id = :user_id');
         $req_delete_utilisateur->bindValue(':user_id', $user_id, PDO::PARAM_INT);
         $req_delete_utilisateur->execute();
+        $req_delete_utilisateur->closeCursor(); // Ferme le curseur du résultat
 
         $mabd->commit();
 
