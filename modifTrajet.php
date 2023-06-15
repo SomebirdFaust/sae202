@@ -20,11 +20,11 @@
         if ($trajet) {
             ?>
             <h2>Informations du trajet :</h2>
-            <p><strong>Départ :</strong> <?php echo $trajet['_park_id']; ?></p>
-            <p><strong>Destination :</strong> <?php echo $trajet['traj_arrivee']; ?></p>
-            <p><strong>Date :</strong> <?php echo $trajet['traj_date']; ?></p>
-            <p><strong>Heure de départ :</strong> <?php echo $trajet['traj_heure_depart']; ?></p>
-            <p><strong>Nombre de places :</strong> <?php echo $trajet['traj_places']; ?></p>
+            <p>Départ : <?php echo $trajet['_park_id']; ?></p>
+            <p>Destination : <?php echo $trajet['traj_arrivee']; ?></p>
+            <p>Date : <?php echo $trajet['traj_date']; ?></p>
+            <p>Heure de départ : <?php echo $trajet['traj_heure_depart']; ?></p>
+            <p>Nombre de places : <?php echo $trajet['traj_places']; ?></p>
 
             <div id="modif_trajet_suppr">
                 <form action="supprTrajet.php" method="POST">

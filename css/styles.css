@@ -790,10 +790,15 @@ footer ul{
       margin-top: 50px;
     }
 
+    #modif_trajet h2{
+      margin-bottom: 20px;
+      font-size: 21px;
+    }
+
     #modif_trajet_suppr{
       margin: auto;
       text-align: center;
-      margin-top: 0px;
+      margin-top: 50px;
     }
 
     #modif_trajet_suppr form{
@@ -1216,6 +1221,32 @@ footer ul{
       display: flex;
       justify-content: center;
       margin-top: 50px;
+    }
+
+     /* PAGE MODIF TRAJET */
+
+     #modif_trajet{
+      width: 75%;
+      margin: auto;
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    #modif_trajet h2{
+      margin-bottom: 20px;
+      font-size: 21px;
+    }
+
+    #modif_trajet_suppr{
+      margin: auto;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    #modif_trajet_suppr form{
+      margin: auto;
+      width: 70%;
+      text-align: start;
     }
 
 
