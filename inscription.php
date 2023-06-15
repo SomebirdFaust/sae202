@@ -38,6 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($user) {
                 session_start();
                 $_SESSION['email'] = $user['user_mail'];
+                session_regenerate_id(); // Régénère l'identifiant de session pour des raisons de sécurité
             }
 
             header('Location: index.php');
