@@ -25,7 +25,7 @@ while ($park = $requete->fetch()) {
     echo "<option value='$parkingAdresse'>$parkingAdresse</option>";
 
     if (!empty($parkingImage)) {
-        echo "<img src='$parkingImage' alt='Image du parking'>";
+        echo "<img src='img/$parkingImage' alt='Image du parking'>";
     }
 }
 echo '</div>';
