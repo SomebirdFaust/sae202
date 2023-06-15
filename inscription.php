@@ -1,6 +1,8 @@
 <?php
 require 'admin/lib.inc.php';
 
+require 'header.php';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nom = ucfirst($_POST['nom']);
     $prenom = ucfirst($_POST['prenom']);
@@ -41,8 +43,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     deconnexionBD($mabd);
 }
-
-require 'header.php';
 ?>
 
 <!DOCTYPE html>
