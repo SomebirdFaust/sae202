@@ -24,7 +24,6 @@ if ($user) {
         $reserv_id = $_GET['reserv_id'];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'annuler') {
-            // Supprimer la réservation et toutes ses données de la base de données
             $requeteSuppression = $mabd->prepare("DELETE r.*, t.* FROM reservations AS r
                                                   INNER JOIN trajets AS t ON r._traj_id = t.traj_id
                                                   WHERE r.reserv_id = :reserv_id AND r._user_id = :user_id");
@@ -34,11 +33,10 @@ if ($user) {
             if ($requeteSuppression->execute()) {
                 echo '<p id="succes_annul_reservation">La réservation a été annulée avec succès.</p>';
             } else {
-                echo '<pid="error_annul_reservation">Erreur lors de l\'annulation de la réservation.</p>';
+                echo '<p id="error_annul_reservation">Erreur lors de l\'annulation de la réservation.</p>';
             }
         }
 
-        // Requête pour récupérer les détails de la réservation
         $requeteReservation = $mabd->prepare("SELECT t.traj_id, t.traj_date, t.traj_heure_depart, p.park_nom, t.traj_arrivee, u.user_car, CONCAT(u.user_nom, ' ', u.user_prenom) AS conducteur 
                                               FROM trajets AS t
                                               INNER JOIN utilisateurs AS u ON t._user_id = u.user_id
@@ -52,17 +50,15 @@ if ($user) {
         $reservation = $requeteReservation->fetch();
 
         if ($reservation) {
-            // Afficher les détails de la réservation
             echo '<div id="modif_reservation">';
-            echo "<p>Conducteur : " . $reservation['conducteur'] . "</p><br>";
-            echo "<p>Date de départ : " . $reservation['traj_date'] . "</p><br>";
-            echo "<p>Heure de départ : " . $reservation['traj_heure_depart'] . "</p><br>";
-            echo "<p>Départ : " . $reservation['park_nom'] . "</p><br>";
-            echo "<p>Arrivée : " . $reservation['traj_arrivee'] . "</p><br>";
-            echo "<p>Modèle de voiture : " . $reservation['user_car'] . "</p><br>";
+            echo "<p>Conducteur : " . htmlspecialchars($reservation['conducteur'], ENT_QUOTES, 'UTF-8') . "</p><br>";
+            echo "<p>Date de départ : " . htmlspecialchars($reservation['traj_date'], ENT_QUOTES, 'UTF-8') . "</p><br>";
+            echo "<p>Heure de départ : " . htmlspecialchars($reservation['traj_heure_depart'], ENT_QUOTES, 'UTF-8') . "</p><br>";
+            echo "<p>Départ : " . htmlspecialchars($reservation['park_nom'], ENT_QUOTES, 'UTF-8') . "</p><br>";
+            echo "<p>Arrivée : " . htmlspecialchars($reservation['traj_arrivee'], ENT_QUOTES, 'UTF-8') . "</p><br>";
+            echo "<p>Modèle de voiture : " . htmlspecialchars($reservation['user_car'], ENT_QUOTES, 'UTF-8') . "</p><br>";
             echo '</div>';
 
-            // Formulaire d'annulation de la réservation
             echo '<div id="annul_reservation">';
             echo "<form action='modifReservation.php?reserv_id=$reserv_id' method='post'>";
             echo "<input type='hidden' name='action' value='annuler'>";
