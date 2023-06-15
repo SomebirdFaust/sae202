@@ -3,32 +3,35 @@
 <h1 id="accueil_logo">Car & Cie</h1>
 
 <div id="recherche_trajet">
-    <h1>Où allez-vous?</h1>
-    <form action="resultTrajet.php" method="POST">
-    <label for="depart">Départ</label>
-    <select class="input" name="depart" id="depart" required>
-        <?php
+    <?php
+    if (isset($_SESSION['user_id'])) {
+        // Utilisateur connecté
+        echo '<h1>Où allez-vous?</h1>';
+        echo '<form action="resultTrajet.php" method="POST">';
+        echo '<label for="depart">Départ</label>';
+        echo '<select class="input" name="depart" id="depart" required>';
         $mabd = connexionBD();
         $requete = $mabd->query("SELECT park_nom FROM parkings");
         while ($park = $requete->fetch()) {
             $parkingNom = $park['park_nom'];
             echo "<option value='$parkingNom'>$parkingNom</option>";
         }
-        ?>
-    </select>
-
-    <label for="nom">Destination</label>
-    <input class="input" type="text" id="dest" name="dest" required placeholder="Ville">
-
-    <label for="date">Date</label>
-    <input class="input" type="date" id="date" name="date" required>
-
-    <div id="trajet_submit">
-        <input type="submit" value="Rechercher">
-    </div>
-</form>
-
-
+        echo '</select>';
+        echo '<label for="nom">Destination</label>';
+        echo '<input class="input" type="text" id="dest" name="dest" required placeholder="Ville">';
+        echo '<label for="date">Date</label>';
+        echo '<input class="input" type="date" id="date" name="date" required>';
+        echo '<div id="trajet_submit">';
+        echo '<input type="submit" value="Rechercher">';
+        echo '</div>';
+        echo '</form>';
+    } else {
+        // Utilisateur non connecté
+        echo '<h1>Veuillez vous connecter ou vous inscrire</h1>';
+        echo '<a href="connexion.php"><button>Connexion</button></a>';
+        echo '<a href="inscription.php"><button>Inscription</button></a>';
+    }
+    ?>
 </div>
 
 <div id="div_animation">
