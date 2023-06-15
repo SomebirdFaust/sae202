@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<h1 id="accueil_logo">Car & Cie</h1>
+<h1 id="accueil_logo">Car &amp; Cie</h1>
 
 <div id="recherche_trajet">
     <?php 
@@ -23,7 +23,7 @@
                 $mabd = connexionBD();
                 $requete = $mabd->query("SELECT park_nom FROM parkings");
                 while ($park = $requete->fetch()) {
-                    $parkingNom = $park['park_nom'];
+                    $parkingNom = htmlspecialchars($park['park_nom'], ENT_QUOTES, 'UTF-8');
                     echo "<option value='$parkingNom'>$parkingNom</option>";
                 }
                 echo '</select>';
@@ -41,7 +41,7 @@
             echo '</div>';
         echo '</form>';
     } else {
-        echo '<p>Pour effectuer une recherche, veuillez vous authentifier.</h1>';
+        echo '<p>Pour effectuer une recherche, veuillez vous authentifier.</p>';
         echo '<div id="boutons_index">';
         echo '<a id="index_connexion" href="connexion.php"><button>Connexion</button></a>';
         echo '<a id="index_inscription" href="inscription.php"><button>Inscription</button></a>';
@@ -68,8 +68,8 @@
 <div id="questions">
     <h1>FAQ</h1>
         <div class="question">
-            <h3>Car & Cie, c’est quoi ?</h3><br>
-            <p>Car & Cie est une plateforme de covoiturage en ligne spécialement 
+            <h3>Car &amp; Cie, c’est quoi ?</h3><br>
+            <p>Car &amp; Cie est une plateforme de covoiturage en ligne spécialement 
                 conçue pour les étudiants en MMI. Gratuit, pratique et accessible, 
                 le site a été conçu pour faciliter votre quotidien.</p>
         </div>
@@ -97,9 +97,6 @@
         </div>
 </div>
 
-
 <?php require 'footer.php'; ?>
-
 </body>
 </html>
-

@@ -10,7 +10,7 @@ if (isset($_POST['email']) && isset($_POST['mdp'])) {
     $req = 'SELECT * FROM utilisateurs WHERE user_mail = :email';
 
     $stmt = $mabd->prepare($req);
-    $stmt->bindValue(':email', $email);
+    $stmt->bindValue(':email', $email, PDO::PARAM_STR);
     $stmt->execute();
 
     $ligne = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -30,4 +30,4 @@ if (isset($_POST['email']) && isset($_POST['mdp'])) {
 }
 
 deconnexionBD($mabd);
-
+?>

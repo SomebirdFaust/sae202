@@ -16,10 +16,10 @@ require 'header.php';
         <img src="img/avatar.png" alt="avatar">
         <form action="connexionVerif.php" method="post"> 
             <label for="email">E-mail* : </label><br>
-            <input class="input input_pc" type="email" name="email" /><br> 
+            <input class="input input_pc" type="email" name="email" required /><br> 
             <label for="mdp">Mot de passe* : </label><br>
             <div>
-                <input class="input input_pc" type="password" name="mdp" id="passwordInput" />
+                <input class="input input_pc" type="password" name="mdp" id="passwordInput" required />
             </div><br>  
             <div id="div_submit_connexion">
                 <input id="submit_connexion" type="submit" value="Connexion"> 
@@ -30,26 +30,11 @@ require 'header.php';
 
         <?php
             if (!empty($_SESSION['erreur'])) {
-                echo $_SESSION['erreur'];
+                echo htmlspecialchars($_SESSION['erreur'], ENT_QUOTES, 'UTF-8');
                 unset($_SESSION['erreur']);
             }
         ?>
     </div> 
-
-    <script>
-        function togglePasswordVisibility() {
-            var passwordInput = document.getElementById("passwordInput");
-            var togglePassword = document.querySelector(".toggle-password");
-
-            if (passwordInput.type === "password") {
-                passwordInput.type = "text";
-                togglePassword.innerHTML = '<img src="eye-off.png" alt="Toggle password visibility">';
-            } else {
-                passwordInput.type = "password";
-                togglePassword.innerHTML = '<img src="eye.png" alt="Toggle password visibility">';
-            }
-        }
-    </script>
 </body>
 </html>
 

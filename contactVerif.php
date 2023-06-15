@@ -16,7 +16,7 @@ if (isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['email']) &&
         $nom = ucfirst(mb_strtolower($nom));
 
         $subject = 'SAE202 : demande de ' . $prenom . ' ' . $nom;
-        $headers = "From: $email\r\n";
+        $headers = "From: " . htmlspecialchars($email, ENT_QUOTES, 'UTF-8') . "\r\n";
         $email_dest = 'flore.gaulard@etudiant.univ-reims.fr';
 
         if (mail($email_dest, $subject, $message, $headers)) {
