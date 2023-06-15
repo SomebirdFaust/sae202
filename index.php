@@ -1,33 +1,49 @@
 <?php require 'header.php';?>
 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+</head>
+<body>
+
 <h1 id="accueil_logo">Car & Cie</h1>
 
 <div id="recherche_trajet">
-    <?php
+    <?php 
     if (isset($_SESSION['user_id'])) {
         echo '<h1>Où allez-vous?</h1>';
         echo '<form action="resultTrajet.php" method="POST">';
-        echo '<label for="depart">Départ</label>';
-        echo '<select class="input" name="depart" id="depart" required>';
-        $mabd = connexionBD();
-        $requete = $mabd->query("SELECT park_nom FROM parkings");
-        while ($park = $requete->fetch()) {
-            $parkingNom = $park['park_nom'];
-            echo "<option value='$parkingNom'>$parkingNom</option>";
-        }
-        echo '</select>';
-        echo '<label for="nom">Destination</label>';
-        echo '<input class="input" type="text" id="dest" name="dest" required placeholder="Ville">';
-        echo '<label for="date">Date</label>';
-        echo '<input class="input" type="date" id="date" name="date" required>';
-        echo '<div id="trajet_submit">';
-        echo '<input type="submit" value="Rechercher">';
-        echo '</div>';
+            echo '<div id="depart">';
+                echo '<label for="depart">Départ</label><br>';
+                echo '<select class="input input_pc" name="depart" id="depart" required>';
+                $mabd = connexionBD();
+                $requete = $mabd->query("SELECT park_nom FROM parkings");
+                while ($park = $requete->fetch()) {
+                    $parkingNom = $park['park_nom'];
+                    echo "<option value='$parkingNom'>$parkingNom</option>";
+                }
+                echo '</select>';
+            echo '</div>';
+            echo '<div id="destination">';
+                echo '<label for="nom">Destination</label><br>';
+                echo '<input class="input input_pc" type="text" id="dest" name="dest" required placeholder="Ville">';
+            echo '</div>';
+            echo '<div id="date">';
+                echo '<label for="date">Date</label><br>';
+                echo '<input class="input input_pc" type="date" id="date" name="date" required>';
+            echo '</div>';
+            echo '<div id="trajet_submit">';
+                echo '<input type="submit" value="Rechercher">';
+            echo '</div>';
         echo '</form>';
     } else {
-        echo '<h1>Pour effectuer une recherche, veuillez vous authentifier.</h1>';
+        echo '<p>Pour effectuer une recherche, veuillez vous authentifier.</h1>';
         echo '<div id="boutons_index">';
-        echo '<a id="index_connexion" href="connexion.php"><button>Connexion</button></a><br>';
+        echo '<a id="index_connexion" href="connexion.php"><button>Connexion</button></a>';
         echo '<a id="index_inscription" href="inscription.php"><button>Inscription</button></a>';
         echo '</div>';
     }
@@ -83,4 +99,7 @@
 
 
 <?php require 'footer.php'; ?>
+
+</body>
+</html>
 
