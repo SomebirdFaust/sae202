@@ -3,12 +3,31 @@
 <h1 id="accueil_logo">Car & Cie</h1>
 
 <div id="recherche_trajet">
-    <!-- champs à faire apparaitre : 
-        départ
-        destination
-        date
-        bouton submit
-    -->
+    <form action="resultTrajet.php" method="POST">
+    <label for="depart">Départ</label>
+    <select class="input" name="depart" id="depart" required>
+        <?php
+        $mabd = connexionBD();
+        $requete = $mabd->query("SELECT park_nom FROM parkings");
+        while ($park = $requete->fetch()) {
+            $parkingNom = $park['park_nom'];
+            echo "<option value='$parkingNom'>$parkingNom</option>";
+        }
+        ?>
+    </select>
+
+    <label for="nom">Destination</label>
+    <input class="input" type="text" id="dest" name="dest" required placeholder="Ville"><br><br>
+
+    <label for="date">Date</label>
+    <input class="input" type="date" id="date" name="date" required><br><br>
+
+    <div id="trajet_submit">
+        <input type="submit" value="En route!">
+    </div>
+</form>
+
+
 </div>
 
 <div id="div_animation">
