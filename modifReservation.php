@@ -1,25 +1,24 @@
 <?php
 require 'header.php';
-?>
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Annulation de réservation</title>
-</head>
-<body>
-
-<?php
 $mabd = connexionBD();
 $user = grab_user($mabd);
 
 if ($user) {
-    // Vérifier si l'ID de réservation est présent dans la requête GET
     if (isset($_GET['reserv_id'])) {
         $reserv_id = $_GET['reserv_id'];
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'annuler') {
+            $requeteSuppression = $mabd->prepare("DELETE FROM reservations WHERE reserv_id = :reserv_id AND _user_id = :user_id");
+            $requeteSuppression->bindParam(':reserv_id', $reserv_id);
+            $requeteSuppression->bindParam(':user_id', $user['user_id']);
+
+            if ($requeteSuppression->execute()) {
+                echo "La réservation a été annulée avec succès.";
+            } else {
+                echo "Erreur lors de l'annulation de la réservation.";
+            }
+        }
 
         // Requête pour récupérer les détails de la réservation
         $requeteReservation = $mabd->prepare("SELECT t.traj_id, t.traj_date, p.park_nom, t.traj_arrivee, u.user_car, CONCAT(u.user_nom, ' ', u.user_prenom) AS conducteur 
@@ -43,9 +42,9 @@ if ($user) {
             echo "Modèle de voiture : " . $reservation['user_car'] . "<br>";
 
             // Formulaire d'annulation de la réservation
-            echo "<form action='modifReservationVerif.php' method='post'>";
-            echo "<input type='hidden' name='reserv_id' value='" . $reservation['traj_id'] . "'>";
-            echo "<button type='submit' name='action' value='annuler'>Annuler la réservation</button>";
+            echo "<form action='' method='post'>";
+            echo "<input type='hidden' name='action' value='annuler'>";
+            echo "<button type='submit'>Annuler la réservation</button>";
             echo "</form>";
         } else {
             echo "Réservation non trouvée.";
@@ -59,11 +58,5 @@ if ($user) {
     echo "Vous n'êtes pas connecté(e) !";
 }
 
-?>
-
-<?php
 require 'footer.php';
 ?>
-
-</body>
-</html>
