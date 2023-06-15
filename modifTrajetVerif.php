@@ -11,12 +11,12 @@ $places = intval($_POST['places']);
 try {
     $mabd = connexionBD();
 
-    $requete = $mabd->prepare("SELECT traj_auteur FROM trajets WHERE traj_id = :trajet_id");
+    $requete = $mabd->prepare("SELECT _user_id FROM trajets WHERE traj_id = :trajet_id");
     $requete->bindValue(':trajet_id', $trajet_id, PDO::PARAM_INT);
     $requete->execute();
     $trajet = $requete->fetch(PDO::FETCH_ASSOC);
 
-    if (!$trajet || $trajet['traj_auteur'] !== $_SESSION['user_id']) {
+    if (!$trajet || $trajet['_user_id'] !== $_SESSION['user_id']) {
         header('Location: trajets.php');
         exit();
     }
