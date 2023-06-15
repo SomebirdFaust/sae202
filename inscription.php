@@ -12,7 +12,7 @@ require 'header.php';
     <div id="inscription">
       <h1>Inscription</h1>
       <img src="img/avatar.png" alt="avatar">
-      <form action="inscriptionVerif.php" method="POST">
+      <form action="inscriptionVerif.php" method="post">
         <label for="prenom">Prénom*</label>
         <input class="input" type="text" id="prenom" name="prenom" required><br><br>
 

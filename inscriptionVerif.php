@@ -18,7 +18,7 @@ try {
 
     if ($result['count'] > 0) {
         echo "Cet email est déjà utilisé, veuillez vous connecter !";
-        header('location: inscription.php?erreur=1');
+        header('Location: inscription.php?erreur=1');        
         exit();
     } else {
         $mdp_hash = password_hash($mdp, PASSWORD_BCRYPT, ['cost' => 12]);
@@ -31,7 +31,7 @@ try {
             $_SESSION['email'] = $user['user_mail'];
         }
 
-        header('location: index.php?succes=1');
+        header('Location: index.php?succes=1');
         exit();
     }
 } catch (PDOException $e) {
