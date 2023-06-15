@@ -11,6 +11,9 @@ require 'header.php';
 </head>
 <body>
 
+
+<div id="profil">
+
 <?php
 $mabd = connexionBD();
 $user = grab_user($mabd);
@@ -118,6 +121,8 @@ if ($user) {
 }
 
 ?>
+
+</div>
 
 <?php
 deconnexionBD($mabd);
