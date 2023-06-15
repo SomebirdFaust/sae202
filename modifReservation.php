@@ -42,7 +42,7 @@ if ($user) {
             echo "Modèle de voiture : " . $reservation['user_car'] . "<br>";
 
             // Formulaire d'annulation de la réservation
-            echo "<form action='' method='post'>";
+            echo "<form action='modifReservation.php?reserv_id=$reserv_id' method='post'>";
             echo "<input type='hidden' name='action' value='annuler'>";
             echo "<button type='submit'>Annuler la réservation</button>";
             echo "</form>";
