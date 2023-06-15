@@ -71,7 +71,7 @@ footer ul{
     #boutons_profil button, #bouton_modif button, #bouton_deconnexion button, 
     #trajet_submit input, #publier_trajet_submit input, #bouton_deconnexion_header button, 
     #index_connexion button, #index_inscription button, #annul_reservation button, 
-    #modif_trajet_suppr input, #resultat_ok a{
+    #modif_trajet_suppr input, #resultat_ok a, #suppr_profil_supprimer input{
       width: auto;
       padding: 0 20px;
       height: 35px;
@@ -83,14 +83,14 @@ footer ul{
 
     #bouton_connexion button, #bouton_inscription button, #bouton_modif button, 
     #trajet_submit input, #publier_trajet_submit input, #bouton_deconnexion_header button, 
-    #index_connexion button, #index_inscription button, #resultat_ok a{
+    #index_connexion button, #index_inscription button, #resultat_ok a, #suppr_profil_supprimer input{
       background-color: #5bacc7;
       border: 1px solid #5bacc7;
     }
 
-    #bouton_deconnexion button, #annul_reservation button, #modif_trajet_suppr input{
-      background-color: #e31e2f;
-      border: 1px solid #e31e2f;
+    #bouton_deconnexion button, #annul_reservation button, #modif_trajet_suppr input, #suppr_profil_bouton{
+      background-color: #e31e2f !important;
+      border: 1px solid #e31e2f !important;
     }
 
     /* BASE FORMULAIRES */
@@ -776,6 +776,39 @@ footer ul{
       margin: auto;
       width: 70%;
       text-align: start;
+    }
+
+    /* PAGE SUPPRIMER PROFIL */
+
+    #confirmation_suppr_compte{
+      width: 70%;
+      margin: auto;
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+
+    #confirmation_suppr_compte p{
+      text-align: center;
+    }
+
+    #suppr_profil_supprimer{
+      width: 70%;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* PAGE SUPPRIMER TRAJET */
+
+    #suppr_trajet_ok{
+      width: 70%;
+      margin: auto;
+      margin-top: 50px;
+    }
+
+    #suppr_trajet_ok p{
+      text-align: center;
     }
 
 

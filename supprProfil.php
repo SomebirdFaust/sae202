@@ -1,3 +1,7 @@
+<?php
+    require 'header.php';
+?> 
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -19,14 +23,16 @@ try {
     $result = $req->fetch(PDO::FETCH_ASSOC);
 
     if ($result['count'] > 0) {
-        echo 'Voulez vous vraiment supprimer votre compte ?';
-        echo '<div id="modif_profil_supprimer">';
+        echo '<div id="confirmation_suppr_compte">';
+        echo '<p>Êtes-vous sûr(e) de vouloir supprimer votre compte ?</p>';
+        echo '</div>';
+        echo '<div id="suppr_profil_supprimer">';
         echo '<form action="supprProfilVerif.php" method="post">';
         echo '<input type="hidden" name="user_id" value="' . $user_id . '">';
-        echo '<input type="submit" value="Supprimer le compte">';
+        echo '<input id="suppr_profil_bouton" class="input" type="submit" value="Supprimer le compte">';
         echo '</form>';
         echo '<form action="profil.php" method="post">';
-        echo '<input type="submit" value="Retour au profil">';
+        echo '<input class="input" type="submit" value="Retour au profil">';
         echo '</form>';
         echo '</div>';
     } else {
@@ -40,3 +46,7 @@ deconnexionBD($mabd);
 ?>
 </body>
 </html>
+
+<?php
+    require 'footer.php';
+?>

@@ -99,7 +99,7 @@ if ($user) {
                 echo "<br>";
             }
         } else {
-            echo "Vous n'avez pas créé de trajet.<br>";
+            echo '<p>Vous n\'avez pas créé de trajet.</p>';
         }
         }
         echo '</div>';
