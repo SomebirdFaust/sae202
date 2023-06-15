@@ -19,7 +19,7 @@ $date = $_POST['date'];
 try {
     $mabd = connexionBD();
 
-    $requete = $mabd->prepare("SELECT t.*, u.user_nom, u.user_prenom, u.user_car, p.park_nom FROM trajets AS t
+    $requete = $mabd->prepare("SELECT t.*, u.user_nom, u.user_genre, u.user_prenom, u.user_car, p.park_nom FROM trajets AS t
                               INNER JOIN utilisateurs AS u ON t._user_id = u.user_id
                               INNER JOIN parkings AS p ON t._park_id = p.park_id
                               WHERE p.park_nom = :depart AND t.traj_arrivee = :destination AND t.traj_date >= :date");
@@ -34,12 +34,15 @@ try {
         while ($resultat = $requete->fetch()) {
             echo '<div id="resultat_ok">';
             echo "<p>Nom du conducteur : " . $resultat['user_nom'] . " " . $resultat['user_prenom'] . "</p><br>";
+            echo "<p>Pronoms : " . $resultat['user_genre'] . "</p><br>";
             echo "<p>Voiture : " . $resultat['user_car'] . "</p><br>";
             echo "<p>Date de départ : " . $resultat['traj_date'] . "</p><br>";
             echo "<p>Heure de départ : " . $resultat['traj_heure_depart'] . "</p><br>";
             echo "<p>Nombre de places disponibles : " . $resultat['traj_places'] . "</p><br>";
             echo "<p>Lieu de départ : " . $resultat['park_nom'] . "</p><br>";
-            echo "<a href='reservTrajet.php?trajet_id=" . $resultat['traj_id'] . "'>Réserver</a><br>";
+            echo '<div id="reserver_trajet_bouton">';
+            echo "<a href='reservTrajet.php?trajet_id=" . $resultat['traj_id'] . "'>Réserver</a>";
+            echo '</div>';
             echo '</div>';
         }
         echo '<br><br><br>';

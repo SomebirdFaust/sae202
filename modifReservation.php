@@ -17,9 +17,9 @@ if ($user) {
             $requeteSuppression->bindParam(':user_id', $user['user_id']);
 
             if ($requeteSuppression->execute()) {
-                echo "La réservation a été annulée avec succès.";
+                echo '<p id="succes_annul_reservation">La réservation a été annulée avec succès.</p>';
             } else {
-                echo "Erreur lors de l'annulation de la réservation.";
+                echo '<pid="error_annul_reservation">Erreur lors de l\'annulation de la réservation.</p>';
             }
         }
 
@@ -48,16 +48,17 @@ if ($user) {
             echo '</div>';
 
             // Formulaire d'annulation de la réservation
+            echo '<div id="annul_reservation">';
             echo "<form action='modifReservation.php?reserv_id=$reserv_id' method='post'>";
             echo "<input type='hidden' name='action' value='annuler'>";
             echo "<button type='submit'>Annuler la réservation</button>";
             echo "</form>";
+            echo '</div>';
 
-            // Bouton pour rediriger vers la page profil
-            echo "<a href='profil.php'>Retourner à la page profil</a>";
+            
         }
     } else {
-        echo "ID de réservation non spécifié.";
+        echo "Erreur lors de l'annulation du trajet, veuillez-réésayer ultérieurement.";
     }
 
     deconnexionBD($mabd);

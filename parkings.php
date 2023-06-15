@@ -13,15 +13,22 @@
 <body>
 <?php
     $mabd = connexionBD();
-    $requete = $mabd->query("SELECT park_nom FROM parkings");
+    $requete = $mabd->query("SELECT park_nom, park_loc FROM parkings");
+    echo '<div id="parking">';
+    echo '<h3>Les parkings :</h3>';
     while ($park = $requete->fetch()) {
     $parkingNom = $park['park_nom'];
+    $parkingAdresse = $park['park_loc'];
     echo "<option value='$parkingNom'>$parkingNom</option>";
+    echo "<option value='$parkingAdresse'>$parkingAdresse</option>";
     }
+    echo '</div>';
 ?>
+
+
+</body>
+</html>
 
 <?php
     require 'footer.php';
 ?>
-</body>
-</html>

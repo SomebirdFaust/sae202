@@ -11,6 +11,7 @@
 
 </head>
 <body>
+    <div id="modif_trajet">
 <?php
     $trajet_id = $_GET['trajet_id']; // Récupère l'ID du trajet à modifier depuis l'URL
     $mabd = connexionBD();
@@ -60,21 +61,18 @@
             </div>
         </form>
         
+        <div id="modif_trajet_suppr">
         <form action="supprimerTrajet.php" method="POST">
             <input type="hidden" name="trajet_id" value="<?php echo $trajet_id; ?>">
-            <div id="supprimer_trajet">
-                <input type="submit" value="Supprimer le trajet">
-            </div>
+            <input type="submit" value="Supprimer le trajet">
         </form>
+        </div>
 
-        <form action="profil.php" method="POST">
-            <div id="annuler_modif">
-                <input type="submit" value="Annuler">
-            </div>
-        </form>
+        
         <?php
     }
 ?>
+</div>
 
 <?php
     require 'footer.php';

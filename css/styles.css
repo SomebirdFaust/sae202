@@ -68,7 +68,10 @@ footer ul{
 
     /* BASE BOUTONS */
 
-    #boutons_profil button, #bouton_modif button, #bouton_deconnexion button, #trajet_submit input, #publier_trajet_submit input, #bouton_deconnexion_header button, #index_connexion button, #index_inscription button{
+    #boutons_profil button, #bouton_modif button, #bouton_deconnexion button, 
+    #trajet_submit input, #publier_trajet_submit input, #bouton_deconnexion_header button, 
+    #index_connexion button, #index_inscription button, #annul_reservation button, 
+    #modif_trajet_suppr input, #resultat_ok a{
       width: auto;
       padding: 0 20px;
       height: 35px;
@@ -78,12 +81,14 @@ footer ul{
       color: #FFF;
     }
 
-    #bouton_connexion button, #bouton_inscription button, #bouton_modif button, #trajet_submit input, #publier_trajet_submit input, #bouton_deconnexion_header button, #index_connexion button, #index_inscription button{
+    #bouton_connexion button, #bouton_inscription button, #bouton_modif button, 
+    #trajet_submit input, #publier_trajet_submit input, #bouton_deconnexion_header button, 
+    #index_connexion button, #index_inscription button, #resultat_ok a{
       background-color: #5bacc7;
       border: 1px solid #5bacc7;
     }
 
-    #bouton_deconnexion button{
+    #bouton_deconnexion button, #annul_reservation button, #modif_trajet_suppr input{
       background-color: #e31e2f;
       border: 1px solid #e31e2f;
     }
@@ -282,19 +287,20 @@ footer ul{
       margin-bottom: 50px;
     }
 
-    #trajets_reserves_profil{
+    #trajets_reserves_profil, #trajets_crees_profil{
       width: 70%;
       margin: auto;
       background-color: #d9d9d9;
       border-radius: 15px;
       padding: 10px;
+      margin-bottom: 15px;
     }
 
-    #trajets_reserves_profil p{
+    #trajets_reserves_profil p, #trajets_crees_profil p{
       font-size: 16px;
     }
 
-    #trajets_reserves_profil h3{
+    #trajets_reserves_profil h3, #trajets_crees_profil h3{
       margin-bottom: 20px;
     }
 
@@ -700,6 +706,18 @@ footer ul{
       margin-bottom: 50px;
     }
 
+    #reserver_trajet_bouton{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #resultat_ok a{
+      text-decoration: none;
+      align-items: center;
+      display: flex;
+    }
+
     #h3_resultat_trajet{
       text-align: center;
       margin-top: 50px;
@@ -721,11 +739,47 @@ footer ul{
 
     /* PAGE MODIF RESERVATION */
 
-    #modif_reservation {
+    #modif_reservation{
       width: 70%;
       margin: auto;
       margin-top: 50px;
     }
+
+    #annul_reservation{
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+    }
+
+    #succes_annul_reservation, #error_annul_reservation{
+      width: 70%;
+      margin: auto;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    /* PAGE MODIF TRAJET */
+
+    #modif_trajet{
+      width: 70%;
+      margin: auto;
+      margin-top: 50px;
+    }
+
+    #modif_trajet_suppr{
+      margin: auto;
+      text-align: center;
+      margin-top: 0px;
+    }
+
+    #modif_trajet_suppr form{
+      margin: auto;
+      width: 70%;
+      text-align: start;
+    }
+
+
+
 
     
 
@@ -797,6 +851,12 @@ footer ul{
       z-index: -1;
       position: absolute;
       top: 80px;
+    }
+
+    /* PAGE PARKINGS */
+
+    #parkings h3{
+      font-size: 21px;
     }
 
 

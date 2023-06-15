@@ -73,7 +73,7 @@ if ($user) {
             echo "<br>";
         }
     } else {
-        echo '<p>Vous n\'avez pas réservé de trajet.</p><br>';
+        echo '<p>Vous n\'avez pas réservé de trajet.</p>';
     }
     echo '</div>';
 
@@ -86,21 +86,23 @@ if ($user) {
         $requeteCrees->bindParam(':user_id', $user['user_id']);
         $requeteCrees->execute();
 
-        echo '<h3>Trajets créés</h3>';
+        echo '<div id="trajets_crees_profil">';
+        echo '<h3>Mes trajets</h3>';
         $trajetsCrees = $requeteCrees->fetchAll();
         if ($trajetsCrees) {
             foreach ($trajetsCrees as $trajetCree) {
-                echo "Date de départ : " . $trajetCree['traj_date'] . "<br>";
-                echo "Heure de départ : " . $trajetCree['traj_heure_depart'] . "<br>";
-                echo "Départ : " . $trajetCree['park_nom'] . "<br>";
-                echo "Arrivée : " . $trajetCree['traj_arrivee'] . "<br>";
+                echo "<br><p>Date de départ : " . $trajetCree['traj_date'] . "</p><br>";
+                echo "<p>Heure de départ : " . $trajetCree['traj_heure_depart'] . "</p><br>";
+                echo "<p>Départ : " . $trajetCree['park_nom'] . "</p><br>";
+                echo "<p>Arrivée : " . $trajetCree['traj_arrivee'] . "</p><br>";
                 echo "<a href='modifTrajet.php?trajet_id=" . $trajetCree['traj_id'] . "'>Modifier</a> ";
                 echo "<br>";
             }
         } else {
             echo "Vous n'avez pas créé de trajet.<br>";
         }
-    }
+        }
+        echo '</div>';
 
     deconnexionBD($mabd);
 } else {
