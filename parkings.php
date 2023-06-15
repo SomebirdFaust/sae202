@@ -21,19 +21,18 @@ while ($park = $requete->fetch()) {
     $parkingImage = $park['park_img'];
     $parkingAdresse = $park['park_loc'];
 
-    echo "<option value='$parkingNom'>$parkingNom</option>";
+    echo "<p value='$parkingNom'>$parkingNom</p>";
     if (!empty($parkingImage)) {
         echo "<img src='img/$parkingImage' alt='Image du parking'>";
     }
-    echo "<option value='$parkingAdresse'>$parkingAdresse</option>";
+    echo "<p value='$parkingAdresse'>$parkingAdresse</p>";
     echo "<br><br>";
-
-
 }
 echo '</div>';
 
 deconnexionBD($mabd);
 ?>
+
 
 </body>
 </html>
