@@ -42,7 +42,7 @@ require 'admin/lib.inc.php';
         echo '<form action="deconnexion.php" method="post">';
         echo '<button type="submit">Se déconnecter</button>';
         echo '</form>';
-        echo '</div>';
+        echo '</div>'; 
     } else {
         echo '<li><a href="connexion.php">Connexion</a></li>';
         echo '<li><a href="inscription.php">Inscription</a></li>';
