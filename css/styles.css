@@ -325,6 +325,7 @@ footer ul{
 
     #mentions_legales{
       margin: 20px 30px;
+      margin-bottom: 100px;
     }
 
     /* PAGE CONNEXION */
@@ -1157,6 +1158,14 @@ footer ul{
 
     #inscription_submit input{
       margin-bottom: 15px;
+    }
+
+    /* PAGE MENTIONS LEGALES */
+
+    #mentions_legales{
+      width: 75%;
+      margin: auto;
+      margin-top: 60px;
     }
 
 
