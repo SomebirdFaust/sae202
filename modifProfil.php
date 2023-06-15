@@ -44,13 +44,15 @@ if ($user) {
             echo '<div id="modif_profil_enregistrer">';
                 echo '<input type="submit" value="Enregistrer">';
             echo '</div>';
+            echo '</form>';
+
             echo '<div id="modif_profil_supprimer">';
-                echo '<a href="supprProfil.php">Supprimer le compte.</a>';
+                echo '<form action="supprProfilVerif.php" method="post">';
+                echo '<input type="hidden" name="user_id" value="' . $user['user_id'] . '">'; // Champ caché pour récupérer l'ID de l'utilisateur
+                echo '<input type="submit" value="Supprimer le compte">';
+                echo '</form>';
             echo '</div>';
 
-            echo '<input type="hidden" name="user_id" value="' . $user['user_id'] . '">'; // Champ caché pour récupérer l'ID de l'utilisateur
-
-        echo '</form>';
     echo '</div>';
 }
 ?>
