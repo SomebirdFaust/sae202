@@ -5,7 +5,6 @@
 <div id="recherche_trajet">
     <?php
     if (isset($_SESSION['user_id'])) {
-        // Utilisateur connecté
         echo '<h1>Où allez-vous?</h1>';
         echo '<form action="resultTrajet.php" method="POST">';
         echo '<label for="depart">Départ</label>';
@@ -26,7 +25,6 @@
         echo '</div>';
         echo '</form>';
     } else {
-        // Utilisateur non connecté
         echo '<h1>Pour effectuer une recherche, veuillez vous authentifier.</h1>';
         echo '<div id="boutons_index">';
         echo '<a id="index_connexion" href="connexion.php"><button>Connexion</button></a><br>';
