@@ -21,37 +21,37 @@ $user = grab_user($mabd);
 
 if ($user) {
     echo '<div id="modif_profil">';
-        echo '<form action="validModifProfil.php" method="post">';
-            echo '<label for="prenom">Prénom</label> <br />'; 
-            echo '<input class="input" type="text" name="prenom" value="' . ucfirst($user['user_prenom']) . '"><br />';
-            echo '<label for="nom">Nom</label> <br />';
-            echo '<input class="input" type="text" name="nom" value="' . ucfirst($user['user_nom']) . '"><br />';
-            echo '<label for="genre">Pronoms</label> <br />';
-            echo '<select class="input" name="genre">';
-            echo '<option value="il" ' . ($user['user_genre'] === 'il' ? 'selected' : '') . '>Il</option>';
-            echo '<option value="elle" ' . ($user['user_genre'] === 'elle' ? 'selected' : '') . '>Elle</option>';
-            echo '<option value="iel" ' . ($user['user_genre'] === 'iel' ? 'selected' : '') . '>Iel</option>';
-            echo '</select><br />';            
-            echo '<label for="email">Email</label> <br />';
-            echo '<input class="input" type="email" name="email" value="' . $user['user_mail'] . '" readonly><br />';
+    echo '<form action="validModifProfil.php" method="post">';
+    echo '<label for="prenom">Prénom</label> <br />'; 
+    echo '<input class="input" type="text" name="prenom" value="' . htmlspecialchars(ucfirst($user['user_prenom'])) . '"><br />';
+    echo '<label for="nom">Nom</label> <br />';
+    echo '<input class="input" type="text" name="nom" value="' . htmlspecialchars(ucfirst($user['user_nom'])) . '"><br />';
+    echo '<label for="genre">Pronoms</label> <br />';
+    echo '<select class="input" name="genre">';
+    echo '<option value="il" ' . ($user['user_genre'] === 'il' ? 'selected' : '') . '>Il</option>';
+    echo '<option value="elle" ' . ($user['user_genre'] === 'elle' ? 'selected' : '') . '>Elle</option>';
+    echo '<option value="iel" ' . ($user['user_genre'] === 'iel' ? 'selected' : '') . '>Iel</option>';
+    echo '</select><br />';            
+    echo '<label for="email">Email</label> <br />';
+    echo '<input class="input" type="email" name="email" value="' . htmlspecialchars($user['user_mail']) . '" readonly><br />';
 
-            echo '<label for="voiture">Véhicule</label> <br />';
-            echo '<input class="input" type="text" name="voiture" value="' . ucfirst($user['user_car']) . '"><br />';
-            echo '<label for="bio">Biographie (300 caractères max)</label> <br />';
-            echo '<textarea class="input" name="bio" oninput="countCharacters(this)">' . ucfirst($user['user_bio']) . '</textarea>';
-            echo '<div id="characterCount">300</div><br />';            
+    echo '<label for="voiture">Véhicule</label> <br />';
+    echo '<input class="input" type="text" name="voiture" value="' . htmlspecialchars(ucfirst($user['user_car'])) . '"><br />';
+    echo '<label for="bio">Biographie (300 caractères max)</label> <br />';
+    echo '<textarea class="input" name="bio" oninput="countCharacters(this)">' . htmlspecialchars(ucfirst($user['user_bio'])) . '</textarea>';
+    echo '<div id="characterCount">300</div><br />';            
 
-            echo '<div id="modif_profil_enregistrer">';
-                echo '<input type="submit" value="Enregistrer">';
-            echo '</div>';
-            echo '</form>';
+    echo '<div id="modif_profil_enregistrer">';
+    echo '<input type="submit" value="Enregistrer">';
+    echo '</div>';
+    echo '</form>';
 
-            echo '<div id="modif_profil_supprimer">';
-                echo '<form action="supprProfil.php" method="post">';
-                echo '<input type="hidden" name="user_id" value="' . $user['user_id'] . '">';
-                echo '<input type="submit" value="Supprimer le compte">';
-                echo '</form>';
-            echo '</div>';
+    echo '<div id="modif_profil_supprimer">';
+    echo '<form action="supprProfil.php" method="post">';
+    echo '<input type="hidden" name="user_id" value="' . htmlspecialchars($user['user_id']) . '">';
+    echo '<input type="submit" value="Supprimer le compte">';
+    echo '</form>';
+    echo '</div>';
 
     echo '</div>';
 }

@@ -22,7 +22,7 @@
 
     if ($trajet) {
         ?>
-        <form action="modifierTrajetVerif.php" method="POST">
+        <form action="modifTrajetVerif.php" method="POST">
             <input type="hidden" name="trajet_id" value="<?php echo $trajet_id; ?>">
 
             <label for="depart">Départ</label>
