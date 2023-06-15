@@ -1,7 +1,7 @@
 <?php
 // Vérifier si l'ID de la réservation a été transmis
-if(isset($_POST['reservation_id'])) {
-    $reservation_id = $_POST['reservation_id'];
+if(isset($_GET['reservation_id'])) {
+    $reservation_id = $_GET['reservation_id'];
 
     // Connexion à la base de données
     require 'header.php';
