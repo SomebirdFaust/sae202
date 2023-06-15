@@ -192,6 +192,11 @@ footer ul{
     }
 
     /* PAGE PROFIL */
+
+    #profil{
+      margin-bottom: 100px;
+    }
+
     #infos_profil{
       margin: auto;
       text-align: center;
@@ -272,7 +277,8 @@ footer ul{
     }
 
     #bouton_deconnexion{
-      margin-top: 0px;
+      margin-top: 10px;
+      margin-bottom: 50px;
     }
 
 
