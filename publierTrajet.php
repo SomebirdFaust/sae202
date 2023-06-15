@@ -43,6 +43,13 @@ require 'header.php';
                 ?>
             </select><br><br>
 
+            <?php
+            if (isset($_GET['message'])) {
+                urldecode($_GET['message']);
+                echo "<p>Vous n'avez pas de voiture</p>";
+            }
+            ?>
+
             <div id="publier_trajet_submit">
                 <input type='submit' value='Publier le trajet'>
             </div>
@@ -53,12 +60,6 @@ require 'header.php';
             
         </form>
     </div>
-    <?php
-if (isset($_GET['message'])) {
-    urldecode($_GET['message']);
-    echo "<p>Vous n'avez pas de voiture</p>";
-}
-?>
 </body>
 </html>
 
