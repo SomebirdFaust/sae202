@@ -64,7 +64,7 @@ if ($user) {
             echo "Départ : " . $trajetReserve['park_nom'] . "<br>";
             echo "Arrivée : " . $trajetReserve['traj_arrivee'] . "<br>";
             echo "Modèle de voiture : " . $trajetReserve['user_car'] . "<br>";
-            echo "<a href='modifReservation.php?reserv_id=" . $trajetReserve['traj_id'] . "'>Modifier</a> ";
+            echo "<a href='modifReservation.php?reserv_id=" . $trajetReserve['reserv_id'] . "'>Modifier</a> ";
             echo "<br>";
         }
     } else {
