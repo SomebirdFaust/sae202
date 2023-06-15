@@ -29,7 +29,7 @@ if ($user) {
                                               INNER JOIN utilisateurs AS u ON t._user_id = u.user_id
                                               INNER JOIN reservations AS r ON t.traj_id = r._traj_id
                                               INNER JOIN parkings AS p ON t._park_id = p.park_id
-                                              WHERE r._user_id = :user_id AND t.traj_id = :reserv_id");
+                                              WHERE r._user_id = :user_id AND r.reserv_id = :reserv_id");
         $requeteReservation->bindParam(':user_id', $user['user_id']);
         $requeteReservation->bindParam(':reserv_id', $reserv_id);
         $requeteReservation->execute();
