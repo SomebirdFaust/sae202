@@ -11,6 +11,18 @@ $places = intval($_POST['places']);
 try {
     $mabd = connexionBD();
 
+    // Récupérer l'ID du parking de départ
+    $requete = $mabd->prepare("SELECT park_id FROM parkings WHERE park_nom = :depart");
+    $requete->bindValue(':depart', $depart, PDO::PARAM_STR);
+    $requete->execute();
+    $parking_depart = $requete->fetch(PDO::FETCH_ASSOC);
+
+    if (!$parking_depart || !$parking_dest) {
+        // Gérer le cas où le parking n'est pas trouvé
+        header('Location: trajets.php');
+        exit();
+    }
+
     $requete = $mabd->prepare("SELECT _user_id FROM trajets WHERE traj_id = :trajet_id");
     $requete->bindValue(':trajet_id', $trajet_id, PDO::PARAM_INT);
     $requete->execute();
@@ -21,9 +33,9 @@ try {
         exit();
     }
 
-    $requete = $mabd->prepare("UPDATE trajets SET _park_id = :depart, traj_arrivee = :dest, traj_date = :date, traj_heure_depart = :heure, traj_places = :places WHERE traj_id = :trajet_id");
-    $requete->bindValue(':depart', $depart, PDO::PARAM_STR);
-    $requete->bindValue(':dest', $dest, PDO::PARAM_STR);
+    $requete = $mabd->prepare("UPDATE trajets SET _park_id = :depart_id, traj_arrivee = :dest_id, traj_date = :date, traj_heure_depart = :heure, traj_places = :places WHERE traj_id = :trajet_id");
+    $requete->bindValue(':depart_id', $parking_depart['park_id'], PDO::PARAM_INT);
+    $requete->bindValue(':dest_id', $parking_dest['park_id'], PDO::PARAM_INT);
     $requete->bindValue(':date', $date, PDO::PARAM_STR);
     $requete->bindValue(':heure', $heure, PDO::PARAM_STR);
     $requete->bindValue(':places', $places, PDO::PARAM_INT);
