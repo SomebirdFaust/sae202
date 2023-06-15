@@ -20,7 +20,7 @@ if(isset($_POST['trajet_id'])) {
         $requeteSupprimer->execute();
 
         echo '<div id="suppr_trajet_ok">';
-        echo '<p>Le trajet a été supprimé avec succès.</p>';
+        header('Location: contact.php');
         echo '</div>';
     }
 
