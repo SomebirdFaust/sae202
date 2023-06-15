@@ -33,7 +33,7 @@ try {
         exit();
     }
 
-    $requete = $mabd->prepare("UPDATE trajets SET _park_id = :depart_id, traj_arrivee = :dest_id, traj_date = :date, traj_heure_depart = :heure, traj_places = :places WHERE traj_id = :trajet_id");
+    $requete = $mabd->prepare("UPDATE trajets SET _park_id = :park_id, traj_arrivee = :dest_id, traj_date = :date, traj_heure_depart = :heure, traj_places = :places WHERE traj_id = :trajet_id");
     $requete->bindValue(':depart_id', $parking_depart['park_id'], PDO::PARAM_INT);
     $requete->bindValue(':dest_id', $parking_dest['park_id'], PDO::PARAM_INT);
     $requete->bindValue(':date', $date, PDO::PARAM_STR);
