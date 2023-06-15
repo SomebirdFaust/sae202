@@ -48,11 +48,8 @@
       </script>
 </div>
 
-
-
-
 <div id="video">
-    <iframe src="https://www.youtube.com/embed/I_UktiOb_7c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/g0smUYGoD88" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
 <div id="questions">
     <h1>FAQ</h1>

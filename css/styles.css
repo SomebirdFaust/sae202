@@ -17,6 +17,21 @@ body{
   background-color: #fff7f4;
 }
 
+/*compteur de caractères dans la bio*/
+.character-counter {
+  position: relative;
+}
+
+.character-counter textarea {
+  padding-right: 70px;
+}
+
+.character-counter #characterCount {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 /* FOOTER */
 
 footer{
@@ -866,6 +881,40 @@ footer ul{
       margin-left: 15px;
     }
 
+    /* PAGE CONNEXION */
+
+    #connexion{
+      margin-top: 60px;
+      text-align: center;
+    }
+
+    #connexion h1{
+      font-size: 35px;
+      margin-bottom: 30px;
+    }
+
+    #connexion img{
+      width: 220px;
+    }
+
+    .input_pc{
+      width: 25%;
+      height: 35px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      background-color: #d9d9d9;
+      border: #d9d9d9;
+      padding-left: 5px;
+    }
+
+
+
+
+
+
+
+
     /* FOOTER */
 
     footer a{
@@ -895,17 +944,4 @@ footer ul{
 
 
 }
-/*compteur de caractères dans la bio*/
-.character-counter {
-  position: relative;
-}
 
-.character-counter textarea {
-  padding-right: 70px;
-}
-
-.character-counter #characterCount {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
