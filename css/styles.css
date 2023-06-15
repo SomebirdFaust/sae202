@@ -78,12 +78,12 @@ footer ul{
       color: #FFF;
     }
 
-    #bouton_connexion button, #bouton_inscription button, #bouton_modif button, #trajet_submit input, #publier_trajet_submit input{
+    #bouton_connexion button, #bouton_inscription button, #bouton_modif button, #trajet_submit input, #publier_trajet_submit input, #bouton_deconnexion_header button{
       background-color: #5bacc7;
       border: 1px solid #5bacc7;
     }
 
-    #bouton_deconnexion button, #bouton_deconnexion_header button{
+    #bouton_deconnexion button{
       background-color: #e31e2f;
       border: 1px solid #e31e2f;
     }
@@ -107,6 +107,12 @@ footer ul{
       margin: auto;
       display: flex;
       justify-content: center;
+      align-items: end;
+      height: 650px;
+    }
+
+    #bouton_deconnexion_header button{
+      font-size: 16px;
     }
 
     #nav_pc {
@@ -366,7 +372,7 @@ footer ul{
       justify-content: center;
     }
 
-    #modif_profil_enregistrer input, #modif_profil_supprimer a, #submit_contact input, #inscription_submit input{
+    #modif_profil_enregistrer input, #modif_profil_supprimer input, #submit_contact input, #inscription_submit input{
       width: auto;
       height: 35px;
       text-align: center;
@@ -383,7 +389,7 @@ footer ul{
       border: #5bacc7;
     }
 
-    #modif_profil_supprimer a{
+    #modif_profil_supprimer input{
       background-color: #e31e2f;
       border: #e31e2f;
       text-decoration: none;
@@ -397,6 +403,12 @@ footer ul{
       margin-top: -40px;
       margin-bottom: 70px;
     }
+
+    #modif_profil_supprimer form{
+      display: flex;
+      justify-content: center;
+    }
+
 
     /* PAGE CONTACT */
 
