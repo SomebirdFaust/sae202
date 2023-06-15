@@ -21,9 +21,9 @@ require 'header.php';
 
         <label for="genre">Pronoms*</label>
         <select class="input" name="genre" id="genre" required>
-            <option value="homme">Il</option>
-            <option value="femme">Elle</option>
-            <option value="autre">Iel</option>
+            <option value="il">Il</option>
+            <option value="elle">Elle</option>
+            <option value="iel">Iel</option>
         </select><br><br>
 
         <label for="email">Email*</label>
