@@ -18,15 +18,17 @@ echo '<div id="parking">';
 echo '<h3>Les parkings :</h3>';
 while ($park = $requete->fetch()) {
     $parkingNom = $park['park_nom'];
-    $parkingAdresse = $park['park_loc'];
     $parkingImage = $park['park_img'];
+    $parkingAdresse = $park['park_loc'];
 
     echo "<option value='$parkingNom'>$parkingNom</option>";
-    echo "<option value='$parkingAdresse'>$parkingAdresse</option>";
-
     if (!empty($parkingImage)) {
         echo "<img src='img/$parkingImage' alt='Image du parking'>";
     }
+    echo "<option value='$parkingAdresse'>$parkingAdresse</option>";
+    echo "<br><br>";
+
+
 }
 echo '</div>';
 
