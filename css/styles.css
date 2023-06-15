@@ -884,7 +884,7 @@ footer ul{
 
     /* pour les boutons */
 
-    #submit_connexion, #submit_contact input{
+    #submit_connexion, #submit_contact input, #index_connexion button, #index_inscription button, #trajet_submit input{
       width: auto;
       padding: 0 20px;
       height: 35px;
@@ -894,7 +894,7 @@ footer ul{
       color: #FFF;
     }
 
-    #submit_connexion, #submit_contact input{
+    #submit_connexion, #submit_contact input, #index_connexion button, #index_inscription button, #trajet_submit input{
       background-color: #5bacc7;
       border: 1px solid #5bacc7;
     }
@@ -1021,17 +1021,6 @@ footer ul{
       margin-top: 60px;
     }
 
-    
-
-    
-
-
-
-
-
-
-
-
     /* FOOTER */
 
     footer a{
@@ -1049,8 +1038,80 @@ footer ul{
       width: 100%;
       z-index: -1;
       position: absolute;
-      top: 80px;
+      top: 100px;
     }
+
+    #recherche_trajet p{
+      font-size: 25px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    #boutons_index{
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    #index_connexion{
+      margin-right: 50px;
+    }
+
+    #video{
+      margin-top: 350px;
+      text-align: center;
+      border-radius: 15px;
+    }
+
+    #video iframe{
+      width: 1000px;
+      height: 565px;
+    }
+
+    #questions{
+      width: 70%;
+      margin: auto;
+      margin-top: 50px;
+      margin-bottom: 115px;
+    }
+
+    #questions h1{
+      font-size: 35px;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    #recherche_trajet{
+      width: 75%;
+      margin: auto;
+    }
+
+    #recherche_trajet h1{
+      font-size: 35px;
+      text-align: center;
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+
+    #recherche_trajet form{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+    }
+
+
+    .question{
+      background-color: #d9d9d9;
+      border-radius: 15px;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    #depart input, #destination input, #date input, select#depart.input.input_pc{
+      width: 250px;
+    }
+
 
     /* PAGE PARKINGS */
 
