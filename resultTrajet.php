@@ -11,42 +11,48 @@ require 'header.php';
 </head>
 <body>
 <?php
+require 'admin/lib.inc.php';
+
 $depart = $_POST['depart'];
 $destination = $_POST['dest'];
 $date = $_POST['date'];
 
-$mabd = connexionBD();
+try {
+    $mabd = connexionBD();
 
-$requete = $mabd->prepare("SELECT t.*, u.user_nom, u.user_prenom FROM trajets AS t
-                          INNER JOIN utilisateurs AS u ON t._user_id = u.user_id
-                          WHERE t._park_id = :_park_id AND t.traj_arrivee = :traj_arrivee AND t.traj_date > :traj_date");
-$requete->execute([
-    ':_park_id' => $depart,
-    ':traj_arrivee' => $destination,
-    ':traj_date' => $date
-]);
+    $requete = $mabd->prepare("SELECT t.*, u.user_nom, u.user_prenom FROM trajets AS t
+                              INNER JOIN utilisateurs AS u ON t._user_id = u.user_id
+                              WHERE t._park_id = :park_id AND t.traj_arrivee = :destination AND t.traj_date >= :date");
+    $requete->bindParam(':park_id', $depart);
+    $requete->bindParam(':destination', $destination);
+    $requete->bindParam(':date', $date);
+    $requete->execute();
 
-// Vérifier si des résultats sont retournés
-if ($requete->rowCount() > 0) {
-    while ($resultat = $requete->fetch(PDO::FETCH_ASSOC)) {
-        echo "Nom du conducteur : " . $resultat['user_nom'] . " " . $resultat['user_prenom'] . "<br>";
-        echo "Date de départ : " . $resultat['traj_date'] . "<br>";
-        echo "Heure de départ : " . $resultat['traj_heure_depart'] . "<br>";
-        echo "Nombre de places disponibles : " . $resultat['traj_places'] . "<br>";
-        echo "<a href='reservTrajet.php?trajet_id=" . $resultat['traj_id'] . "'>Réserver</a><br>";
+    // Vérifier si des résultats sont retournés
+    if ($requete->rowCount() > 0) {
+        while ($resultat = $requete->fetch()) {
+            echo "Nom du conducteur : " . $resultat['user_nom'] . " " . $resultat['user_prenom'] . "<br>";
+            echo "Date de départ : " . $resultat['traj_date'] . "<br>";
+            echo "Heure de départ : " . $resultat['traj_heure_depart'] . "<br>";
+            echo "Nombre de places disponibles : " . $resultat['traj_places'] . "<br>";
+            echo "<a href='reservTrajet.php?trajet_id=" . $resultat['traj_id'] . "'>Réserver</a><br>";
+        }
+    } else {
+        echo '<div id="echec_result_trajet">';
+        echo '<p>Je n\'ai pas trouvé de trajet correspondant à ta recherche.</p> <br>';
+        echo '<p> Essaye d\'ajuster ta recherche ou reviens plus tard.</p>';
+        echo '</div>';
+        echo '<div id="echec_result_trajet_img">';
+        echo '<img src="img/echec.png" alt="poussant tenant une pencarte échec">';
+        echo '</div>';
     }
-} else {
-    echo '<div id="echec_result_trajet">';
-    echo '<p>Je n\'ai pas trouvé de trajet correspondant à ta recherche.</p> <br>';
-    echo '<p> Essaye d\'ajuster ta recherche ou reviens plus tard.</p>';
-    echo '</div>';
-    echo '<div id="echec_result_trajet_img">';
-    echo '<img src="img/echec.png" alt="poussin tenant une pencarte échec">';
-    echo '</div>';
+} catch (PDOException $e) {
+    die("Erreur de connexion à la base de données : " . $e->getMessage());
 }
 
-$mabd = null;
+deconnexionBD($mabd);
 ?>
+
 
 </body>
 </html>
