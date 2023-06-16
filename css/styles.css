@@ -758,7 +758,7 @@ footer ul{
       margin-bottom: 50px;
     }
 
-    /* PAGE ERREUR TRAJET */
+    /* PAGE ERREUR/SUCCES TRAJET */
 
     #erreur_trajet, #succes_trajet{
       width: 70%;
@@ -1541,6 +1541,16 @@ footer ul{
 
   #succes_crea_trajet_img img{
     width: 100%;
+  }
+
+  #erreur_trajet, #succes_trajet{
+    width: 70%;
+    margin: auto;
+    margin-top: 50px;
+  }
+
+  #erreur_trajet p, #succes_trajet p{
+    text-align: center;
   }
 
 
