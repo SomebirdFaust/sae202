@@ -22,6 +22,7 @@ $req = 'DELETE FROM parkings WHERE park_id='. $num;
 
 echo '<h2>Vous venez de supprimer le '.$park_nom.'.</h2>';
 
+$resultat = $mabd->query($req);
 
 ?>
 
