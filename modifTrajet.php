@@ -12,7 +12,7 @@
         <?php
         $trajet_id = $_GET['trajet_id'];
         $mabd = connexionBD();
-        $requete = $mabd->prepare("SELECT * FROM trajets WHERE traj_id = :trajet_id");
+        $requete = $mabd->prepare("SELECT t.*, p.park_nom FROM trajets AS t INNER JOIN parkings AS p ON t._park_id = p.park_id WHERE traj_id = :trajet_id");
         $requete->bindParam(':trajet_id', $trajet_id);
         $requete->execute();
         $trajet = $requete->fetch();
@@ -20,7 +20,7 @@
         if ($trajet) {
             ?>
             <h2>Informations du trajet :</h2>
-            <p>Départ : <?php echo $trajet['_park_id']; ?></p>
+            <p>Départ : <?php echo $trajet['park_nom']; ?></p>
             <p>Destination : <?php echo $trajet['traj_arrivee']; ?></p>
             <p>Date : <?php echo $trajet['traj_date']; ?></p>
             <p>Heure de départ : <?php echo $trajet['traj_heure_depart']; ?></p>
