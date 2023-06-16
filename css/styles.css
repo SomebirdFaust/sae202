@@ -1306,6 +1306,10 @@ footer ul{
       margin-bottom: 100px;
     }
 
+    .align{
+      text-align: center;
+    }
+
     #infos_profil{
       width: 50%;
       margin: auto;
@@ -1404,9 +1408,6 @@ footer ul{
       margin-bottom: 15px;
     }
 
-    #trajets_reserves_profil{
-      margin-bottom: 50px;
-    }
 
     #trajets_reserves_profil p, #trajets_crees_profil p{
       font-size: 16px;
@@ -1551,6 +1552,25 @@ footer ul{
 
   #erreur_trajet p, #succes_trajet p{
     text-align: center;
+  }
+
+  #confirmation_suppr_compte{
+    width: 70%;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  #confirmation_suppr_compte p{
+    text-align: center;
+  }
+
+  #suppr_profil_supprimer{
+    width: 70%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
 
