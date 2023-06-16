@@ -903,7 +903,8 @@ footer ul{
     #index_inscription button, #trajet_submit input, 
     #inscription_submit input, #modif_profil_enregistrer input, 
     #modif_profil_supprimer input, #annul_reservation button, 
-    #modif_trajet_suppr input, #bouton_modif button, #bouton_deconnexion button{
+    #modif_trajet_suppr input, #bouton_modif button, 
+    #bouton_deconnexion button, #publier_trajet_submit input{
       width: auto;
       padding: 0 20px;
       height: 35px;
@@ -916,7 +917,7 @@ footer ul{
     #submit_connexion, #submit_contact input, #index_connexion button, 
     #index_inscription button, #trajet_submit input, 
     #inscription_submit input, #modif_profil_enregistrer input, 
-    #bouton_modif button{
+    #bouton_modif button, #publier_trajet_submit input{
       background-color: #5bacc7;
       border: 1px solid #5bacc7;
     }
@@ -1418,6 +1419,57 @@ footer ul{
     #trajets_reserves_profil_h3{
       margin-top: 50px;
     }
+
+  /* PAGE PUBLIER TRAJET */
+
+  #publier_trajet{
+    width: 40%;
+    margin: auto;
+    margin-top: 60px;
+  }
+
+  #publier_trajet form{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #champs{
+    width: 50%;
+    text-align: center;
+  }
+
+  #champs input, #champs select{
+    width: 90% !important;
+  }
+
+  #publier_trajet_img{
+    width: 40%;
+    margin: auto;
+    margin-top: 10px;
+  }
+
+  #publier_trajet_img img{
+    width: 100%;
+    margin-top: 150px;
+  }
+
+  input#heure.input{
+    padding-left: 5px;
+  }
+
+  #publier_trajet_voiture{
+    text-align: center;
+  }
+
+  #publier_trajet_submit{
+    text-align: center;
+  }
+
+  #publier_trajet_submit input{
+    width: auto !important;
+  }
+
+
 
 
 }
