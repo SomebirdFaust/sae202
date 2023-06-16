@@ -61,12 +61,26 @@ require 'admin/lib.inc.php';
   <nav id="nav_pc">
     <a href="index.php"><img id="logo_header_pc" src="img/logo.png" alt="logo"></a>
     <ul>
-      <li><a href="publierTrajet.php">Publier un trajet</a></li>
-      <li id="park_header"><a href="parkings.php">Les parkings</a></li>
-      <li></li><li></li><li></li><li></li><li></li><li></li>
-      <li id="conn_inscr_header"><a href="connexion.php">Connexion/</a><a href="inscription.php">Inscription</a></li>
-      <li><a href="profil.php"><img id="avatar_header_pc" src="img/avatar_blanc.png" alt="avatar"></a></li>
-    </ul>
+    <?php
+    if (isset($_SESSION['user_id'])) {
+        echo '<li><a href="profil.php">Mon profil</a></li>';
+    } else {
+        echo '<li style="display: none;"><a href="profil.php">Mon profil</a></li>';
+    }
+    ?>
+    <li><a href="parkings.php">Les parkings</a></li>
+    <?php
+    if (isset($_SESSION['user_id'])) {
+        echo '<li style="display: none;"><a href="connexion.php">Connexion</a></li>';
+        echo '<li style="display: none;"><a href="inscription.php">Inscription</a></li>';
+        echo '<li><a href="publierTrajet.php">Publier un trajet</a></li>';
+    } else {
+        echo '<li><a href="connexion.php">Connexion</a></li>';
+        echo '<li><a href="inscription.php">Inscription</a></li>';
+        echo '<li style="display: none;"><a href="inscription.php">Inscription</a></li>';  
+    }
+    ?>
+  </ul>
   </nav>
 
     </div>
