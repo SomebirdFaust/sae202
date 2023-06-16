@@ -18,7 +18,7 @@ require 'admin/lib.inc.php';
       </head>
     <body>
         
-
+<header>
   <nav id="nav_tel">
     <a href="index.php"><img id="logo" src="img/logo.png" alt="logo"></a>
 <div id="mySidenav" class="sidenav">
@@ -73,10 +73,9 @@ require 'admin/lib.inc.php';
     }
     ?>
   </ul>
-  </nav>
-
-    </div>
+</nav>
 </header>
+</body>
 
 
 
