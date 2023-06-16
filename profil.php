@@ -20,11 +20,13 @@ $user = grab_user($mabd);
 
 if ($user) {
     echo '<div id="infos_profil">';
-    echo '<img src="img/avatar.png" alt="avatar">'. '<br />';
-    echo '<p>' . ucfirst($user['user_prenom']) . '</p>' . "\n";
-    echo '<p>' . ucfirst($user['user_nom'])  . '</p>' . "\n";
-    echo '<p>' . $user['user_genre']  . '</p>' . "\n";
-    echo '<p>' . $user['user_mail'] . '</p>';
+        echo '<img src="img/avatar.png" alt="avatar">'. '<br />';
+        echo '<div id="infos_text_profil">';
+            echo '<p>' . ucfirst($user['user_prenom']) . '</p>' . "\n";
+            echo '<p>' . ucfirst($user['user_nom'])  . '</p>' . "\n";
+            echo '<p>' . ucfirst($user['user_genre'])  . '</p>' . "\n";
+            echo '<p>' . $user['user_mail'] . '</p>';
+        echo '</div>';
     echo '</div>';
 
     echo '<div id="bio_profil">';
@@ -34,18 +36,6 @@ if ($user) {
     echo '<div id="voiture_profil">';
     echo '<img src="img/voiture.png" alt="icone voiture">';
     echo '<p>' . ucfirst($user['user_car']) . '</p>' . "\n";
-    echo '</div>';
-
-    echo '<div id="bouton_modif">';
-    echo '<form action="modifProfil.php" method="post">';
-    echo '<button type="submit">Modifier le profil</button>';
-    echo '</form>';
-    echo '</div>';
-
-    echo '<div id="bouton_deconnexion">';
-    echo '<form action="deconnexion.php" method="post">';
-    echo '<button type="submit">Se déconnecter</button>';
-    echo '</form>';
     echo '</div>';
 
     // Afficher les trajets réservés par l'utilisateur
@@ -58,11 +48,11 @@ if ($user) {
     $requeteReserves->bindParam(':user_id', $user['user_id']);
     $requeteReserves->execute();
 
-    echo '<div id="trajets_reserves_profil">';
-    echo '<h3>Trajets réservés : </h3>';
+    echo '<h3 id="trajets_reserves_profil_h3">Trajets réservés : </h3>';
     $trajetsReserves = $requeteReserves->fetchAll();
     if ($trajetsReserves) {
         foreach ($trajetsReserves as $trajetReserve) {
+            echo '<div id="trajets_reserves_profil">';
             echo "<br><p>Conducteur : " . $trajetReserve['conducteur'] . "</p><br>";
             echo "<p>Date de départ : " . $trajetReserve['traj_date'] . "</p><br>";
             echo "<p>Heure de départ : " . $trajetReserve['traj_heure_depart'] . "</p><br>";
@@ -71,11 +61,12 @@ if ($user) {
             echo "<p>Modèle de voiture : " . $trajetReserve['user_car'] . "</p><br>";
             echo "<a href='modifReservation.php?reserv_id=" . $trajetReserve['reserv_id'] . "'>Voir le détail</a> ";
             echo "<br>";
+            echo '</div>';
         }
     } else {
         echo '<p>Vous n\'avez pas réservé de trajet.</p>';
     }
-    echo '</div>';
+
 
     // Afficher les trajets créés par l'utilisateur s'il a une voiture
     if (!empty($user['user_car'])) {
@@ -86,22 +77,34 @@ if ($user) {
         $requeteCrees->bindParam(':user_id', $user['user_id']);
         $requeteCrees->execute();
 
-        echo '<div id="trajets_crees_profil">';
-        echo '<h3>Mes trajets</h3>';
+        echo '<h3 id="trajets_crees_profil_h3">Mes trajets : </h3>';
         $trajetsCrees = $requeteCrees->fetchAll();
         if ($trajetsCrees) {
             foreach ($trajetsCrees as $trajetCree) {
+                echo '<div id="trajets_crees_profil">';
                 echo "<br><p>Date de départ : " . $trajetCree['traj_date'] . "</p><br>";
                 echo "<p>Heure de départ : " . $trajetCree['traj_heure_depart'] . "</p><br>";
                 echo "<p>Départ : " . $trajetCree['park_nom'] . "</p><br>";
                 echo "<p>Arrivée : " . $trajetCree['traj_arrivee'] . "</p><br>";
                 echo "<a href='modifTrajet.php?trajet_id=" . $trajetCree['traj_id'] . "'>Modifier</a> ";
                 echo "<br>";
+                echo '</div>';
             }
         } else {
             echo '<p>Vous n\'avez pas créé de trajet.</p>';
         }
         }
+
+        echo '<div id="bouton_modif">';
+        echo '<form action="modifProfil.php" method="post">';
+        echo '<button type="submit">Modifier le profil</button>';
+        echo '</form>';
+        echo '</div>';
+    
+        echo '<div id="bouton_deconnexion">';
+        echo '<form action="deconnexion.php" method="post">';
+        echo '<button type="submit">Se déconnecter</button>';
+        echo '</form>';
         echo '</div>';
 
     deconnexionBD($mabd);
