@@ -957,6 +957,7 @@ footer ul{
     #nav_pc li a{
       text-decoration: none;
       color: #FFF;
+      margin-right: 50px;
     }
 
     #nav_pc ul{
