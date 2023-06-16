@@ -1521,6 +1521,28 @@ footer ul{
     margin-bottom: 50px;
   }
 
+  /* PAGE SUCCÈS CRÉATION TRAJET */
+
+  #succes_crea_trajet{
+    width: 70%;
+    margin: auto;
+    margin-top: 120px;
+  }
+
+  #succes_crea_trajet p{
+    text-align: center;
+  }
+
+  #succes_crea_trajet_img{
+    width: 200px;
+    margin: auto;
+    margin-top: 70px;
+  }
+
+  #succes_crea_trajet_img img{
+    width: 100%;
+  }
+
 
 
 
