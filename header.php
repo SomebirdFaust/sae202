@@ -24,12 +24,8 @@ require 'admin/lib.inc.php';
 <div id="mySidenav" class="sidenav">
   <a id="closeBtn" href="#" class="close">×</a>
   <ul>
-    <?php
-    if (isset($_SESSION['user_id'])) {
+  <?php
         echo '<li><a href="profil.php">Mon profil</a></li>';
-    } else {
-        echo '<li style="display: none;"><a href="profil.php">Mon profil</a></li>';
-    }
     ?>
     <li><a href="parkings.php">Les parkings</a></li>
     <?php
@@ -62,11 +58,7 @@ require 'admin/lib.inc.php';
     <a href="index.php"><img id="logo_header_pc" src="img/logo.png" alt="logo"></a>
     <ul>
     <?php
-    if (isset($_SESSION['user_id'])) {
         echo '<li><a href="profil.php">Mon profil</a></li>';
-    } else {
-        echo '<li style="display: none;"><a href="profil.php">Mon profil</a></li>';
-    }
     ?>
     <li><a href="parkings.php">Les parkings</a></li>
     <?php
