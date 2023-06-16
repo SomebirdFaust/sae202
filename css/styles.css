@@ -1,25 +1,32 @@
-*{
-    margin: 0;
-    padding: 0;
-    color: #181818;
+* {
+  margin: 0;
+  padding: 0;
+  color: #181818;
 }
 
-p, li, a, input, label, textarea, option, select{
+p,
+li,
+a,
+input,
+label,
+textarea,
+option,
+select {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 18px;
 }
 
-h1, h2, h3, h4, h5, h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Geologica', sans-serif;
 }
 
-body{
+body {
   background-color: #fff7f4;
-}
-
-/*compteur de caractères dans la bio*/
-.character-counter {
-  position: relative;
 }
 
 .character-counter textarea {
@@ -32,1552 +39,203 @@ body{
   right: 0;
 }
 
-/* FOOTER */
-
-footer{
+footer {
   display: flex;
   background-color: #0e8c77;
   width: 100%;
   height: 60px;
-  align-content: center;
+  align-items: center;
   justify-content: center;
   position: fixed;
   bottom: 0;
 }
 
-footer a{
+footer a {
   text-decoration: none;
-  padding: 0 2px 0 2px;
+  padding: 0 2px;
   font-size: 13px;
-  color: #FFF;
+  color: #fff;
 }
 
-footer li{
-  list-style: none;
-}
-
-footer ul{
+footer ul {
   display: flex;
   justify-content: center;
   align-items: center;
+  list-style: none;
 }
 
-/* PAGE ACCUEIL */
-
-#accueil_logo{
+#accueil_logo {
   font-size: 60px;
   text-align: center;
-  font-family: "margot", sans-serif;
+  font-family: 'margot', sans-serif;
   font-weight: 400;
   font-style: italic;
   color: #e31e2f;
   margin: 50px 0;
 }
 
-@media screen and (max-width:480px){ 
-
-
-    #div_animation{
-      display: none;
-    }
-
-    /* BASE BOUTONS */
-
-    #boutons_profil button, #bouton_modif button, #bouton_deconnexion button, 
-    #trajet_submit input, #publier_trajet_submit input, #bouton_deconnexion_header button, 
-    #index_connexion button, #index_inscription button, #annul_reservation button, 
-    #modif_trajet_suppr input, #resultat_ok a, #suppr_profil_supprimer input{
-      width: auto;
-      padding: 0 20px;
-      height: 35px;
-      margin-top: 10px;
-      font-size: 18px;
-      border-radius: 15px;
-      color: #FFF;
-    }
-
-    #bouton_connexion button, #bouton_inscription button, #bouton_modif button, 
-    #trajet_submit input, #publier_trajet_submit input, #bouton_deconnexion_header button, 
-    #index_connexion button, #index_inscription button, #resultat_ok a, #suppr_profil_supprimer input{
-      background-color: #5bacc7;
-      border: 1px solid #5bacc7;
-    }
-
-    #bouton_deconnexion button, #annul_reservation button, #modif_trajet_suppr input, #suppr_profil_bouton{
-      background-color: #e31e2f !important;
-      border: 1px solid #e31e2f !important;
-    }
-
-    /* BASE FORMULAIRES */
-
-    .input{
-      width: 100%;
-      height: 35px;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      border-radius: 10px;
-      background-color: #d9d9d9;
-      border: #d9d9d9;
-      padding-left: 5px;
-    }
-
-
-    /* HEADER */
-
-    #bouton_deconnexion_header{
-      margin: auto;
-      display: flex;
-      justify-content: center;
-      align-items: end;
-      height: 400px;
-    }
-
-    #bouton_deconnexion_header button{
-      font-size: 16px;
-    }
-
-    #nav_pc {
-      display: none;
-    }
-
-    #nav_tel{
-      background-color: #0e8c77 !important;
-      width: 100%;
-      height: 60px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    #logo{
-        width: 50px;
-        margin-left: 10px;
-    }
-
-    /* Sidenav menu */
-    .sidenav {
-      height: 100%;
-      width: 175px;
-      position: fixed;
-      z-index: 1;
-      top: 0;
-      right: -200px;
-      padding-top: 60px;
-      transition: right 0.5s ease;
-      background-color: #0e8c77;
-      box-shadow: -5px 0px 50px #0a645557;
-    }
-  
-    /* Sidenav menu links */
-    .sidenav a {
-      padding: 8px 8px 8px 32px;
-      text-decoration: none;
-      font-size: 20px;
-      color: #fff;
-      display: block;
-      transition: 0.3s;
-      text-align: start;
-    }
-
-    .sidenav a:hover {
-      color: #111;
-    }
-
-    .sidenav ul {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    /* Active class */
-    .sidenav.active {
-      right: 0;
-    }
-
-    /* Close btn */
-    .sidenav .close {
-      position: absolute;
-      top: 0;
-      right: 25px;
-      font-size: 36px;
-    }
-
-    /* Icône burger */
-    .burger-icon span {
-      display: block;
-      width: 30px;
-      height: 3px;
-      background-color: #fff;
-      margin-bottom: 6px;
-      margin-right: 20px;
-    }
-
-    /* PAGE PROFIL */
-
-    #profil{
-      margin-bottom: 100px;
-    }
-
-    #infos_profil{
-      margin: auto;
-      text-align: center;
-      margin-top: 50px;
-    }
-
-    #infos_profil img{
-      width: 175px;
-      margin-bottom: 10px;
-    }
-
-    #infos_profil p{
-      font-size: 20px;
-      margin-bottom: 5px;
-    }
-
-    #bio_profil{
-      margin: auto;
-      margin-top: 40px;
-      text-align: center;
-    }
-
-    input#bio{
-      width: 75%;
-      height: 100px;
-      border-radius: 10px;
-      background-color: #fff;
-    }
-
-    input#date.input, input#dest.input{
-      padding-left: 5px;
-    }
-
-    #voiture_profil{
-      margin: auto;
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    #voiture_profil img{
-      width: 50px;
-      margin-right: 5px;
-    }
-
-    #infos_profil, #bio_profil, #voiture_profil, #erreur_connexion_profil{
-      font-size: 20px;
-    }
-
-    #bio_profil{
-      margin-bottom: 25px;
-      width: 70%;
-      font-size: 15px;
-      text-align: start;
-      background-color: #d9d9d9;
-      border-radius: 10px;
-      padding: 15px;
-      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    }
-
-    #erreur_connexion_profil{
-      margin: auto;
-      text-align: center;
-      margin-top: 50px;
-    }
-
-    #boutons_profil, #bouton_deconnexion{
-      margin: auto;
-      text-align: center;
-      margin-top: 40px;
-    }
-
-    #bouton_modif{
-      margin: auto;
-      text-align: center;
-      margin-top: 40px;
-    }
-
-    #bouton_deconnexion{
-      margin-top: 10px;
-      margin-bottom: 50px;
-    }
-
-    #trajets_reserves_profil, #trajets_crees_profil{
-      width: 70%;
-      margin: auto;
-      background-color: #d9d9d9;
-      border-radius: 15px;
-      padding: 10px;
-      margin-bottom: 15px;
-    }
-
-    #trajets_reserves_profil p, #trajets_crees_profil p{
-      font-size: 16px;
-    }
-
-    #trajets_reserves_profil_h3, #trajets_crees_profil_h3{
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    #trajets_reserves_profil_h3{
-      margin-top: 50px;
-    }
-
-    #trajets_reserves_profil{
-      margin-bottom: 50px;
-    }
-
-
-
-    /* PAGE MENTIONS LÉGALES */
-
-    #mentions_legales{
-      margin: 20px 30px;
-      margin-bottom: 100px;
-    }
-
-    /* PAGE CONNEXION */
-
-    #connexion{
-      margin: auto;
-      text-align: center;
-    }
-
-    #connexion h1{
-      text-align: center;
-      margin-top: 40px;
-      margin-bottom: 20px;
-    }
-
-    #connexion img{
-      width: 175px;
-      margin-bottom: 30px;
-    }
-
-    #connexion p{
-      font-size: 15px;
-      color: #000;
-    }
-
-    #connexion a{
-      color: #000;
-    }
-
-    #connexion form{
-      margin: auto;
-      width: 70%;
-      text-align: start;
-    }
-
-    #div_submit_connexion{
-      display: flex;
-      justify-content: center;
-    }
-
-    input#submit_connexion{
-      width: 55%;
-      height: 35px;
-      text-align: center;
-      margin-top: 40px;
-      margin-bottom: 20px;
-      background-color: #5bacc7;
-      border: #5bacc7;
-      color: #FFF;
-      border-radius: 15px;
-    }
-
-
-    /* PAGE MODIF PROFIL */
-
-    #img_modif_profil{
-      display: flex;
-      justify-content: center;
-      margin-bottom: 30px;
-      margin-top: 40px;
-    }
-
-    #img_modif_profil img{
-      width: 175px;
-    }
-
-    #modif_profil{
-      margin: auto;
-      text-align: center;
-    }
-  
-    #modif_profil form{
-      margin: auto;
-      width: 70%;
-      text-align: start;
-    }
-
-    #modif_profil input, #modif_profil textarea{
-      padding-left: 10px;
-      margin-left: -5px;
-    }
-
-    #modif_profil textarea{
-      height: 250px;
-    }
-
-    #modif_profil_enregistrer, #inscription_submit{
-      display: flex;
-      justify-content: center;
-    }
-
-    #modif_profil_enregistrer input, #modif_profil_supprimer input, #submit_contact input, #inscription_submit input{
-      width: auto;
-      height: 35px;
-      text-align: center;
-      margin-top: 40px;
-      margin-bottom: 20px;
-      color: #FFF;
-      border-radius: 10px;
-      font-size: 15px;
-      padding: 0 10px;
-    } 
-
-    #modif_profil_enregistrer input, #submit_contact input, #inscription_submit input{
-      background-color: #5bacc7;
-      border: #5bacc7;
-    }
-
-    #modif_profil_supprimer input{
-      background-color: #e31e2f;
-      border: #e31e2f;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-    }
-
-    #modif_profil_supprimer{
-      display: flex;
-      justify-content: center;
-      margin-top: -40px;
-      margin-bottom: 70px;
-    }
-
-    #modif_profil_supprimer form{
-      display: flex;
-      justify-content: center;
-    }
-
-
-    /* PAGE CONTACT */
-
-    #contact_header h1{
-      margin-top: 40px;
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    #contact_header p{
-      width: 70%;
-      margin: auto;
-      font-size: 15px;
-    }
-
-    #contact{
-      margin: auto;
-      text-align: center;
-    }
-
-    #contact form{
-      margin: auto;
-      width: 70%;
-      text-align: start;
-    }
-
-    #contact input, #contact textarea{
-      padding-left: 10px;
-      margin-left: -5px;
-    }
-
-    #contact textarea{
-      height: 250px;
-    }
-
-    #submit_contact{
-      display: flex;
-      justify-content: center;
-      margin-bottom: 70px;
-    }
-
-    #submit_contact input{
-      padding: 0 50px;
-      margin-top: 5px;
-    }
-
-    textarea#message.input{
-      padding-top: 5px;
-    }
-
-    #contact img{
-      display: none;
-    }
-
-    /* PAGE INCRIPTION */
-
-    #inscription{
-      margin: auto;
-      text-align: center;
-    }
-
-    #inscription h1{
-      text-align: center;
-      margin-top: 40px;
-      margin-bottom: 20px;
-    }
-
-    #inscription img{
-      width: 175px;
-      margin-bottom: 30px;
-    }
-
-    #inscription form{
-      margin: auto;
-      width: 70%;
-      text-align: start;
-    }
-
-    #inscription{
-      margin-bottom: 100px;
-    }
-
-    #inscription p{
-      font-size: 15px;
-      color: #000;
-    }
-
-    #inscription a{
-      color: #000;
-    }
-
-    #radio_voiture{
-      display: flex;
-    }
-
-    #oui{
-      display: flex;
-      align-items: center;
-      justify-content: start;
-      margin-right: 40px;
-    }
-
-    #oui input, #non input{
-      width: 20px;
-      margin-right: 5px;
-    }
-
-    #non{
-      display: flex;
-      align-items: center;
-    }
-
-    /* PAGE ACCUEIL */
-
-    #recherche_trajet{
-      width: 70%;
-      margin: auto;
-    }
-
-    #video{
-      width: 90%;
-      height: 210px;
-      margin: auto;
-    }
-
-    iframe{
-      width: 100%;
-      height: 210px;
-      border-radius: 15px;
-    }
-
-    #questions{
-      width: 70%;
-      margin: auto;
-      margin-top: 50px;
-      margin-bottom: 115px;
-    }
-
-    #questions h1{
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 21px;
-    }
-
-    .question{
-      background-color: #d9d9d9;
-      border-radius: 15px;
-      padding: 10px;
-      margin-bottom: 20px;
-    }
-
-    .titre{
-      width: 360px;
-      border-color: #000000;
-      border-top: 1px solid;
-      border-left: 1px solid;
-      border-right: 1px solid;
-      border-bottom: 2px dashed;
-      background-color: #eeeeee;
-    }
-
-    .blocTexte{
-      width: 350px;
-      background-color: #ffeae1;
-      padding: 5px;
-      display : block;
-      border: 1px solid #000000;
-    }
-
-    .cacher{
-      top: -25px;
-      position: relative;
-      text-align:right;
-    }
-
-    #trajet_submit, #publier_trajet_submit{
-      display: flex;
-      justify-content: center;
-      margin-top: 25px;
-      margin-bottom: 40px;
-    }
-
-    #recherche_trajet h1{
-      text-align: center;
-      font-size: 21px;
-      margin-bottom: 25px;
-    }
-
-    #boutons_index{
-      width: 180px;
-      margin: auto;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 50px;
-    }
-
-    /* PAGE PUBLIER TRAJET */
-
-    #publier_trajet{
-      width: 70%;
-      margin: auto;
-      margin-top: 50px;
-      margin-bottom: 100px;
-    }
-
-    #publier_trajet_img{
-      width: 150px;
-      margin: auto;
-      margin-top: 10px;
-    }
-
-    #publier_trajet_img img{
-      width: 100%;
-    }
-
-    input#heure.input{
-      padding-left: 5px;
-    }
-
-    #publier_trajet_voiture{
-      text-align: center;
-    }
-
-    /* PAGE SUCCÈS CRÉATION TRAJET */
-
-    #succes_crea_trajet{
-      width: 70%;
-      margin: auto;
-      margin-top: 120px;
-    }
-
-    #succes_crea_trajet p{
-      text-align: center;
-    }
-
-    #succes_crea_trajet_img{
-      width: 200px;
-      margin: auto;
-      margin-top: 70px;
-    }
-
-    #succes_crea_trajet_img img{
-      width: 100%;
-    }
-
-    /* PAGE RESULTAT TRAJET */
-
-    #echec_result_trajet{
-      width: 70%;
-      margin: auto;
-      margin-top: 120px;
-    }
-
-    #echec_result_trajet p{
-      text-align: center;
-    }
-
-    #echec_result_trajet_img{
-      width: 200px;
-      margin: auto;
-      margin-top: 70px;
-    }
-
-    #echec_result_trajet_img img{
-      width: 100%;
-    }
-
-    #resultat_ok{
-      width: 70%;
-      margin: auto;
-      padding: 10px;
-      background-color: #d9d9d9;
-      border-radius: 15px;
-      margin-bottom: 50px;
-    }
-
-    #reserver_trajet_bouton{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    #resultat_ok a{
-      text-decoration: none;
-      align-items: center;
-      display: flex;
-    }
-
-    #h3_resultat_trajet{
-      text-align: center;
-      margin-top: 50px;
-      font-size: 21px;
-      margin-bottom: 50px;
-    }
-
-    /* PAGE ERREUR/SUCCES TRAJET */
-
-    #erreur_trajet, #succes_trajet{
-      width: 70%;
-      margin: auto;
-      margin-top: 50px;
-    }
-
-    #erreur_trajet p, #succes_trajet p{
-      text-align: center;
-    }
-
-    /* PAGE MODIF RESERVATION */
-
-    #modif_reservation{
-      width: 70%;
-      margin: auto;
-      margin-top: 50px;
-    }
-
-    #annul_reservation{
-      display: flex;
-      justify-content: center;
-      margin-top: 50px;
-    }
-
-    #succes_annul_reservation, #error_annul_reservation{
-      width: 70%;
-      margin: auto;
-      text-align: center;
-      margin-top: 50px;
-    }
-
-    /* PAGE MODIF TRAJET */
-
-    #modif_trajet{
-      width: 70%;
-      margin: auto;
-      margin-top: 50px;
-    }
-
-    #modif_trajet h2{
-      margin-bottom: 20px;
-      font-size: 21px;
-    }
-
-    #modif_trajet_suppr{
-      margin: auto;
-      text-align: center;
-      margin-top: 50px;
-    }
-
-    #modif_trajet_suppr form{
-      margin: auto;
-      width: 70%;
-      text-align: start;
-    }
-
-    /* PAGE SUPPRIMER PROFIL */
-
-    #confirmation_suppr_compte{
-      width: 70%;
-      margin: auto;
-      margin-top: 50px;
-      margin-bottom: 50px;
-    }
-
-    #confirmation_suppr_compte p{
-      text-align: center;
-    }
-
-    #suppr_profil_supprimer{
-      width: 70%;
-      margin: auto;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    /* PAGE SUPPRIMER TRAJET */
-
-    #suppr_trajet_ok{
-      width: 70%;
-      margin: auto;
-      margin-top: 50px;
-    }
-
-    #suppr_trajet_ok p{
-      text-align: center;
-    }
-
-    /* PAGE PARKINGS */
-
-    #parking{
-      text-align: center;
-      margin-bottom: 100px;
-      width: 100%;
-    }
-
-    .parking{
-      font-size: 21px;
-      text-align: center;
-      margin-top: 50px;
-      margin-bottom: 30px;
-    }
-
-    #parking img{
-      width: 90%;
-    }
-
-    #parking p{
-      width: 70%;
-      margin: auto;
-    }
-
-
-
-
-
-    
-
-}
-
-
-@media screen and (min-width:480px){
-
-    /* pour les champs de formulaire*/
-
-    .input_pc{
-      width: 25%;
-      height: 35px;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      border-radius: 10px;
-      background-color: #d9d9d9;
-      border: #d9d9d9;
-      padding-left: 5px;
-    }
-
-    /* pour les boutons */
-
-    #submit_connexion, #submit_contact input, #index_connexion button, 
-    #index_inscription button, #trajet_submit input, 
-    #inscription_submit input, #modif_profil_enregistrer input, 
-    #modif_profil_supprimer input, #annul_reservation button, 
-    #modif_trajet_suppr input, #bouton_modif button, 
-    #bouton_deconnexion button, #publier_trajet_submit input, 
-    #resultat_ok a, #bouton_connexion button, #bouton_inscription button{
-      width: auto;
-      padding: 0 20px;
-      height: 35px;
-      margin-top: 10px;
-      font-size: 18px;
-      border-radius: 15px;
-      color: #FFF;
-    }
-
-    #submit_connexion, #submit_contact input, #index_connexion button, 
-    #index_inscription button, #trajet_submit input, 
-    #inscription_submit input, #modif_profil_enregistrer input, 
-    #bouton_modif button, #publier_trajet_submit input, 
-    #resultat_ok a, #bouton_connexion button, #bouton_inscription button{
-      background-color: #5bacc7;
-      border: 1px solid #5bacc7;
-    }
-
-    #modif_profil_supprimer input, #annul_reservation button, 
-    #modif_trajet_suppr input, #bouton_deconnexion button{
-      background-color: #e31e2f !important;
-      border: 1px solid #e31e2f !important;
-    }
-
-    /* HEADER */
-
-    #nav_tel{
-      display: none;
-    }
-
-    #closeBtn{
-      display: none;
-    }
-
-    #nav_pc{
-      background-color: #0e8c77;
-      width: 100%;
-      height: 100px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    #nav_pc li{
-      list-style: none;
-    }
-
-    #nav_pc li a{
-      text-decoration: none;
-      color: #FFF;
-      margin-right: 50px;
-    }
-
-    #nav_pc ul{
-      width: 90%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    #avatar_header_pc{
-      width: 80px;
-      margin-right: 20px;
-    }
-
-    #logo_header_pc{
-      width: 90px;
-      margin-left: 15px;
-    }
-
-    /* PAGE CONNEXION */
-
-    #connexion{
-      margin-top: 60px;
-      text-align: center;
-      margin-bottom: 100px;
-    }
-
-    #connexion h1{
-      font-size: 35px;
-      margin-bottom: 30px;
-    }
-
-    #connexion img{
-      width: 220px;
-      margin-bottom: 20px;
-    }
-
-    /* PAGE CONTACT */
-
-    #contact_header h1{
-      text-align: center;
-      margin-top: 60px;
-      font-size: 35px;
-    }
-
-    #contact_header p{
-      width: 50%;
-      margin: auto;
-      margin-top: 50px;
-      margin-bottom: 70px;
-      line-height: 30px;
-    }
-
-    #contact{
-      width: 100%;
-      margin-bottom: 200px;
-      margin-top: 75px;
-      display: flex;
-      justify-content: space-around;
-    }
-
-    #contact img{
-      width: 250px;
-      height: 400px;
-      margin-right: 200px;
-      margin-top: 50px;
-    }
-
-    #contact form{
-      margin-left: 200px;
-    }
-
-    #contact input, #contact textarea{
-      width: 100%;
-    }
-
-    #contact textarea{
-      resize: none;
-      height: 200px;
-    }
-
-    #submit_contact{
-      text-align: center;
-    }
-
-    #submit_contact input{
-      width: auto;
-    }
-
-    /* PAGE ERREUR TRAJET */
-
-    #erreur_trajet{
-      text-align: center;
-      margin-top: 60px;
-    }
-
-    /* FOOTER */
-
-    footer a{
-      font-size: 15px;
-    }
-
-    /* PAGE ACCUEIL */
-
-    #accueil_logo{
-      font-size: 110px;
-      margin-top: 100px; 
-    }
-
-    #animation{
-      width: 100%;
-      z-index: -1;
-      position: absolute;
-      top: 100px;
-    }
-
-    #recherche_trajet p{
-      font-size: 25px;
-      text-align: center;
-      margin-top: 60px;
-    }
-
-    #boutons_index{
-      display: flex;
-      justify-content: center;
-      margin-top: 30px;
-    }
-
-    #index_connexion{
-      margin-right: 50px;
-    }
-
-    #video{
-      margin-top: 450px;
-      text-align: center;
-      border-radius: 15px;
-    }
-
-    #video iframe{
-      width: 1000px;
-      height: 565px;
-    }
-
-    #questions{
-      width: 70%;
-      margin: auto;
-      margin-top: 50px;
-      margin-bottom: 115px;
-    }
-
-    #questions h1{
-      font-size: 35px;
-      text-align: center;
-      margin-bottom: 50px;
-    }
-
-    #recherche_trajet{
-      width: 75%;
-      margin: auto;
-    }
-
-    #recherche_trajet h1{
-      font-size: 35px;
-      text-align: center;
-      margin-top: 50px;
-      margin-bottom: 50px;
-    }
-
-    #recherche_trajet form{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      text-align: center;
-    }
-
-
-    .question{
-      background-color: #d9d9d9;
-      border-radius: 15px;
-      padding: 10px;
-      margin-bottom: 20px;
-    }
-
-    #depart input, #destination input, #date input, select#depart.input.input_pc{
-      width: 250px;
-    }
-
-    /* PAGE INSCRIPTION */
-
-    #inscription{
-      width: 75%;
-      margin: auto;
-      text-align: center;
-      margin-top: 60px;
-      margin-bottom: 100px;
-    }
-
-    #inscription img{
-      width: 220px;
-      margin-bottom: 20px;
-    }
-
-    #inscription h1{
-      font-size: 35px;
-      margin-bottom: 30px;
-    }
-
-    #radio_voiture{
-      display: flex;
-      justify-content: center;
-      margin-bottom: 40px;
-    }
-
-    #oui{
-      display: flex;
-      align-items: center;
-      justify-content: start;
-      margin-right: 40px;
-    }
-
-    #oui input, #non input{
-      width: 20px;
-      margin-right: 5px;
-    }
-
-    #non{
-      display: flex;
-      align-items: center;
-    }
-
-    #inscription_submit input{
-      margin-bottom: 15px;
-    }
-
-    /* PAGE MENTIONS LEGALES */
-
-    #mentions_legales{
-      width: 75%;
-      margin: auto;
-      margin-top: 60px;
-      margin-bottom: 100px;
-    }
-
-    /* PAGE MODIF PROFIL */
-
-    #modif_profil{
-      width: 75%;
-      margin: auto;
-      text-align: center;
-      margin-top: 60px;
-      margin-bottom: 100px;
-    }
-
-    #modif_profil textarea{
-      resize: none;
-      height: 250px;
-    }
-
-    #img_modif_profil{
-      text-align: center;
-      margin-top: 60px;
-    }
-
-    #img_modif_profil img{
-      width: 220px;
-      margin-bottom: 20px;
-    }
-
-    /* PAGE MODIF RESERVATION*/
-
-    #modif_reservation{
-      width: 70%;
-      margin: auto;
-      margin-top: 60px;
-      text-align: center;
-    }
-
-    #annul_reservation{
-      display: flex;
-      justify-content: center;
-      margin-top: 50px;
-    }
-
-     /* PAGE MODIF TRAJET */
-
-     #modif_trajet{
-      width: 75%;
-      margin: auto;
-      margin-top: 50px;
-      text-align: center;
-    }
-
-    #modif_trajet h2{
-      margin-bottom: 20px;
-      font-size: 21px;
-    }
-
-    #modif_trajet_suppr{
-      margin: auto;
-      text-align: center;
-      margin-top: 50px;
-    }
-
-    #modif_trajet_suppr form{
-      margin: auto;
-      width: 70%;
-      text-align: center;
-    }
-
-
-    /* PAGE PARKINGS */
-
-    #parking{
-      width: 75%;
-      margin: auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      margin-top: 60px;
-    }
-
-    #park{
-      text-align: center;
-      margin-bottom: 100px;
-      width: 45%;
-    }
-  
-    .parking{
-      font-size: 35px;
-      text-align: center;
-      margin-top: 50px;
-      margin-bottom: 30px;
-    }
-  
-    #parking img{
-      width: 100%;
-    }
-  
-    #parking p{
-      width: 70%;
-      margin: auto;
-    }
-
-    /* PAGE PROFIL */
-
-    #profil{
-      width: 75%;
-      margin: auto;
-      margin-bottom: 100px;
-    }
-
-    .align{
-      text-align: center;
-    }
-
-    #infos_profil{
-      width: 50%;
-      margin: auto;
-      text-align: start;
-      margin-top: 60px;
-      display: flex;
-      justify-content: space-between;
-      flex-direction: row-reverse;
-    }
-
-    #infos_profil img{
-      width: 220px;
-      margin-bottom: 10px;
-    }
-
-    #infos_profil p{
-      font-size: 20px;
-      margin-bottom: 5px;
-    }
-
-    #infos_text_profil{
-      margin-top: 50px;
-    }
-
-    input#bio{
-      width: 50%;
-      height: 100px;
-      border-radius: 10px;
-      background-color: #fff;
-    }
-
-    input#date.input, input#dest.input{
-      padding-left: 5px;
-    }
-
-    #voiture_profil{
-      margin: auto;
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    #voiture_profil img{
-      width: 50px;
-      margin-right: 5px;
-    }
-
-    #infos_profil, #bio_profil, #voiture_profil, #erreur_connexion_profil{
-      font-size: 20px;
-    }
-
-    #bio_profil{
-      margin-bottom: 25px;
-      width: 50%;
-      font-size: 15px;
-      text-align: start;
-      background-color: #d9d9d9;
-      border-radius: 10px;
-      padding: 15px;
-      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-      margin: auto;
-      margin-top: 40px;
-      margin-bottom: 30px;
-    }
-
-    #erreur_connexion_profil{
-      margin: auto;
-      text-align: center;
-      margin-top: 50px;
-    }
-
-    #boutons_profil, #bouton_deconnexion{
-      margin: auto;
-      text-align: center;
-      margin-top: 40px;
-    }
-
-    #bouton_modif{
-      margin: auto;
-      text-align: center;
-      margin-top: 40px;
-    }
-
-    #bouton_deconnexion{
-      margin-top: 10px;
-      margin-bottom: 50px;
-    }
-
-    #trajets_reserves_profil, #trajets_crees_profil{
-      width: 70%;
-      margin: auto;
-      background-color: #d9d9d9;
-      border-radius: 15px;
-      padding: 10px;
-      margin-bottom: 15px;
-    }
-
-
-    #trajets_reserves_profil p, #trajets_crees_profil p{
-      font-size: 16px;
-    }
-
-    #trajets_reserves_profil_h3, #trajets_crees_profil_h3{
-      margin-bottom: 20px;
-      text-align: center;
-      font-size: 25px;
-    }
-
-    #trajets_reserves_profil_h3{
-      margin-top: 50px;
-    }
-
-  /* PAGE PUBLIER TRAJET */
-
-  #publier_trajet{
-    width: 40%;
-    margin: auto;
-    margin-top: 60px;
+@media screen and (max-width: 480px) {
+  #div_animation {
+    display: none;
   }
 
-  #publier_trajet form{
-    display: flex;
-    justify-content: space-between;
-  }
-
-  #champs{
-    width: 50%;
-    text-align: center;
-  }
-
-  #champs input, #champs select{
-    width: 90% !important;
-  }
-
-  #publier_trajet_img{
-    width: 40%;
-    margin: auto;
+  /* BASE BOUTONS */
+  button,
+  input[type='submit'] {
+    width: auto;
+    padding: 0 20px;
+    height: 35px;
     margin-top: 10px;
+    font-size: 18px;
+    border-radius: 15px;
+    color: #fff;
+    background-color: #5bacc7;
+    border: 1px solid #5bacc7;
   }
 
-  #publier_trajet_img img{
+  /* BASE FORMULAIRES */
+  .input {
     width: 100%;
-    margin-top: 150px;
-  }
-
-  input#heure.input{
+    height: 35px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background-color: #d9d9d9;
+    border: #d9d9d9;
     padding-left: 5px;
   }
 
-  #publier_trajet_voiture{
-    text-align: center;
-  }
-
-  #publier_trajet_submit{
-    text-align: center;
-  }
-
-  #publier_trajet_submit input{
-    width: auto !important;
-  }
-
-  /* PAGE RESULTAT TRAJET */
-
-  #echec_result_trajet{
-    width: 70%;
+  /* HEADER */
+  #bouton_deconnexion_header {
     margin: auto;
-    margin-top: 120px;
-  }
-
-  #echec_result_trajet p{
-    text-align: center;
-  }
-
-  #echec_result_trajet_img{
-    width: 200px;
-    margin: auto;
-    margin-top: 70px;
-  }
-
-  #echec_result_trajet_img img{
-    width: 100%;
-  }
-
-  #resultat_ok{
-    width: 50%;
-    margin: auto;
-    padding: 10px;
-    background-color: #d9d9d9;
-    border-radius: 15px;
-    margin-bottom: 50px;
-  }
-
-  #reserver_trajet_bouton{
     display: flex;
     justify-content: center;
+    align-items: flex-end;
+    height: 400px;
+  }
+
+  #bouton_deconnexion_header button {
+    font-size: 16px;
+  }
+
+  #nav_pc {
+    display: none;
+  }
+
+  #nav_tel {
+    background-color: #0e8c77 !important;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
   }
 
-  #resultat_ok a{
+  #logo {
+    width: 50px;
+    margin-left: 10px;
+  }
+
+  /* Sidenav menu */
+  .sidenav {
+    height: 100%;
+    width: 175px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: -200px;
+    padding: 0;
+    padding-top: 60px;
+    background-color: #0e8c77;
+    overflow-x: hidden;
+    transition: 0.5s;
+  }
+
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
     text-decoration: none;
-    align-items: center;
-    display: flex;
+    font-size: 16px;
+    color: #fff;
+    display: block;
+    transition: 0.3s;
   }
-
-  #h3_resultat_trajet{
-    text-align: center;
-    margin-top: 50px;
-    font-size: 21px;
-    margin-bottom: 50px;
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
   }
-
-  /* PAGE SUCCÈS CRÉATION TRAJET */
-
-  #succes_crea_trajet{
-    width: 70%;
-    margin: auto;
-    margin-top: 120px;
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
   }
-
-  #succes_crea_trajet p{
-    text-align: center;
+  
+  .openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #0e8c77;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
   }
-
-  #succes_crea_trajet_img{
-    width: 200px;
-    margin: auto;
-    margin-top: 70px;
+  
+  .openbtn:hover {
+    background-color: #5bacc7;
   }
-
-  #succes_crea_trajet_img img{
+  
+  /* PAGE CONTENT */
+  .content {
+    margin-left: 200px;
+    padding: 20px;
+    overflow: hidden;
+    transition: margin-left 0.5s;
+  }
+  
+  /* FOOTER */
+  footer {
+    height: auto;
+    flex-direction: column;
+    padding: 20px 0;
+  }
+  
+  footer ul {
+    flex-direction: column;
+  }
+  
+  footer a {
+    padding: 2px;
+    font-size: 14px;
+  }
+  
+  /* RESPONSIVE TABLE */
+  .responsive-table {
     width: 100%;
+    overflow: auto;
   }
-
-  #erreur_trajet, #succes_trajet{
-    width: 70%;
-    margin: auto;
-    margin-top: 50px;
+  
+  .responsive-table table {
+    width: 100%;
+    border-collapse: collapse;
   }
-
-  #erreur_trajet p, #succes_trajet p{
-    text-align: center;
+  
+  .responsive-table table thead {
+    background-color: #0e8c77;
+    color: #fff;
   }
-
-  #confirmation_suppr_compte{
-    width: 70%;
-    margin: auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
+  
+  .responsive-table table th,
+  .responsive-table table td {
+    padding: 10px;
+    text-align: left;
   }
-
-  #confirmation_suppr_compte p{
-    text-align: center;
+  
+  .responsive-table table tr:nth-child(even) {
+    background-color: #f2f2f2;
   }
-
-  #suppr_profil_supprimer{
-    width: 70%;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+  
+  .responsive-table table th {
+    font-weight: bold;
   }
-
-
-
-
 }
-
