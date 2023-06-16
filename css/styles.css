@@ -893,7 +893,8 @@ footer ul{
     #submit_connexion, #submit_contact input, #index_connexion button, 
     #index_inscription button, #trajet_submit input, 
     #inscription_submit input, #modif_profil_enregistrer input, 
-    #modif_profil_supprimer input, #annul_reservation button{
+    #modif_profil_supprimer input, #annul_reservation button, 
+    #modif_trajet_suppr input{
       width: auto;
       padding: 0 20px;
       height: 35px;
@@ -910,7 +911,8 @@ footer ul{
       border: 1px solid #5bacc7;
     }
 
-    #modif_profil_supprimer input, #annul_reservation button{
+    #modif_profil_supprimer input, #annul_reservation button, 
+    #modif_trajet_suppr input{
       background-color: #e31e2f !important;
       border: 1px solid #e31e2f !important;
     }
@@ -1246,7 +1248,7 @@ footer ul{
     #modif_trajet_suppr form{
       margin: auto;
       width: 70%;
-      text-align: start;
+      text-align: center;
     }
 
 
