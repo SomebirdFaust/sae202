@@ -113,17 +113,17 @@ if ($user) {
     echo '<p>Vous n\'êtes pas connecté(e) !</p>';
 
     echo '<div id="boutons_profil">';
-    echo '<div id="bouton_connexion">';
-    echo '<form action="connexion.php" method="post">';
-    echo '<button type="submit">Se connecter</button>';
-    echo '</form>';
-    echo '</div>';
+        echo '<div id="bouton_connexion">';
+            echo '<form action="connexion.php" method="post">';
+                echo '<button type="submit">Se connecter</button>';
+            echo '</form>';
+        echo '</div>';
 
-    echo '<div id="bouton_inscription">';
-    echo '<form action="inscription.php" method="post">';
-    echo '<button type="submit">S\'inscrire</button>';
-    echo '</form>';
-    echo '</div>';
+        echo '<div id="bouton_inscription">';
+            echo '<form action="inscription.php" method="post">';
+                echo '<button type="submit">S\'inscrire</button>';
+            echo '</form>';
+        echo '</div>';
     echo '</div>';
 
     echo '</div>';

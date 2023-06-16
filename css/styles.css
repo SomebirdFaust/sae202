@@ -905,7 +905,7 @@ footer ul{
     #modif_profil_supprimer input, #annul_reservation button, 
     #modif_trajet_suppr input, #bouton_modif button, 
     #bouton_deconnexion button, #publier_trajet_submit input, 
-    #resultat_ok a{
+    #resultat_ok a, #bouton_connexion button, #bouton_inscription button{
       width: auto;
       padding: 0 20px;
       height: 35px;
@@ -919,7 +919,7 @@ footer ul{
     #index_inscription button, #trajet_submit input, 
     #inscription_submit input, #modif_profil_enregistrer input, 
     #bouton_modif button, #publier_trajet_submit input, 
-    #resultat_ok a{
+    #resultat_ok a, #bouton_connexion button, #bouton_inscription button{
       background-color: #5bacc7;
       border: 1px solid #5bacc7;
     }
@@ -1196,6 +1196,7 @@ footer ul{
       width: 75%;
       margin: auto;
       margin-top: 60px;
+      margin-bottom: 100px;
     }
 
     /* PAGE MODIF PROFIL */

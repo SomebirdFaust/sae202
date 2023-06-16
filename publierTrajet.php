@@ -48,7 +48,7 @@ require 'header.php';
                 if (isset($_GET['message'])) {
                     urldecode($_GET['message']);
                     echo '<div id="publier_trajet_voiture">';
-                    echo "<p>Vous n'avez pas de voiture</p>";
+                    echo "<p>Vous ne pouvez pas proposer de trajets aux autre usagers car vous n'avez pas de voiture.</p>";
                     echo '</div>';
                 }
                 ?>
