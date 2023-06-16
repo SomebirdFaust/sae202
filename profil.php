@@ -65,7 +65,7 @@ if ($user) {
             echo '</div>';
         }
     } else {
-        echo '<p>Vous n\'avez pas réservé de trajet.</p>';
+        echo '<p class="align">Vous n\'avez pas réservé de trajet.</p>';
     }
 
 
@@ -91,7 +91,7 @@ if ($user) {
                 echo '</div>';
             }
         } else {
-            echo '<p>Vous n\'avez pas créé de trajet.</p>';
+            echo '<p class="align">Vous n\'avez pas créé de trajet.</p>';
         }
         }
 
