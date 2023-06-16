@@ -28,7 +28,7 @@
 
             <div id="modif_trajet_suppr">
                 <form action="supprTrajet.php" method="POST">
-                    <input type="hidden" name="trajet_id" value="<?php echo $trajet_id; ?>">
+                    <input type="hidden" name="trajet_id" value="<?php echo htmlspecialchars($trajet_id, ENT_QUOTES, 'UTF-8'); ?>">
                     <input type="submit" value="Supprimer le trajet">
                 </form>
             </div>
