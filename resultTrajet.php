@@ -33,7 +33,7 @@ try {
         echo '<h3 id="h3_resultat_trajet">Résultat(s) de la recherche : </h3>';
         while ($resultat = $requete->fetch()) {
             echo '<div id="resultat_ok">';
-            echo "<p>Nom du conducteur : " . $resultat['user_nom'] . " " . $resultat['user_prenom'] . "</p><br>";
+            echo "<p>Nom du conducteur : " . $resultat['user_prenom'] . " " . $resultat['user_nom'] . "</p><br>";
             echo "<p>Pronoms : " . $resultat['user_genre'] . "</p><br>";
             echo "<p>Voiture : " . $resultat['user_car'] . "</p><br>";
             echo "<p>Date de départ : " . $resultat['traj_date'] . "</p><br>";
