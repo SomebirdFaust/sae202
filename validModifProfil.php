@@ -12,7 +12,7 @@ try {
     $mabd = connexionBD();
 
     $req = $mabd->prepare('SELECT user_bio FROM utilisateurs WHERE user_mail = :email');
-    $req->bindValue(':email', $email, PDO::PARAM_STR);
+    $req->bindValue(':email', $email, PDO::PARAM_STR); 
     $req->execute();
 
     $result = $req->fetch(PDO::FETCH_ASSOC);
@@ -36,12 +36,12 @@ try {
         $req->execute();
     }
 
-    // Mise à jour du nom, prénom et genre de l'utilisateur
-    $req = $mabd->prepare('UPDATE utilisateurs SET user_nom = :nom, user_prenom = :prenom, user_genre = :genre WHERE user_mail = :email');
+    $req = $mabd->prepare('UPDATE utilisateurs SET user_nom = :nom, user_prenom = :prenom, user_genre = :genre, user_car = :car WHERE user_mail = :email');
     $req->bindValue(':nom', $nom, PDO::PARAM_STR);
     $req->bindValue(':prenom', $prenom, PDO::PARAM_STR);
     $req->bindValue(':genre', $genre, PDO::PARAM_STR);
     $req->bindValue(':email', $email, PDO::PARAM_STR);
+    $req->bindValue(':car', $voiture, PDO::PARAM_STR);
     $req->execute();
 
     deconnexionBD($mabd);
