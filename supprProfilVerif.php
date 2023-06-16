@@ -18,16 +18,13 @@ try {
                                               DELETE FROM reservations WHERE _user_id = :_user_id;');
         $req_delete_trajets->bindValue(':_user_id', $user_id, PDO::PARAM_INT);
         $req_delete_trajets->execute();
-        $req_delete_trajets->closeCursor(); // Ferme le curseur du résultat
 
         $req_delete_utilisateur = $mabd->prepare('DELETE FROM utilisateurs WHERE user_id = :user_id');
         $req_delete_utilisateur->bindValue(':user_id', $user_id, PDO::PARAM_INT);
         $req_delete_utilisateur->execute();
-        $req_delete_utilisateur->closeCursor(); // Ferme le curseur du résultat
 
         $mabd->commit();
 
-        // Destruction de la session
         session_unset();
         session_destroy();
 

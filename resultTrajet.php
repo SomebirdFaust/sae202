@@ -29,7 +29,6 @@ try {
     $requete->bindParam(':date', $date);
     $requete->execute();
 
-    // Vérifier si des résultats sont retournés
     if ($requete->rowCount() > 0) {
         echo '<h3 id="h3_resultat_trajet">Résultat(s) de la recherche : </h3>';
         while ($resultat = $requete->fetch()) {

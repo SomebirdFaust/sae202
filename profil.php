@@ -48,7 +48,6 @@ if ($user) {
     echo '</form>';
     echo '</div>';
 
-    // Afficher les trajets réservés par l'utilisateur
     $requeteReserves = $mabd->prepare("SELECT t.traj_id, r.reserv_id, t.traj_date, t.traj_heure_depart, p.park_nom, t.traj_arrivee, u.user_car, CONCAT(u.user_nom, ' ', u.user_prenom) AS conducteur 
                                       FROM trajets AS t
                                       INNER JOIN utilisateurs AS u ON t._user_id = u.user_id
@@ -77,7 +76,6 @@ if ($user) {
     }
     echo '</div>';
 
-    // Afficher les trajets créés par l'utilisateur s'il a une voiture
     if (!empty($user['user_car'])) {
         $requeteCrees = $mabd->prepare("SELECT t.traj_id, t.traj_date, t.traj_heure_depart, p.park_nom, t.traj_arrivee 
                                        FROM trajets AS t
