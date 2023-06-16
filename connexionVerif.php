@@ -19,12 +19,12 @@ if (isset($_POST['email']) && isset($_POST['mdp'])) {
         header('Location: index.php');
         exit();
     } else {
-        $_SESSION['erreur'] = '<p class="erreur">Le mot de passe saisi est incorrect.</p>';
+        $_SESSION['erreur'] = 'Le mot de passe saisi est incorrect.';
         header('Location: connexion.php');
         exit();
     }
 } else {
-    $_SESSION['erreur'] = '<p class="erreur">Veuillez fournir une adresse email et un mot de passe.</p>';
+    $_SESSION['erreur'] = 'Veuillez fournir une adresse email et un mot de passe.';
     header('Location: connexion.php');
     exit();
 }
