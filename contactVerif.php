@@ -20,21 +20,21 @@ if (isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['email']) &&
         $email_dest = 'flore.gaulard@etudiant.univ-reims.fr';
 
         if (mail($email_dest, $subject, $message, $headers)) {
-            $_SESSION['success_message'] = 'Votre message a bien été envoyé !';
+            $_SESSION['success_message'] = '<p class="align">Votre message a bien été envoyé !</p>';
             header('Location: contact.php');
             exit();
         } else {
-            $_SESSION['error_message'] = 'Erreur lors de l\'envoi du message. Veuillez réessayer.';
+            $_SESSION['error_message'] = '<p class="align">Erreur lors de l\'envoi du message. Veuillez réessayer.</p>';
             header('Location: contact.php');
             exit();
         }
     } else {
-        $_SESSION['error_message'] = 'Tous les champs sont obligatoires. Veuillez les remplir correctement.';
+        $_SESSION['error_message'] = '<p class="align">Tous les champs sont obligatoires. Veuillez les remplir correctement.</p>';
         header('Location: contact.php');
         exit();
     }
 } else {
-    $_SESSION['error_message'] = 'Veuillez remplir le formulaire et soumettre votre demande.';
+    $_SESSION['error_message'] = '<p class="align">Veuillez remplir le formulaire et soumettre votre demande.</p>';
     header('Location: contact.php');
     exit();
 }
