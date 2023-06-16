@@ -15,7 +15,7 @@ if(isset($_POST['trajet_id'])) {
         $requeteSupprimer->bindParam(':trajet_id', $trajet_id);
         $requeteSupprimer->execute();
 
-        header('Location: index.php');
+        header('Location: profil.php');
     }
 
     deconnexionBD($mabd);
