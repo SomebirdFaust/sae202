@@ -12,14 +12,12 @@ require 'lib.inc.php';
 ?>
 
 <?php
-// recupérer dans l'url l'id du parking à supprimer
 $num=$_GET['num'];
 $park_nom=$_GET['park_nom'];
 
 $mabd = connexionBD();
 $mabd->query('SET NAMES utf8;');
 
-// tapez ici la requete de suppression du parking dont l'id est passé dans l'url
 $req = 'DELETE FROM parkings WHERE park_id='. $num; 
 
 echo '<h2>Vous venez de supprimer le '.$park_nom.'.</h2>';
@@ -33,7 +31,6 @@ try {
     $result = $req->fetch(PDO::FETCH_ASSOC);
 
     if ($result['count'] > 0) {
-        // Suppression de l'utilisateur et de ses données
         $req = $mabd->prepare('DELETE FROM utilisateurs WHERE user_id = :user_id');
         $req->execute(array(':user_id' => $user_id));
 
