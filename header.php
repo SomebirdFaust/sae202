@@ -74,8 +74,6 @@ require 'admin/lib.inc.php';
     ?>
   </ul>
 </nav>
-<!--</header>
-</body>-->
 
 
 
