@@ -3,7 +3,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Vérifier si la connexion à la base de données est déjà établie, sinon la connecter
+// Vérifier si la connexion à la base de données est déjà établie, sinon la co
 if (!function_exists('connexionBD')) {
     function connexionBD()
     {
@@ -14,7 +14,7 @@ if (!function_exists('connexionBD')) {
     }
 }
 
-// Vérifier si la déconnexion de la base de données est déjà effectuée, sinon la faire
+// Vérifier si la déconnexion de la base de données est déjà effectuée, sinon la deco
 if (!function_exists('deconnexionBD')) {
     function deconnexionBD(&$mabd)
     {

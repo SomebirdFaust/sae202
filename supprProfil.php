@@ -25,29 +25,22 @@ try {
     if ($result['count'] > 0) {
         $mabd->beginTransaction();
 
-        // Supprimer les réservations de l'utilisateur
         $req_delete_reservations = $mabd->prepare('DELETE FROM reservations WHERE _user_id = :_user_id');
         $req_delete_reservations->bindValue(':_user_id', $user_id, PDO::PARAM_INT);
         $req_delete_reservations->execute();
-        $req_delete_reservations->closeCursor();
 
-        // Mettre à jour le nombre de places réservées dans les trajets correspondants
         $req_update_trajets = $mabd->prepare('UPDATE trajets SET traj_places = traj_places + 1 WHERE traj_id IN (
                                                 SELECT _traj_id FROM reservations WHERE _user_id = :_user_id
                                             )');
         $req_update_trajets->bindValue(':_user_id', $user_id, PDO::PARAM_INT);
         $req_update_trajets->execute();
-        $req_update_trajets->closeCursor();
 
-        // Supprimer l'utilisateur
         $req_delete_utilisateur = $mabd->prepare('DELETE FROM utilisateurs WHERE user_id = :user_id');
         $req_delete_utilisateur->bindValue(':user_id', $user_id, PDO::PARAM_INT);
         $req_delete_utilisateur->execute();
-        $req_delete_utilisateur->closeCursor();
 
         $mabd->commit();
 
-        // Destruction de la session
         session_unset();
         session_destroy();
 

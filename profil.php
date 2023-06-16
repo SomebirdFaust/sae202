@@ -39,6 +39,18 @@ if ($user) {
     echo '</div>';
 
     // Afficher les trajets réservés par l'utilisateur
+    echo '<div id="bouton_modif">';
+    echo '<form action="modifProfil.php" method="post">';
+    echo '<button type="submit">Modifier le profil</button>';
+    echo '</form>';
+    echo '</div>';
+
+    echo '<div id="bouton_deconnexion">';
+    echo '<form action="deconnexion.php" method="post">';
+    echo '<button type="submit">Se déconnecter</button>';
+    echo '</form>';
+    echo '</div>';
+
     $requeteReserves = $mabd->prepare("SELECT t.traj_id, r.reserv_id, t.traj_date, t.traj_heure_depart, p.park_nom, t.traj_arrivee, u.user_car, CONCAT(u.user_nom, ' ', u.user_prenom) AS conducteur 
                                       FROM trajets AS t
                                       INNER JOIN utilisateurs AS u ON t._user_id = u.user_id
@@ -68,7 +80,6 @@ if ($user) {
     }
 
 
-    // Afficher les trajets créés par l'utilisateur s'il a une voiture
     if (!empty($user['user_car'])) {
         $requeteCrees = $mabd->prepare("SELECT t.traj_id, t.traj_date, t.traj_heure_depart, p.park_nom, t.traj_arrivee 
                                        FROM trajets AS t

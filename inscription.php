@@ -27,7 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $mdp_hash = password_hash($mdp, PASSWORD_BCRYPT, ['cost' => 12]);
 
             if (empty($voiture)) {
-                // Si aucun modèle de voiture n'est sélectionné, définir la valeur à NULL
                 $car = null;
             } else {
                 $car = $detailsVoiture;
