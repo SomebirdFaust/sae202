@@ -16,7 +16,7 @@ require 'header.php';
 
 <?php
 $mabd = connexionBD();
-$user = grab_user($mabd);
+$user = grab_user($mabd); 
 
 if ($user) {
     echo '<div id="infos_profil">';
@@ -33,12 +33,13 @@ if ($user) {
     echo ucfirst($user['user_bio']) . '<br />' . "\n";
     echo '</div>';
 
-    echo '<div id="voiture_profil">';
+    if($user['user_car']){
+        echo '<div id="voiture_profil">';
     echo '<img src="img/voiture.png" alt="icone voiture">';
+    }
     echo '<p>' . ucfirst($user['user_car']) . '</p>' . "\n";
     echo '</div>';
 
-    // Afficher les trajets réservés par l'utilisateur
 
     $requeteReserves = $mabd->prepare("SELECT t.traj_id, r.reserv_id, t.traj_date, t.traj_heure_depart, p.park_nom, t.traj_arrivee, u.user_car, CONCAT(u.user_nom, ' ', u.user_prenom) AS conducteur 
                                       FROM trajets AS t
